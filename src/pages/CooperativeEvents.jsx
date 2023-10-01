@@ -1,39 +1,22 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-// import 'swiper/css/';
 import '../styles/styling.css';
 
 
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 export default function CooperativeEvents() {
     return (
         <div>
-            <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Autoplay, Pagination, Navigation]}
-                classNameName="mySwiper"
-                autoplay={{
-                    delay: 2000,
-                    disableOnInteraction: true,
-                }}
-            //  
-            >
-                <SwiperSlide><img src="https://www.sterlingeventsgroup.com/wp-content/uploads/2017/05/ClientMeetingWinmockrev-1080x675.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://images.squarespace-cdn.com/content/v1/60da576b8b440e12699c9263/ecf992ff-4de5-4a26-891a-2a3645dd75c4/ovation+1.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://www.rajwadaevents.com/uploaded-files/celebrity-images/Event-Planner5149.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i0.wp.com/bigtop.com.sg/wp-content/uploads/2022/03/Launching-Mechanism-Rental-in-Sinapore.jpg" alt="" /></SwiperSlide>
+            <div className="scroll-container">
+                <div className="item">
+                    <img src="https://www.sterlingeventsgroup.com/wp-content/uploads/2017/05/ClientMeetingWinmockrev-1080x675.jpg" alt="" />
+                    <img src="https://images.squarespace-cdn.com/content/v1/60da576b8b440e12699c9263/ecf992ff-4de5-4a26-891a-2a3645dd75c4/ovation+1.jpg" alt="" />
+                    <img src="https://www.rajwadaevents.com/uploaded-files/celebrity-images/Event-Planner5149.jpg" alt="" />
+                    <img src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" alt="" />
+                    <img src="https://i0.wp.com/bigtop.com.sg/wp-content/uploads/2022/03/Launching-Mechanism-Rental-in-Sinapore.jpg" alt="" />
+                </div>
+            </div>
 
-            </Swiper>
+
 
             <section>
 

@@ -1,41 +1,25 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-// import 'swiper/css/';
+
 
 import '../styles/styling.css';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function RoyalEvent() {
     return (
         <div>
-            <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Autoplay, Pagination, Navigation]}
-                classNameName="mySwiper"
-                autoplay={{
-                    delay: 2000,
-                    disableOnInteraction: true,
-                }}
-            >
-                <SwiperSlide><img src="https://image.wedmegood.com/resized/thumb_800X/uploads/real_wedding/440/1483625069_IMG_20151208_WA0033.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://image.wedmegood.com/nw/uploads/project/13060/1487600957_IMG_20170120_WA0076.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://www.rajwadaevents.com/uploaded-files/celebrity-images/Event-Planner5149.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://shaadifever.com/wp-content/uploads/2019/02/mohitjauraphotography_20190220112118.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://ak0.picdn.net/shutterstock/videos/1501670/thumb/1.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://image.wedmegood.com/nw/uploads/member/11719/1469173089_Dream_Makers__1_.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/08/18144727/Ganpati-Mandap-Decoration-With-Flowers.jpg" alt="" /></SwiperSlide>
-
-            </Swiper>
+            <div className="scroll-container">
+                <div className="item">
+                <img src="https://image.wedmegood.com/nw/uploads/project/13060/1487600957_IMG_20170120_WA0076.jpg" alt="" />
+                <img src="https://www.rajwadaevents.com/uploaded-files/celebrity-images/Event-Planner5149.jpg" alt="" />
+                <img src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" alt="" />
+                <img src="https://i.postimg.cc/CxfvnH6r/1483625069-IMG-20151208-WA0033.jpg" alt="hall" />
+                <img src="https://shaadifever.com/wp-content/uploads/2019/02/mohitjauraphotography_20190220112118.jpg" alt="" />
+                <img src="https://ak0.picdn.net/shutterstock/videos/1501670/thumb/1.jpg" alt="" />
+                <img src="https://image.wedmegood.com/nw/uploads/member/11719/1469173089_Dream_Makers__1_.jpg" alt="" />
+                <img src="https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/08/18144727/Ganpati-Mandap-Decoration-With-Flowers.jpg" alt="" />
+                </div>
+            </div>        
 
             <section className="events-types">
                 <div className="container">
@@ -43,7 +27,7 @@ export default function RoyalEvent() {
                         event, our expertise!</p>
                     <div className="personal-event">
                         <div className="img-container">
-                            <Link to="./familyEvents.html"> <img
+                            <Link to="../FamilyEvents"> <img
                                 src="https://i.postimg.cc/Y2sJn35b/top-12-wedding-destinations-in-india-20171027033333.jpg"
                                 alt="" /></Link>
                         </div>
@@ -59,7 +43,7 @@ export default function RoyalEvent() {
                     </div>
                     <div className="cooperate-event">
                         <div className="img-container">
-                            <Link to="./co-operativeEvent"> <img src="https://i.postimg.cc/jdqWsyZV/image.png" alt="" /></Link>
+                            <Link to="/RoyalEvent/co-operativeEvent"> <img src="https://i.postimg.cc/jdqWsyZV/image.png" alt="" /></Link>
                         </div>
 
                         <div className="text-contain">

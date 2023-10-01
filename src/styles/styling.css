@@ -55,8 +55,28 @@ body {
     width: 90%;
     align-items: center;
     justify-content: space-evenly;
+   
 }
+.scroll-container{
+    display: flex;
+    overflow:auto;
+    scroll-snap-type: x mandatory;
+}
+.scroll-container .item{
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    border: 2px solid blue;
 
+}
+.item img{
+    width: 350px;
+    background-position:center;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    margin: auto;
+    height: 350px;
+}
 .btn {
     padding: 1rem;
     display: inline;
@@ -167,6 +187,7 @@ li {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    margin-top :1rem;
 }
 
 .left-contact-sec {
@@ -240,6 +261,7 @@ textarea {
     justify-content: center;
     align-items: center;
     padding: 0 2rem;
+    gap: 2rem;
 }
 .footer .logo{
     /* text-align: center; */
