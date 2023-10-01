@@ -425,3 +425,14 @@ textarea {
 .namesP{
     padding: 0 0.5rem;
 }
+
+
+/* ### login pg ### */
+.form-img img{
+    opacity: 2;
+    z-index: 99;
+    background-position: center;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}

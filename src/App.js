@@ -9,7 +9,7 @@ import FamilyEvents from './pages/FamilyEvents';
 import CustomNavbar from './componets/Navbar';
 import Footer from './componets/Footer';
 import "../src/styles/styling.css";
-
+import Index from './pages/Index';
 
 // function RoyalEvent() {
 //   return  <h2>Event Page</h2>;
@@ -27,10 +27,12 @@ function App() {
   return (
     <div classNameName="App">
         <Router>
+          
          <CustomNavbar />
          
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path='/login' element={<Index />} />
           {/* <Route path="/events" element={<Events />} /> */}
           <Route path ='/home' element={<Home />}/>
           <Route path='/RoyalEvent' element={<RoyalEvent />} />
