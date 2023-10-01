@@ -18,6 +18,52 @@ export default function FamilyEvents() {
         </div>
       </div>
 
+      <section>
+
+<div className="container">
+    <p className="title-heads title-head">"Royal Event Crafters specialize in crafting cherished family gatherings with personalized touches and memorable moments."</p>
+    <div className="family-events">
+        <div className="family-img">
+            <img src="https://cdn0.weddingwire.in/article/5378/3_2/1280/jpg/78735-open-air-venues-in-delhi-for-day-weddings-pixelstory-in-lead-image.jpeg"
+                alt="" />
+        </div>
+        <div className="cooperative-content">
+            <h2 className="md-heading">Weddings</h2>
+            <p>Royal Event Crafters craft dreamy destination weddings, blending romance, luxury, and breathtaking locales.</p>
+        </div>
+    </div>
+    <div className="co-operative-events">
+        <div className="family-img">
+            <img src="https://5.imimg.com/data5/GLADMIN/Default/2021/12/DH/RR/QG/4049929/wedding-anniversary-decoration.jpg"
+                alt="" />
+        </div>
+        <div className="cooperative-content">
+            <h2 className="md-heading">Anniversaries</h2>
+            <p>Royal Event Crafters create unforgettable anniversary celebrations, weaving love stories into timeless, joyous moments.</p>
+        </div>
+    </div>
+    <div className="co-operative-events">
+        <div className="family-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCcUHl4Y38F2hy29o4lfcuXXvM2DrYq86X1W63oT0MoU44ItVG5vvaNrDeaur0mSZMUHw&usqp=CAU"
+                alt="" />
+        </div>
+        <div className="cooperative-content">
+            <h2 className="md-heading">Birthdays</h2>
+            <p>Royal Event Crafters design unique, joyful birthday celebrations filled with personalized surprises and enchantment.</p>
+        </div>
+    </div>
+    <div className="co-operative-events">
+        <div className="family-img">
+            <img src="https://i.pinimg.com/originals/ce/ef/d4/ceefd4edaf32cd654759df91cddebad0.png" alt="" />
+        </div>
+        <div className="cooperative-content">
+            <h2 className="md-heading">Festivals</h2>
+            <p>Royal Event Crafters creates stunning festival decorations, crafting unforgettable celebrations.</p>
+        </div>
+    </div>
+
+</div>
+</section>
 
 
     </div >
