@@ -6,7 +6,7 @@ import RoyalEvent from './pages/RoyalEvent';
 import CooperativeEvents from './pages/CooperativeEvents';
 import Home from './pages/Home';
 import FamilyEvents from './pages/FamilyEvents';
-import CustomNavbar from './componets/Navbar';
+// import CustomNavbar from './componets/Navbar';
 import Footer from './componets/Footer';
 import "../src/styles/styling.css";
 import Index from './pages/Index';
@@ -28,7 +28,7 @@ function App() {
     <div classNameName="App">
         <Router>
           
-         <CustomNavbar />
+         {/* <CustomNavbar /> */}
          
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,7 +42,7 @@ function App() {
           <Route path="/photos" element={<Photos />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
     </Router>
       </div>
   );

@@ -55,7 +55,6 @@ body {
     width: 90%;
     align-items: center;
     justify-content: space-evenly;
-   
 }
 .scroll-container{
     display: flex;
@@ -428,11 +427,59 @@ textarea {
 
 
 /* ### login pg ### */
+.form-container{
+    border-radius: 5rem 0 5rem 0;
+    margin-top: 5rem;
+    height: 480px;
+    justify-content: center;
+}
+.form-img{
+    width: 40%;
+    border: 2px solid var(--third--text-color);
+    border-radius: 5rem 0 0 0;
+    height: 100%;
+}
+.form-cont{
+    width: 35%;
+    background-color: var(--main-text-color);
+    height: 100%;
+    border: 2px solid var(--third--text-color);
+    border-left: none;
+    height: 100%;
+    border-radius: 0 0 5rem 0;
+}
 .form-img img{
-    opacity: 2;
-    z-index: 99;
     background-position: center;
     object-fit: cover;
     background-repeat: no-repeat;
     width: 100%;
+    margin: auto;
+}
+.form-cont h2{
+    font-weight: 700;
+    padding: 0.5rem;
+    color: var(--secondary-text-color);
+}
+.form-cont label,p{
+    padding: 0.8rem;
+    font-weight: 500;
+    /* border: 2px solid black; */
+}
+.form-cont input{
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+}
+.form-cont button{
+    display: block;
+    width: 95%;
+    margin: 0.8rem 0; 
+    padding:  0.8rem;    
+}
+p{
+    text-align: center;
+}
+.form-cont span{
+    /* justify-content: space-evenly; */
+    text-align: center;
+    margin: 2rem;
 }
