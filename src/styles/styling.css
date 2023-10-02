@@ -427,26 +427,30 @@ textarea {
 
 
 /* ### login pg ### */
+
 .form-container{
     border-radius: 5rem 0 5rem 0;
-    margin-top: 5rem;
-    height: 480px;
+    /* margin-top: 5rem; */
+    height: 500px;
     justify-content: center;
+    opacity: 1;
+    position: relative;
+    /* padding-top: 5rem; */
+    border: 5px solid black;
 }
-.form-img{
+.form-container .form-img{
     width: 40%;
-    border: 2px solid var(--third--text-color);
-    border-radius: 5rem 0 0 0;
+    border: 0.5px solid var(--primary-text-color);
     height: 100%;
 }
 .form-cont{
     width: 35%;
     background-color: var(--main-text-color);
-    height: 100%;
-    border: 2px solid var(--third--text-color);
+    height: 100%;    
+    border: 0.5px solid var(--primary-text-color);
     border-left: none;
     height: 100%;
-    border-radius: 0 0 5rem 0;
+    /* border-radius: 0 0 5rem 0; */
 }
 .form-img img{
     background-position: center;
@@ -454,14 +458,17 @@ textarea {
     background-repeat: no-repeat;
     width: 100%;
     margin: auto;
+    opacity: 1;
+    height: 100%;
 }
 .form-cont h2{
-    font-weight: 700;
+    font-weight: 600;
+    text-align: center;
     padding: 0.5rem;
-    color: var(--secondary-text-color);
+    color: var(--primary-text-color);
 }
 .form-cont label,p{
-    padding: 0.8rem;
+    padding: 0.4rem;
     font-weight: 500;
     /* border: 2px solid black; */
 }
@@ -475,11 +482,30 @@ textarea {
     margin: 0.8rem 0; 
     padding:  0.8rem;    
 }
-p{
+.form-cont p{
     text-align: center;
 }
-.form-cont span{
-    /* justify-content: space-evenly; */
+.form-cont .social-media{
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
-    margin: 2rem;
+    font-size: 1.5rem;
+}
+.body .body-img{
+    height: 100vh;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    position:absolute;
+}
+.body-img img{
+    width: 100%;
+    height: 100%;
+}
+.form-cont .lg-heading{
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-weight: 400;
+    font-family: cursive;
 }

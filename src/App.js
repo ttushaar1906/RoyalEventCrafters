@@ -7,9 +7,10 @@ import CooperativeEvents from './pages/CooperativeEvents';
 import Home from './pages/Home';
 import FamilyEvents from './pages/FamilyEvents';
 // import CustomNavbar from './componets/Navbar';
-import Footer from './componets/Footer';
+// import Footer from './componets/Footer';
 import "../src/styles/styling.css";
 import Index from './pages/Index';
+import SignUp from './pages/SignUp';
 
 // function RoyalEvent() {
 //   return  <h2>Event Page</h2>;
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/login' element={<Index />} />
+          <Route path='/signUp' element={<SignUp />} />
           {/* <Route path="/events" element={<Events />} /> */}
           <Route path ='/home' element={<Home />}/>
           <Route path='/RoyalEvent' element={<RoyalEvent />} />
