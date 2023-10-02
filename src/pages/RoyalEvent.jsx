@@ -21,8 +21,8 @@ export default function RoyalEvent() {
                 </div>
             </div>
 
-            <section className="events-types">
-                <div className="container">
+            <section>
+                <div className="container events-types">
                     <p className="title-head">At Royal Event Crafters, we turn moments into memories and visions into reality. Your
                         event, our expertise!</p>
                     <div className="personal-event" id='FamilyEvent'>

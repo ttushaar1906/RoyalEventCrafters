@@ -1,7 +1,9 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChampagneGlasses , faPeopleGroup , faFaceLaughBeam , faLandmark} from "@fortawesome/free-solid-svg-icons";
 import '../styles/styling.css';
-import Footer from "../componets/Footer";
+// import Footer from "../componets/Footer";
 
 export default function Home() {
     return (
@@ -9,29 +11,52 @@ export default function Home() {
             <section>
                 <img src="https://image.wedmegood.com/resized/1900X/uploads/city_bg_image/1/delhi_bg.jpeg" alt="" />
             </section>
-            <section className="aboutus" id="aboutus"> {/* Use className instead of class */}
-                <div className="container"> {/* Use className instead of class */}
-                    <h1 className="lg-heading">Royal Events Crafters</h1> {/* Use className instead of class */}
-                    <h2 className="md-heading">Plan your wedding with Us</h2> {/* Use className instead of class */}
+            <div className="container adv">
+                <div className="adv-section">
+                <h1><FontAwesomeIcon icon={faPeopleGroup} style={{color: "#e4007d",}} /></h1>
+                    <h1 className="md-heading">Friendly Team</h1>
+                    <p className="adv-des">Teamwork, Trust, and Togetherness.</p>
+                </div>
+                <div className="adv-section">
+                <h1><FontAwesomeIcon icon={faLandmark} style={{color: "#e4007d",}} /></h1>
+                <h1 className="md-heading">Prefect Venues</h1>
+                    <p className="adv-des">Where Dreams Meet Perfect Venues.</p>    
+                </div>
+                <div className="adv-section"> 
+                <h1><FontAwesomeIcon icon={faChampagneGlasses} style={{color: "#e4007d",}} /> </h1>
+                <h1 className="md-heading">Unique Scenarios</h1>
+                    <p className="adv-des">Crafting Memories in One-of-a-Kind Environments.</p>    
+               </div>
+                <div className="adv-section">
+                <h1><FontAwesomeIcon icon={faFaceLaughBeam} style={{color: "#e4007d",}} /></h1>
+                <h1 className="md-heading">Unforgettable Time</h1>
+                    <p className="adv-des">Time well spent, memories forever treasured.</p>    
+               
+                </div>
+            </div>
+            <section className="aboutus" id="aboutus"> 
+                <div className="container"> 
+                    <h1 className="lg-heading">Royal Events Crafters</h1>      
+                    <h2 className="md-heading">Plan your wedding with Us</h2>  
                     <p className="about-con">
-                        <span>Welcome to [Your Event Planning Company Name], where we transform your dreams into unforgettable
+                        <span>Welcome to Royal Event Crafters, where we transform your dreams into unforgettable
                             events!
-                            At [Your Event Planning Company Name], we are passionate about creating extraordinary moments that
+                            At Royal Event Crafters, we are passionate about creating extraordinary moments that
                             leave lasting memories.</span>
                         <span> With a team of dedicated and experienced event planners, we take pride in our ability to turn
                             your vision into reality, no matter the scale or theme of your event.
                         </span>
                     </p>
-                    <h1 className="lg-heading">Our Mission</h1> {/* Use className instead of class */}
-                    <p> {/* Add a wrapping <p> element */}
+                    <h1 className="lg-heading">Our Mission</h1> 
+                    <p> 
                         <span>Our mission is simple: to craft exceptional events that reflect your unique style and personality. We
                             understand that every event is a reflection of your individuality and aspirations, and that's why we
                             approach each project with enthusiasm, creativity, and attention to detail. Whether it's an intimate
                             gathering or a grand celebration, we are committed to making it a one-of-a-kind experience for you and
                             your guests.</span>
                     </p>
-                    <h1 className="lg-heading">What Sets Us Apart</h1> {/* Use className instead of class */}
-                    <ul> {/* Use <ul> for an unordered list */}
+                    <h1 className="lg-heading">What Sets Us Apart</h1> 
+                    <ul> 
                         <li>Expertise: Our team of event planners brings years of industry expertise to the table. We stay
                             up-to-date with the latest trends and technologies to ensure your event is both timeless and
                             cutting-edge.</li>
@@ -47,8 +72,7 @@ export default function Home() {
                         <li>Stress-Free Planning: Planning an event can be overwhelming. We take the stress out of the process
                             by handling all the logistics, so you can relax and enjoy every moment.</li>
                     </ul>
-                    <h1 className="lg-heading">Our Services</h1> {/* Use className instead of class */}
-                    <ul> {/* Use <ul> for an unordered list */}
+                    <h1 className="lg-heading">Our Services</h1>                     <ul>                                         
                         <li>Wedding Planning: Let us make your wedding day the most magical and stress-free experience of your
                             life.</li>
                         <li>Corporate Events: From conferences to product launches, we ensure your corporate events make a
