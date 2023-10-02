@@ -30,7 +30,7 @@ export default function Login() {
                         <p>Don't have an account yet?<a href="./Signup"> Signup </a></p>
                         <p>OR</p>
                         <div className="social-media"> 
-                           <Link to="www.google.com" ><FontAwesomeIcon icon={faGoogle} style={{ color: "#ffffff", }} /></Link>
+                           <Link to="https://www.google.com/" ><FontAwesomeIcon icon={faGoogle} style={{ color: "#ffffff", }} /></Link>
                            <a href="www.google.com" ><FontAwesomeIcon icon={faFacebook} style={{ color: "#ffffff", }} /></a>
                         </div>
                     </div>

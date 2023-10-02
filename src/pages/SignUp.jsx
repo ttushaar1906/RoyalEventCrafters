@@ -1,8 +1,5 @@
 import React from "react";
 import '../styles/styling.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Link } from "react-router-dom";
 export default function Login() {
     return (
@@ -25,14 +22,10 @@ export default function Login() {
                             <input type="email" placeholder="Enter Email " required />
                             <label htmlFor="Password">Enter Password</label>
                             <input type="password" placeholder="Enter Password" required />
-                            <button className="btn">Login</button>
+                            <button className="btn">Create Account</button>
                         </form>
-                        <p>Don't have an account yet?<a href="./Signup"> Signup </a></p>
-                        <p>OR</p>
-                        <div className="social-media">
-                            <Link to="www.google.com" ><FontAwesomeIcon icon={faGoogle} style={{ color: "#ffffff", }} /></Link>
-                            <a href="www.google.com" ><FontAwesomeIcon icon={faFacebook} style={{ color: "#ffffff", }} /></a>
-                        </div>
+                        <p>Already have an Account?<a href="./login"> Login </a></p>
+                       
                     </div>
                 </div>
             </div>
