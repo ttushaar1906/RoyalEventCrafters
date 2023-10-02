@@ -1,63 +1,68 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
-
 import '../styles/styling.css';
-// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function RoyalEvent() {
     return (
         <div>
+            <a href="#FamilyEvent">FamilyEvent</a>
+            <a href="#cooperate-event">Cooperate-Event</a>
+            <a href="#photos">Our Work</a>
             <div className="scroll-container">
                 <div className="item">
-                <img src="https://image.wedmegood.com/nw/uploads/project/13060/1487600957_IMG_20170120_WA0076.jpg" alt="" />
-                <img src="https://www.rajwadaevents.com/uploaded-files/celebrity-images/Event-Planner5149.jpg" alt="" />
-                <img src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" alt="" />
-                <img src="https://i.postimg.cc/CxfvnH6r/1483625069-IMG-20151208-WA0033.jpg" alt="hall" />
-                <img src="https://shaadifever.com/wp-content/uploads/2019/02/mohitjauraphotography_20190220112118.jpg" alt="" />
-                <img src="https://ak0.picdn.net/shutterstock/videos/1501670/thumb/1.jpg" alt="" />
-                <img src="https://image.wedmegood.com/nw/uploads/member/11719/1469173089_Dream_Makers__1_.jpg" alt="" />
-                <img src="https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/08/18144727/Ganpati-Mandap-Decoration-With-Flowers.jpg" alt="" />
+                    <img src="https://image.wedmegood.com/nw/uploads/project/13060/1487600957_IMG_20170120_WA0076.jpg" alt="" />
+                    <img src="https://www.rajwadaevents.com/uploaded-files/celebrity-images/Event-Planner5149.jpg" alt="" />
+                    <img src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" alt="" />
+                    <img src="https://i.postimg.cc/CxfvnH6r/1483625069-IMG-20151208-WA0033.jpg" alt="hall" />
+                    <img src="https://shaadifever.com/wp-content/uploads/2019/02/mohitjauraphotography_20190220112118.jpg" alt="" />
+                    <img src="https://ak0.picdn.net/shutterstock/videos/1501670/thumb/1.jpg" alt="" />
+                    <img src="https://image.wedmegood.com/nw/uploads/member/11719/1469173089_Dream_Makers__1_.jpg" alt="" />
+                    <img src="https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/08/18144727/Ganpati-Mandap-Decoration-With-Flowers.jpg" alt="" />
                 </div>
-            </div>        
+            </div>
 
             <section className="events-types">
                 <div className="container">
                     <p className="title-head">At Royal Event Crafters, we turn moments into memories and visions into reality. Your
                         event, our expertise!</p>
-                    <div className="personal-event">
-                        <div className="img-container">
-                            <Link to="../FamilyEvents"> <img
-                                src="https://i.postimg.cc/Y2sJn35b/top-12-wedding-destinations-in-india-20171027033333.jpg"
-                                alt="" /></Link>
-                        </div>
-                        <div className="text-contain">
-                            <h1 className="lg-heading">Family Events</h1>
-                            <p>Family functions and events that encompass weddings, anniversaries, birthdays, and festivals are
-                                the threads that weave the rich fabric of our lives. These gatherings are a celebration of love,
-                                growth, and tradition. From the joyous union of souls in a wedding to the commemoration of
-                                lasting love in anniversaries, and from the marking of another year in a birthday to the shared
-                                festivities of cultural and religious festivals, each event adds its unique color to the canvas
-                                of our family history.</p>
-                        </div>
+                    <div className="personal-event" id='FamilyEvent'>
+                        <Link to="../FamilyEvents">
+                            <div className="img-container">
+                                <img
+                                    src="https://i.postimg.cc/Y2sJn35b/top-12-wedding-destinations-in-india-20171027033333.jpg"
+                                    alt="" />
+                            </div>
+                            <div className="text-contain">
+                                <h1 className="lg-heading">Family Events</h1>
+                                <p>Family functions and events that encompass weddings, anniversaries, birthdays, and festivals are
+                                    the threads that weave the rich fabric of our lives. These gatherings are a celebration of love,
+                                    growth, and tradition. From the joyous union of souls in a wedding to the commemoration of
+                                    lasting love in anniversaries, and from the marking of another year in a birthday to the shared
+                                    festivities of cultural and religious festivals, each event adds its unique color to the canvas
+                                    of our family history.</p>
+                            </div>
+                        </Link>
                     </div>
-                    <div className="cooperate-event">
-                        <div className="img-container">
-                            <Link to="/RoyalEvent/co-operativeEvent"> <img src="https://i.postimg.cc/jdqWsyZV/image.png" alt="" /></Link>
-                        </div>
 
-                        <div className="text-contain">
-                            <h1 className="lg-heading">Co-operate Events</h1>
-                            <p>Cooperation functions and events, including conferences and annual meetings, are the stepping
-                                stones to progress and success. These gatherings bring together individuals and organizations
-                                with a shared vision, a commitment to collaboration, and a drive to achieve common goals. During
-                                conferences, experts exchange knowledge, ideas, and insights, fostering innovation and growth.
-                                Annual meetings serve as a crucial platform to review achievements, set new directions, and
-                                strengthen bonds.</p>
-                        </div>
+                    <div className="cooperate-event" id='cooperate-event'>
+                        <Link to="/RoyalEvent/co-operativeEvent">
+                            <div className="img-container">
+                                <img src="https://i.postimg.cc/jdqWsyZV/image.png" alt="" />
+                            </div>
+
+                            <div className="text-contain">
+                                <h1 className="lg-heading">Co-operate Events</h1>
+                                <p>Cooperation functions and events, including conferences and annual meetings, are the stepping
+                                    stones to progress and success. These gatherings bring together individuals and organizations
+                                    with a shared vision, a commitment to collaboration, and a drive to achieve common goals. During
+                                    conferences, experts exchange knowledge, ideas, and insights, fostering innovation and growth.
+                                    Annual meetings serve as a crucial platform to review achievements, set new directions, and
+                                    strengthen bonds.</p>
+                            </div>
+                        </Link>
                     </div>
-                </div>
-            </section>
+                </div >
+            </section >
 
 
             <section className="post">
@@ -118,6 +123,6 @@ export default function RoyalEvent() {
                 </div>
             </section>
 
-        </div>
+        </div >
     )
 }
