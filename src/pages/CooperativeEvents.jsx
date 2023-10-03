@@ -21,7 +21,7 @@ export default function CooperativeEvents() {
             <section>
 
                 <div className="container">
-                    <p className="title-heads title-head">"Royal Event Crafters host collaborative extravaganzas, uniting
+                    <p className="title-head">"Royal Event Crafters host collaborative extravaganzas, uniting
                         creativity, culture, and community in unforgettable experiences."</p>
                     <div className="co-operative-events">
                         <div className="cooperative-img">
