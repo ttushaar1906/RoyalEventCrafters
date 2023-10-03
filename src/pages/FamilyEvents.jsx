@@ -22,14 +22,15 @@ export default function FamilyEvents() {
 
 <div className="container">
     <p className="title-heads title-head">"Royal Event Crafters specialize in crafting cherished family gatherings with personalized touches and memorable moments."</p>
-    <div className="family-events">
+    
+    <div className="co-operative-events">
         <div className="family-img">
             <img src="https://cdn0.weddingwire.in/article/5378/3_2/1280/jpg/78735-open-air-venues-in-delhi-for-day-weddings-pixelstory-in-lead-image.jpeg"
                 alt="" />
         </div>
         <div className="cooperative-content">
-            <h2 className="md-heading">Weddings</h2>
-            <p>Royal Event Crafters craft dreamy destination weddings, blending romance, luxury, and breathtaking locales.</p>
+            <h2 className="md-heading">Anniversaries</h2>
+            <p>Royal Event Crafters create unforgettable anniversary celebrations, weaving love stories into timeless, joyous moments.</p>
         </div>
     </div>
     <div className="co-operative-events">

@@ -130,6 +130,14 @@ export default function RoyalEvent() {
                         <p className="namesP">Kajol & Ranbir</p>
                         <p className="placeName">Pre-Wedding PhotoShoot,Elephanta Caves</p>
                     </div>
+
+                    <div className="post1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRukJ_gvQmqLxMxRLe5tLuqrubZyZbpBy-n8Q&usqp=CAU"
+                            alt="" />
+                        <p className="namesP">Star Plus Award</p>
+                        <p className="placeName">Award Ceremony , Mumbai</p>
+                    </div>
+
                 </div>
             </section>
 
