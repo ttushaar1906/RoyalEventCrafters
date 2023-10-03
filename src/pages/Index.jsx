@@ -9,9 +9,6 @@ import { Link } from "react-router-dom";
 export default function Login() {
     return (
         <body className="body">
-            <div className="body-img">
-                <img src="https://www.eventmanagement.net.my/wp-content/uploads/elementor/thumbs/3-q2njvo9tm5ztku36bmvpif1dcomonhstx5dr98fsww.jpeg" alt="" />
-            </div>
             <div>
                 <div className="container form-container">
                     <div className="form-img">
