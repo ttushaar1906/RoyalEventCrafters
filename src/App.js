@@ -11,6 +11,7 @@ import Footer from './componets/Footer';
 import "../src/styles/styling.css";
 import Index from './pages/Index';
 import SignUp from './pages/SignUp';
+import Photos from './pages/Photos';
 
 // function RoyalEvent() {
 //   return  <h2>Event Page</h2>;
@@ -20,9 +21,9 @@ function Feedbacks() {
   return <h2>Feedbacks Page</h2>;
 }
 
-function Photos() {
-  return <h2>Photos Page</h2>;
-}
+// function Photos() {
+//   return <h2>Photos Page</h2>;
+// }
 
 function App() {
   return (

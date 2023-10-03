@@ -416,9 +416,9 @@ textarea {
 }
 
 /* ## photos / post ## */
-.post .container {
+/* .post .container {
     margin-top: 1rem;
-}
+} */
 
 .post1 {
     width: 300px;
@@ -433,7 +433,7 @@ textarea {
 .post1 img {
     width: 100%;
     height: 280px;
-    object-fit: cover;
+    object-fit:cover;
     background-position: center;
     margin: 0;
 }
@@ -451,8 +451,24 @@ textarea {
 .namesP {
     padding: 0 0.5rem;
 }
-
-
+.post .md-heading{
+    text-align: center;
+    color: var(--third--text-color);
+    font-weight: 600;
+}
+.bridal-photos {
+    height: 500px;
+    width: 300px; 
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.bridal-photos img{
+    height: 100%;
+    padding: 0.5rem;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
 /* ### login pg ### */
 
 .form-container {
