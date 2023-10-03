@@ -55,7 +55,7 @@ export default function FamilyEvents() {
     </div>
     <div className="co-operative-events">
         <div className="family-img">
-            <img src="https://i.pinimg.com/originals/ce/ef/d4/ceefd4edaf32cd654759df91cddebad0.png" alt="" />
+            <img src="https://i.postimg.cc/nzJtKR4R/ganapati.jpg" alt="" />
         </div>
         <div className="cooperative-content">
             <h2 className="md-heading">Festivals</h2>
