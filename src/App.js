@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Contact from './pages/Contact';
 import RoyalEvent from './pages/RoyalEvent';
 import CooperativeEvents from './pages/CooperativeEvents';
@@ -32,11 +32,11 @@ function App() {
          <CustomNavbar />
          
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path='/login' element={<Index />} />
+          {/* <Route path="/" element={< />} /> */}
+          <Route path='/' element={<Index />} />
           <Route path='/signUp' element={<SignUp />} />
           {/* <Route path="/events" element={<Events />} /> */}
-          <Route path ='/home' element={<Home />}/>
+          <Route path ='/Home' element={<Home />}/>
           <Route path='/RoyalEvent' element={<RoyalEvent />} />
           <Route path='/familyEvents' element={<FamilyEvents />}/>
           <Route path='/RoyalEvent/co-operativeEvent' element={<CooperativeEvents/>}/>

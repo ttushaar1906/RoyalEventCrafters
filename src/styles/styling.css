@@ -661,3 +661,6 @@ p {
 .option{
     cursor: pointer;
 }
+.form-cont input{
+    width: 90%;
+}

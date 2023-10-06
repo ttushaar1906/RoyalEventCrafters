@@ -12,6 +12,56 @@ export default function Contact() {
     setSelectedOption(event.target.value);
   };
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  // Handle form field changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Send a POST request to your backend with formData
+    try {
+      const response = await fetch("/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Handle response and display a success message or handle errors
+      if (response.status === 200) {
+        // Display a success message or redirect to a thank-you page
+        alert("Message sent successfully!");
+        // Optionally, reset the form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        // Handle errors, e.g., display an error message to the user
+        alert("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle network or other errors
+    }
+  };
 
   return (
     <div>
@@ -37,15 +87,45 @@ export default function Contact() {
             <div className="left-contact-sec">
               <h1 className="lg-heading">Write Us</h1>
               <label htmlFor="name">Name:</label>
-              <input type="text" name="name" id="name" />
-              <label htmlFor="email">Email:</label>
-              <input type="email" name="email" id="email" />
-              <label htmlFor="subject">Subject:</label>
-              <input type="text" name="subject" id="subject" />
-              <label htmlFor="message">Message:</label>
-              <textarea name="message" id="message" cols="63" rows="5"></textarea>
-              <button type="submit" className="btn">Send Message</button>
-            </div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+        <label htmlFor="subject">Subject:</label>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          value={formData.subject}
+          onChange={handleInputChange}
+          required
+        />
+        <label htmlFor="message">Message:</label>
+        <textarea
+          name="message"
+          id="message"
+          cols="63"
+          rows="5"
+          value={formData.message}
+          onChange={handleInputChange}
+          required
+        ></textarea>
+        <button type="submit" className="btn">
+          Send Message
+        </button></div>
             <div className="right-contact-sec">
               <h1 className="lg-heading">Contact Information</h1>
               <p>We're open for any suggestion or just to have a chat</p>
