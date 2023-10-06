@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Contact from './pages/Contact';
 import RoyalEvent from './pages/RoyalEvent';
 import CooperativeEvents from './pages/CooperativeEvents';

@@ -4,38 +4,35 @@ import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-
 import '../styles/styling.css';
 
 export default function Contact() {
-  const [isChecked, setIsChecked] = useState(false);
+  // Define a state variable to manage the selected option
+  const [selectedOption, setSelectedOption] = useState();
 
-  function handleCheckboxChange() {
-    setIsChecked(!isChecked);
-  }
+  // Handle changes in the dropdown
+  const handleDropdownChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
 
   return (
     <div>
-      <label htmlFor="myCheck">Checkbox:</label>
-      <input
-        type="checkbox"
-        id="myCheck"
-        onChange={handleCheckboxChange}
-        checked={isChecked}
-      />
-
-{/* <label htmlFor="myCheck">Checkbox:</label>
-      <input
-        type="checkbox"
-        id="myCheck"
-        onChange={handleCheckboxChange}
-        checked={isChecked}
-      /> */}
-
-      {isChecked ? (
-        <p>Checkbox is CHECKED!</p>
-      ) : (
-        <p style={{ display: 'none' }}>Checkbox is not CHECKED!</p>
-      )}
-
       <section className="contactUs" id="contactUs">
         <div className="container">
+          <h1 className="lg-heading">Frequently Asked Questions</h1>
+          <section className="dropdown">
+            <select value={selectedOption} onChange={handleDropdownChange}>
+              <option value="FAQs">FAQs</option>
+              <option value="option1">What are your areas of expertise?</option>
+              <option value="option2">WHAT SERVICES DO YOU OFFER?</option>
+              <option value="option3">WHY DO I NEED AN EVENT PLANNING?</option>
+            </select>
+
+            {selectedOption === "option1" && <p className='drop-ans'>We have specialize in event planning and management, offering expertise in a range of event types, including destination weddings, brand launches, conferences, and birthday celebrations. I can provide guidance on venue selection, logistics, marketing, budgeting, vendor management, and creative event design to ensure memorable and successful occasions.</p>}
+
+            {selectedOption === "option2" && <p className='drop-ans'>We offer a comprehensive event planning service. We’re able to find venues, organise catering, décor, accommodation, staffing, equipment and even hire speakers for corporate events. We offer a tailor made service to fit your requirements. Every event is unique and we have the capacity to fulfill your requirements from start to finish.</p>}
+
+            {selectedOption === "option3" && <p className='drop-ans'> An experienced event planner saves you time and money.We will supply reputable suppliers and vendors, negotiate the best rates, discounts, terms and conditions on your behalf and co-ordinate all aspects of your event. Using an event planner takes away stress and worry, and gives you peace of mind to enjoy your event.</p>}
+
+          </section>
           <form action="" className="form">
             <div className="left-contact-sec">
               <h1 className="lg-heading">Write Us</h1>

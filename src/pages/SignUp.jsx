@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../styles/styling.css';
-export default function Login() {
+export default function SignUp() {
     return (
         <body className="body">
             
@@ -21,7 +22,7 @@ export default function Login() {
                             <input type="password" placeholder="Enter Password" required />
                             <button className="btn">Create Account</button>
                         </form>
-                        <p>Already have an Account?<a href="./login"> Login </a></p>
+                        <p>Already have an Account?<Link to="/login"> Login </Link></p>
                        
                     </div>
                 </div>

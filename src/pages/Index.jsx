@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Link } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 
 export default function Login() {
@@ -24,7 +25,7 @@ export default function Login() {
                             <input type="text" placeholder="Enter Password" required />
                             <button className="btn">Login</button>
                         </form>
-                        <p>Don't have an account yet?<a href="./Signup"> Signup </a></p>
+                        <p>Don't have an account yet?<Link to="/signUp"> Signup</Link></p>
                         <p>OR</p>
                         <div className="social-media"> 
                            <Link to="https://www.google.com/" ><FontAwesomeIcon icon={faGoogle} style={{ color: "#ffffff", }} /></Link>
