@@ -87,48 +87,51 @@ export default function Contact() {
             <div className="left-contact-sec">
               <h1 className="lg-heading">Write Us</h1>
               <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          required
-        />
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-        />
-        <label htmlFor="subject">Subject:</label>
-        <input
-          type="text"
-          name="subject"
-          id="subject"
-          value={formData.subject}
-          onChange={handleInputChange}
-          required
-        />
-        <label htmlFor="message">Message:</label>
-        <textarea
-          name="message"
-          id="message"
-          cols="63"
-          rows="5"
-          value={formData.message}
-          onChange={handleInputChange}
-          required
-        ></textarea>
-        <button type="submit" className="btn">
-          Send Message
-        </button></div>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="subject">Subject:</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="message">Message:</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="63"
+                rows="5"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
+              <button type="submit" className="btn">
+                Send Message
+              </button>
+            </div>
+
             <div className="right-contact-sec">
               <h1 className="lg-heading">Contact Information</h1>
               <p>We're open for any suggestion or just to have a chat</p>
+
               <div className="cont-info">
                 <div className="cont-content">
                   <FontAwesomeIcon icon={faLocationDot} style={{ color: '#ffffff' }} />
@@ -136,14 +139,17 @@ export default function Contact() {
                   MG Road,
                   Pune, Maharashtra 411001.
                 </div>
+
                 <div className="cont-content">
                   <FontAwesomeIcon icon={faPhone} style={{ color: '#ffffff' }} />
                   <span>  Phone: </span>9527921209
                 </div>
+
                 <div className="cont-content">
                   <FontAwesomeIcon icon={faEnvelope} style={{ color: '#ffffff' }} />
                   <span>  Email: </span>ttushaar45@gmail.com
                 </div>
+                
               </div>
             </div>
           </form>
