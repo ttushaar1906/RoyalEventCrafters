@@ -54,7 +54,7 @@ export default function Reviews() {
                     
                     </div> */}
 
-                    <button type="submit">Send</button>
+                    <button type="submit" className="feedBack-btn">Send</button>
                 
                 </form>
 

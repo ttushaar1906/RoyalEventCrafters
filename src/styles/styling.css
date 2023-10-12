@@ -174,18 +174,23 @@ section img {
 }
 
 /* ##### Abouts us ##### */
+
 .aboutus .container {
     flex-direction: column;
     align-items: flex-start;
+    /* border: 2px solid red; */
 }
 .aboutus .container .lg-heading{
     margin-top: 1rem;
 }
-.about-con {
-    display: flex;
-    flex-direction: column;
+.about-con{
+    /* border: 2px solid black; */
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    word-spacing: 2px;
+    padding: 0.5rem;
 }
-
 .about-con span,
 li {
     padding: 0.5rem;
@@ -467,9 +472,7 @@ textarea {
 
 .form-container .form-img {
     width: 40%;
-    /* border: 0.5px solid var(--primary-text-color); */
     height: 100%;
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
 }
 
 .form-cont {
@@ -479,7 +482,6 @@ textarea {
     border: 0.5px solid var(--primary-text-color);
     border-left: none;
     height: 100%;
-    /* border-radius: 0 0 5rem 0; */
 }
 .body{
     background-color: var(--bg--color2);
@@ -506,7 +508,6 @@ textarea {
 p {
     padding: 0.4rem;
     font-weight: 500;
-    /* border: 2px solid black; */
 }
 
 .form-cont input {
@@ -517,7 +518,7 @@ p {
 .form-cont button {
     display: block;
     width: 95%;
-    margin: 0.8rem 0;
+    margin: 0.8rem 0.2rem;
     padding: 0.8rem;
 }
 
@@ -636,10 +637,11 @@ p {
     transition: all .5s ease-in;
   }
   
-  form button:hover {
+  .feedBack-btn:hover {
     border: 1px solid var(--third--text-color);
     background: var(--main-text-color);
     color: white;
+    transition: ease-in-out 1s;
   }
 
   .radio{

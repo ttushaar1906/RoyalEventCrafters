@@ -10,7 +10,7 @@ library.add(fab, faInstagram, faTwitter, faFacebook, faYoutube, faSnapchat);
 
 export const Footer = () => {
   const location = useLocation();
-  const isLoginOrSignUp = location.pathname === '/login' || location.pathname === '/signUp';
+  const isLoginOrSignUp = location.pathname === '/Index' || location.pathname === '/signUp';
   return (
     <div>
       {!isLoginOrSignUp &&

@@ -27,7 +27,7 @@ export default function SignUp() {
     
     // Send a POST request to your backend with formData
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch("/Home", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export default function SignUp() {
               </button>
             </form>
             <p>
-              Already have an Account? <Link to="/login">Login</Link>
+              Already have an Account? <Link to="/">Login</Link>
             </p>
           </div>
         </div>
