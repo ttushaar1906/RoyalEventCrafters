@@ -51,7 +51,9 @@ body {
     margin: 1rem;
     font-weight: 600;
 }
-
+.nav-section .container{
+    justify-content: space-between;
+}
 .container {
     display: flex;
     margin: auto;
