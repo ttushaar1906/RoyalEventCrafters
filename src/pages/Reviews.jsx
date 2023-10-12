@@ -44,16 +44,6 @@ export default function Reviews() {
                         <input type="radio" id="TypeSuggest" name="feedbackType" /> Suggest
                     </div>
                     <textarea id="message" rows="4" placeholder="Describe Your Feedback" required></textarea>
-
-                    {/* <div className="radio ">
-                        <input type="radio" id="TypeComment" name="feedbackType" /> Comment
-                        <input type="radio" id="TypeFeedback" name="feedbackType" /> Feedback
-                        <input type="radio" id="TypeSuggest" name="feedbackType" /> Suggest
-                        <input type="radio" id="TypeSuggest" name="feedbackType" /> Suggest
-                        <input type="radio" id="TypeSuggest" name="feedbackType" /> Suggest
-                    
-                    </div> */}
-
                     <button type="submit" className="feedBack-btn">Send</button>
                 
                 </form>
