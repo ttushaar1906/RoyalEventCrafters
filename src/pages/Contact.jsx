@@ -149,7 +149,7 @@ export default function Contact() {
                   <FontAwesomeIcon icon={faEnvelope} style={{ color: '#ffffff' }} />
                   <span>  Email: </span>ttushaar45@gmail.com
                 </div>
-                
+
               </div>
             </div>
           </form>
