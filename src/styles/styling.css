@@ -371,7 +371,11 @@ textarea {
     width: 400px;
     margin: 1rem 2rem;
 }
-
+.co-operative-events .link-edit{
+    text-decoration: none;
+    text-align: left;
+    color: var(--primary-text-color);
+}
 .cooperative-img,
 .family-img {
     align-items: center;
