@@ -16,7 +16,7 @@ export const Footer = () => {
       {!isLoginOrSignUp &&
         <footer className="footer">
           <div className="logo social-media-links">
-            <img src="https://i.postimg.cc/BbL9q4cc/logo.png" alt="" />
+            <img src="https://i.postimg.cc/BbL9q4cc/logo.png" alt="logo" />
           </div>
           <div className="social-media-links">
             <Link to="">

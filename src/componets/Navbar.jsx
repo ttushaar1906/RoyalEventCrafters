@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 // import '../styles/navbar.css';
@@ -6,8 +6,13 @@ import '../styles/styling.css';
 
 export default function CustomNavbar() {
   const location = useLocation();
-  const isLoginOrSignUp = location.pathname === '/Index' || location.pathname === '/signUp';
+  const isLoginOrSignUp = location.pathname === '/Index' || location.pathname === '/signUp' || location.pathname === '/main';
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  
+  
+  
   return (
+    
     <>
       {!isLoginOrSignUp &&
         <nav class="nav-section">
@@ -21,8 +26,17 @@ export default function CustomNavbar() {
               <li class="nav-item"> <Link to="../Contact">Contact Us</Link></li>
               <li class="nav-item"><Link to="/Reviews">Reviews</Link></li>
               <li class="nav-item"><Link to="/photos">Photos</Link></li>
+              {isLoggedIn &&
+                <li class="nav-item"><Link to="/dashboard">Dashboard</Link></li>
+              }
+               {isLoggedIn &&
+                <li class="nav-item"><Link to="/logout">Logout</Link></li>
+              }
+              {!isLoggedIn &&
               <li class="nav-item"><Link to="/Index">Login</Link></li>
-            </ul>
+              }
+              </ul>
+
           </div>
         </nav>
       }

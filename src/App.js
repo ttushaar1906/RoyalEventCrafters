@@ -13,6 +13,8 @@ import SignUp from './pages/SignUp';
 import Photos from './pages/Photos';
 import Reviews from './pages/Reviews';
 import Home from './pages/Home';
+import Main from './pages/Main';
+import Dashboard from './componets/Dashboard';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/reviews' element={<Reviews />} />
           <Route path='home' element = {<Home />} />
+          <Route path='/main' element = {<Main />} />
+          <Route path='/Dashboard' element= {<Dashboard />} />
         </Routes>
         <Footer />
       </Router>

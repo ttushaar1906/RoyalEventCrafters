@@ -4,7 +4,7 @@ import '../styles/styling.css';
 export default function Reviews() {
     return (
         <div>
-               <center><h1 className="lg-heading" id="lg-heading">Feedback from our clients</h1></center>
+            <center><h1 className="lg-heading" id="lg-heading">Feedback from our clients</h1></center>
             <div class="container">
                 <div class="reviews">
                     <img src="https://i.postimg.cc/MTSGyyXG/couple-3.jpg" alt="couple1" />
@@ -30,7 +30,7 @@ export default function Reviews() {
                     <h2 className="md-heading">Feedback Form </h2>
                     <p>We would love to hear your thoughts, suggestions, concerns or problems with anything so we can improve!</p>
 
-            
+
                     <input type="text" id="name" placeholder="Enter Your Name" required />
                     <input type="email" id="email" placeholder="Enter Your Email" required />
                     <input type="phone" id="phone" placeholder="Enter Your Phone Number" required />
@@ -45,7 +45,6 @@ export default function Reviews() {
                     </div>
                     <textarea id="message" rows="4" placeholder="Describe Your Feedback" required></textarea>
                     <button type="submit" className="feedBack-btn">Send</button>
-                
                 </form>
 
             </div>
