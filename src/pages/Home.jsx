@@ -1,9 +1,7 @@
 import React from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChampagneGlasses, faPeopleGroup, faFaceLaughBeam, faLandmark } from "@fortawesome/free-solid-svg-icons";
 import '../styles/styling.css';
-// import Footer from "../componets/Footer";
 
 export default function Home() {
     return (

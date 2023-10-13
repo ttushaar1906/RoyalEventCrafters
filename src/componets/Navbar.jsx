@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-// import '../styles/navbar.css';
 import '../styles/styling.css';
 
 export default function CustomNavbar() {
   const location = useLocation();
-  const isLoginOrSignUp = location.pathname === '/Index' || location.pathname === '/signUp' || location.pathname === '/main';
+  const isLoginOrSignUp = location.pathname === '/Index' || location.pathname === '/signUp' ;
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   
   

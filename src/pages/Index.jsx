@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../styles/styling.css';
+
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+const navigate = useNavigate;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +26,7 @@ export default function Login() {
     e.preventDefault();
     // Send a POST request to your backend with formData
     try {
-      const response = await fetch("/login", {
+      const response = await fetch("/Index", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,8 +37,10 @@ export default function Login() {
       // Handle response and redirect if necessary
       if (response.status === 200) {
         // Redirect the user to the dashboard or a success page
+        navigate('/Home')
       } else {
         // Handle errors, e.g., display an error message to the user
+        
       }
     } catch (error) {
       console.error("Error:", error);
