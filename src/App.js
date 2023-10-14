@@ -15,6 +15,7 @@ import Reviews from './pages/Reviews';
 import Home from './pages/Home';
 import Main from './pages/Main';
 import Dashboard from './componets/Dashboard';
+import Thanks from './pages/Thanks';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/signUp' element={<SignUp />} />
-          <Route path="/index" element={<Index />} />
+          <Route path="/Index" element={<Index />} />
           <Route path='/familyEvents' element={<FamilyEvents />} />
           <Route path='/RoyalEvent' element={<RoyalEvent />} />
           <Route path='/RoyalEvent/co-operativeEvent' element={<CooperativeEvents />} />
@@ -34,6 +35,7 @@ function App() {
           <Route path='Home' element = {<Home />} />
           <Route path='/main' element = {<Main />} />
           <Route path='/Dashboard' element= {<Dashboard />} />
+          <Route path='/Thanks' element={<Thanks />}/>
         </Routes>
         <Footer />
       </Router>

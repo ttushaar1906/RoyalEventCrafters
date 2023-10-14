@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import '../styles/styling.css';
+import { Navigate } from 'react-router-dom';
 
 export default function Contact() {
   // Define a state variable to manage the selected option
-  const [selectedOption, setSelectedOption] = useState();
+  const [selectedOption, setSelectedOption] = useState("");
 
   // Handle changes in the dropdown
   const handleDropdownChange = (event) => {
@@ -15,7 +16,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
+    mobileNO: "", // Corrected field name
     message: "",
   });
 
@@ -34,7 +35,7 @@ export default function Contact() {
 
     // Send a POST request to your backend with formData
     try {
-      const response = await fetch("/submit-form", {
+      const response = await fetch("/Contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,11 +47,12 @@ export default function Contact() {
       if (response.status === 200) {
         // Display a success message or redirect to a thank-you page
         alert("Message sent successfully!");
+        Navigate('/Thanks');
         // Optionally, reset the form
         setFormData({
           name: "",
           email: "",
-          subject: "",
+          mobileNO: "",
           message: "",
         });
       } else {
@@ -83,7 +85,7 @@ export default function Contact() {
             {selectedOption === "option3" && <p className='drop-ans'> An experienced event planner saves you time and money.We will supply reputable suppliers and vendors, negotiate the best rates, discounts, terms and conditions on your behalf and co-ordinate all aspects of your event. Using an event planner takes away stress and worry, and gives you peace of mind to enjoy your event.</p>}
 
           </section>
-          <form action="" className="form">
+          <form action="" className="form" onSubmit={handleSubmit}>
             <div className="left-contact-sec">
               <h1 className="lg-heading">Write Us</h1>
               <label htmlFor="name">Name:</label>
@@ -104,15 +106,9 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
               />
-              <label htmlFor="subject">Subject:</label>
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                required
-              />
+              <label htmlFor="subject">MobileNO:</label>
+              <input type="tel" name="mobileNO" id="mobileNO" placeholder="Enter Your Phone Number" required onChange={handleInputChange} />
+
               <label htmlFor="message">Message:</label>
               <textarea
                 name="message"
