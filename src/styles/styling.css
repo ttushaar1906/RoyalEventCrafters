@@ -51,9 +51,11 @@ body {
     margin: 1rem;
     font-weight: 600;
 }
-.nav-section .container{
+
+.nav-section .container {
     justify-content: space-between;
 }
+
 .container {
     display: flex;
     margin: auto;
@@ -201,9 +203,11 @@ section img {
 li {
     padding: 0.5rem;
 }
-.about-con li{
+
+.about-con li {
     list-style-type: disc;
 }
+
 /* ##### ContactUs Section #### */
 .form {
     display: flex;
@@ -714,7 +718,7 @@ textarea {
     background-color: var(--secondary-text-color);
 }
 
-.logo-heading{
+.logo-heading {
     color: var(--secondary-text-color);
 }
 
@@ -822,7 +826,8 @@ ul li {
     font-weight: bold;
     color: var(--primary-text-color);
 }
-.sidebar-link{
+
+.sidebar-link {
     color: var(--secondary-text-color);
     text-decoration: none;
     font-size: 1rem;
@@ -831,59 +836,72 @@ ul li {
 
 /* ## Dashboard ## */
 
-table, td, th {
+table,
+td,
+th {
     border: 1px solid black;
     width: 900px;
     margin: auto;
-  }
-  
-  table {
+}
+
+table {
     border-collapse: collapse;
     height: 20vh;
-  }
-  .dashboard-events{
+}
+
+.dashboard-events {
     border: 2px solid green;
     margin-top: 1rem;
-  }
-  td {
+}
+
+td {
     text-align: center;
-  }
-  .dashboard-details{
+}
+
+.dashboard-details {
     border: 2px solid red;
     flex-direction: column;
 }
+
 .Terms-Conditions {
     margin-top: 1rem;
     align-items: flex-start;
     text-align: left;
     padding: 0;
 }
-.terms-list span{
+
+.terms-list span {
     font-size: 1.2rem;
     font-weight: 600;
 }
 
 /* ## main-events ## */
-.main-events{
-    margin-top: 1rem;}
-.main-event{
+.main-events {
+    margin-top: 1rem;
+}
+
+.main-event {
     width: 220px;
     margin: 1rem;
     height: 220px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
 }
-.main-event-img{
+
+.main-event-img {
     width: 100%;
     height: 85%;
     padding: 0.5rem;
 }
-.main-event-img img{
+
+.main-event-img img {
     background-position: center;
     object-fit: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
 }
-.main-event .lg-heading{
+
+.main-event .lg-heading {
     font-size: 1.4rem;
 }
