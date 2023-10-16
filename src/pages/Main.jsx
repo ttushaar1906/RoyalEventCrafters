@@ -1,18 +1,20 @@
 import React from "react";
 import '../styles/styling.css';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Main() {
     return (
         <>
             <div className="main-events container">
                 <div className="main-event">
-                    <div className="main-event-img">
-                        <img src="https://www.tharoasis.com/image/a-grand-wedding-at-thar-oasis-resort-in-jodhpur.jpg" alt="wedding" />
-                    </div>
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Wedding</h1>
-                    </div>
+                    <Link to="../wedding">
+                        <div className="main-event-img">
+                            <img src="https://www.tharoasis.com/image/a-grand-wedding-at-thar-oasis-resort-in-jodhpur.jpg" alt="wedding" />
+                        </div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Wedding</h1>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className="main-event">
@@ -23,7 +25,7 @@ export default function Main() {
                         <h1 className="lg-heading">Anniversary </h1>
                     </div>
                 </div>
-                
+
                 <div className="main-event">
                     <div className="main-event-img">
                         <img src="https://i.postimg.cc/LXBvsg0H/happy-birthday.jpg" alt="birthday" />

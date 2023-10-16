@@ -16,6 +16,8 @@ import Home from './pages/Home';
 import Main from './pages/Main';
 import Dashboard from './componets/Dashboard';
 import Thanks from './pages/Thanks';
+import Wedding from './pages/Wedding';
+import BirthdayParty from './pages/BirthdayParty';
 
 function App() {
   return (
@@ -36,6 +38,9 @@ function App() {
           <Route path='/main' element = {<Main />} />
           <Route path='/Dashboard' element= {<Dashboard />} />
           <Route path='/Thanks' element={<Thanks />}/>
+          <Route path='/wedding' element={<Wedding />}/>
+          <Route path='/birthdayParty' element={<BirthdayParty />}/>
+
         </Routes>
         <Footer />
       </Router>

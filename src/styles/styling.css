@@ -905,3 +905,26 @@ td {
 .main-event .lg-heading {
     font-size: 1.4rem;
 }
+
+/* ## cards for events ## */
+.card-events{
+    border: 2px solid red;
+    width: 300px;
+    height:400px;
+    align-items: center;
+}
+.card-events .card-img{
+    width: 100%;
+    border: 2px solid green;
+    height: 200px;
+    margin: auto;
+}
+.card-events .card-img img{
+    width: 100%;
+    background-position: center;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+.card-text{
+    text-align: left;
+}
