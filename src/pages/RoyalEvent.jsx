@@ -74,18 +74,21 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
-                    <div className="main-event-img">
-                        <img src="https://i.postimg.cc/fbL88BVh/25-anniversary.jpg" alt="anniversary" />
-                    </div>
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Anniversary </h1>
-                    </div>
+                    <Link to="../birthdayParty">
+                        <div className="main-event-img">
+                            <img src="https://i.postimg.cc/fbL88BVh/25-anniversary.jpg" alt="anniversary" />
+                        </div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Anniversary </h1>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className="main-event">
                     <div className="main-event-img">
                         <img src="https://i.postimg.cc/LXBvsg0H/happy-birthday.jpg" alt="birthday" />
                     </div>
+
                     <div className="main-event-title">
                         <h1 className="lg-heading">Birthdays</h1>
                     </div>
@@ -127,7 +130,7 @@ export default function RoyalEvent() {
                     </div>
                 </div>
             </div>
-        
+
 
             <section className="post">
 
@@ -149,7 +152,7 @@ export default function RoyalEvent() {
                         <p className="placeName">Pre-Wedding Photoshoot, Udaipur</p>
                     </div>
 
-                    
+
                     <div className="post1">
                         <img src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/10/08/09/google-conference-8-10.jpg?width=1200&auto=webp&quality=75"
                             alt="" />

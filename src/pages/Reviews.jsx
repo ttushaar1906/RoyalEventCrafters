@@ -46,8 +46,24 @@ export default function Reviews() {
         <div>
             <center><h1 className="lg-heading" id="lg-heading">Feedback from our clients</h1></center>
             <div className="container">
-                {/* ... your reviews content remains the same ... */}
-            </div>
+    <div className="reviews">
+        <img src="./assets/images/couple1.jpg" alt="couple1" />
+        <h1 className="lg-heading">Gururaj & Diksha</h1>
+        <p>Thank you for an exceptional conference experience! Your informative sessions, networking opportunities, and seamless organization were highly valuable. I look forward to attending future events and gaining even more insights.</p>
+    </div>
+
+    <div className="reviews">
+        <img src="https://shorturl.at/ajmzO" alt="couple 2" />
+        <h1 className="lg-heading">Avneet & Shikhar</h1>
+        <p>Newlyweds, your feedback means the world to us. Share your thoughts on your special day with us to help us enhance the magic of your wedding experience. We're committed to making your journey unforgettable.</p>
+    </div>
+
+    <div className="reviews">
+        <img src="https://shorturl.at/nIUVZ" alt="couple 3" />
+        <h1 className="lg-heading">AppWizards</h1>
+        <p>AppWizards values your input. Your feedback is a crucial part of our commitment to creating outstanding mobile apps. Please share your thoughts to help us continue delivering magic through technology.</p>
+    </div>
+</div>
 
             <div className="container">
                 <form className="feedbackForm" onSubmit={handleSubmit}>

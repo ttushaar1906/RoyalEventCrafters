@@ -27,7 +27,7 @@ export default function CustomNavbar() {
               <img src="https://i.postimg.cc/BbL9q4cc/logo.png" alt="" />
             </div>
             <ul className="nav-items">
-              <li className="nav-item"> <Link to="/">Home</Link></li>
+              <li className="nav-item"> <Link to="/Home">Home</Link></li>
               <li className="nav-item"> <Link to="/RoyalEvent">Events</Link></li>
               <li className="nav-item"> <Link to="/Contact">Contact Us</Link></li>
               <li className="nav-item"><Link to="/Reviews">Reviews</Link></li>
