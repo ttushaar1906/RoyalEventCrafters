@@ -1,23 +1,37 @@
-import React from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react';
 import '../styles/styling.css';
 
 export default function Wedding() {
+    const [eventdata, setEventData] = useState([]);
+
+    useEffect(() => {
+        const getEventData = async () => {
+            const reqEventdata = await fetch('http://localhost:3000/packages/wedding');
+            const respEventData = await reqEventdata.json();
+            setEventData(respEventData);
+        }
+
+        getEventData();
+    }, []);
+
     return (
         <>
-            <h1 className="lg-heading">"Elevate your wedding with our royal touch."</h1>
+            <h1 className="lg-heading">Elevate your wedding with our royal touch.</h1>
             <div className="container">
-                <div className="card-events">
-                    <div className="card-img">
-                        <img src="" alt="CardImage" />
+                {eventdata.map((event, index) => (
+                    <div className="card-events" key={index}>
+                        <div className="card-img">
+                            <img src='https://shorturl.at/gENVY' alt="" />
+                        </div>
+                        <div className="card-body">
+                            <h5 className="md-heading">{event.weddingCity}</h5>
+                            <p className="card-text">{event.weddingDesc}</p>
+                            <p className="price">Price: {event.price}</p>
+                            {/* Add your button here */}
+                        </div>
                     </div>
-                    <div className="card-body">
-                        <h5 className="md-heading">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        {/* button */}
-                    </div>
-                </div>
+                ))}
             </div>
         </>
-    )
+    );
 }

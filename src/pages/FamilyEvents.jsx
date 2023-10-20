@@ -25,7 +25,7 @@ export default function FamilyEvents() {
                     <p className="title-heads title-head">"Royal Event Crafters specialize in crafting cherished family gatherings with personalized touches and memorable moments."</p>
 
                     <div className="co-operative-events">
-                        <Link to="/Index" className="link-edit">
+                        <Link to="/wedding" className="link-edit">
                             <div className="family-img">
                                 <img src="https://cdn0.weddingwire.in/article/5378/3_2/1280/jpg/78735-open-air-venues-in-delhi-for-day-weddings-pixelstory-in-lead-image.jpeg"
                                     alt="" />

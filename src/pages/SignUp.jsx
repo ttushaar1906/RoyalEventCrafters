@@ -33,7 +33,7 @@ export default function SignUp() {
 
       if (response.status === 200) {
         // Redirect to the home page on successful sign-up
-        navigate('/main');
+        navigate('/RoyalEvent');
       } else {
         // Handle errors, display an error message to the user
         console.error("Sign-up failed");

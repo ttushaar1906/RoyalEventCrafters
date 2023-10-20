@@ -27,8 +27,6 @@ body {
     --secondary-text-color: #fff;
     --main-text-color: #Df3afb;
     --third--text-color: #e4007d;
-    --forth--text--color: #000080;
-    --fifth-text-color: #0808f0;
     --bg--color: #fdfce8;
     --bg--color2: #ffffffcf;
 
@@ -910,8 +908,9 @@ td {
 .card-events{
     border: 2px solid red;
     width: 300px;
-    height:400px;
+    height:550px;
     align-items: center;
+    margin-top: 1rem;
 }
 .card-events .card-img{
     width: 100%;
@@ -924,7 +923,20 @@ td {
     background-position: center;
     object-fit: cover;
     background-repeat: no-repeat;
+    opacity: 0.2;
 }
+.card-events .card-img img:hover{
+    opacity: 1;
+    transition: ease-in-out 1s;
+}
+
 .card-text{
     text-align: left;
+    height: 270px;
+    border: 2px solid yellow;
+}
+.price{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--third--text-color);
 }

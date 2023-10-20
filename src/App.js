@@ -13,7 +13,7 @@ import SignUp from './pages/SignUp';
 import Photos from './pages/Photos';
 import Reviews from './pages/Reviews';
 import Home from './pages/Home';
-import Main from './pages/Main';
+// import Main from './pages/Main';
 import Dashboard from './componets/Dashboard';
 import Thanks from './pages/Thanks';
 import Wedding from './pages/Wedding';
@@ -25,7 +25,7 @@ function App() {
       <Router>
         <CustomNavbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Index />} />
           <Route path='/signUp' element={<SignUp />} />
           <Route path="/Index" element={<Index />} />
           <Route path='/familyEvents' element={<FamilyEvents />} />
@@ -35,7 +35,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/reviews' element={<Reviews />} />
           <Route path='Home' element = {<Home />} />
-          <Route path='/main' element = {<Main />} />
+          {/* <Route path='/main' element = {<Main />} /> */}
           <Route path='/Dashboard' element= {<Dashboard />} />
           <Route path='/Thanks' element={<Thanks />}/>
           <Route path='/wedding' element={<Wedding />}/>
