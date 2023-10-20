@@ -18,6 +18,7 @@ import Dashboard from './componets/Dashboard';
 import Thanks from './pages/Thanks';
 import Wedding from './pages/Wedding';
 import BirthdayParty from './pages/BirthdayParty';
+import UdaipurWedding from './pages/UdaipurWedding';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path='/Dashboard' element= {<Dashboard />} />
           <Route path='/Thanks' element={<Thanks />}/>
           <Route path='/wedding' element={<Wedding />}/>
+          <Route path='/wedding/UdaipurWedding' element={<UdaipurWedding />}/>
           <Route path='/birthdayParty' element={<BirthdayParty />}/>
 
         </Routes>

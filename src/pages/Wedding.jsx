@@ -13,7 +13,6 @@ export default function Wedding() {
             setEventData(respEventData);
             console.log("data", respEventData)
         }
-
         getEventData();
     }, []);
 
