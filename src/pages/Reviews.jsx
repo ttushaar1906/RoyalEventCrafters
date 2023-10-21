@@ -47,21 +47,21 @@ export default function Reviews() {
             <center><h1 className="lg-heading" id="lg-heading">Feedback from our clients</h1></center>
             <div className="container">
     <div className="reviews">
-        <img src="./assets/images/couple1.jpg" alt="couple1" />
+        <img src="https://shorturl.at/cgpv5" alt="Conference" />
         <h1 className="lg-heading">Gururaj & Diksha</h1>
-        <p>Thank you for an exceptional conference experience! Your informative sessions, networking opportunities, and seamless organization were highly valuable. I look forward to attending future events and gaining even more insights.</p>
+        <p>The IT conference organized by the Royal Event Crafters team was a resounding success. The hall was well-equipped, the food was delicious, and the seating and sound system were top-notch. These factors combined to create a seamless and enjoyable event that left a lasting impression on attendees.</p>
     </div>
 
     <div className="reviews">
         <img src="https://shorturl.at/ajmzO" alt="couple 2" />
         <h1 className="lg-heading">Avneet & Shikhar</h1>
-        <p>Newlyweds, your feedback means the world to us. Share your thoughts on your special day with us to help us enhance the magic of your wedding experience. We're committed to making your journey unforgettable.</p>
+        <p>The destination wedding organized by the Royal Event Crafters team was nothing short of magical. The royal venue, exquisite decoration, and sumptuous food set the stage for a dream wedding. Beyond that, the meticulously planned side events made our special day an extraordinary experience that we and our guests will cherish forever.</p>
     </div>
 
     <div className="reviews">
         <img src="https://shorturl.at/nIUVZ" alt="couple 3" />
         <h1 className="lg-heading">AppWizards</h1>
-        <p>AppWizards values your input. Your feedback is a crucial part of our commitment to creating outstanding mobile apps. Please share your thoughts to help us continue delivering magic through technology.</p>
+        <p>The award ceremony was a phenomenal event, impeccably organized by the Royal Event Crafters team. The venue was breathtaking, the food was delectable, and the decoration added a touch of grandeur to the occasion. The perfect blend of these elements made for an unforgettable and delightful evening.</p>
     </div>
 </div>
 
