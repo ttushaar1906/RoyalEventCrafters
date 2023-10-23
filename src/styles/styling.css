@@ -988,3 +988,47 @@ td {
     background-position: center;
     background-size:cover;
 }
+
+/* ## err ## */
+.err{
+    padding-top: 6rem;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    justify-content: center;
+    align-items: center;
+}
+.err-heading{
+    font-size: 4rem;
+    color: var(--primary-text-color);
+}
+.err .md-heading{
+    color: var(--main-text-color);
+    font-weight: 600;
+    font-size: 2rem;
+}
+.err .btn{
+    margin-top:1rem ;
+    background-color: var(--primary-text-color);
+    color: var(--main-text-color);
+}
+.err .btn a{
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+.err-msg{
+    height: 400px;
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding-top: 2rem;
+}
+.err-img{
+    width: 400px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.err-img img{
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

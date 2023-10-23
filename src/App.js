@@ -18,7 +18,9 @@ import Dashboard from './componets/Dashboard';
 import Thanks from './pages/Thanks';
 import Wedding from './pages/Wedding';
 import BirthdayParty from './pages/BirthdayParty';
-import UdaipurWedding from './pages/UdaipurWedding';
+// import UdaipurWedding from './pages/UdaipurWedding';
+import Err from './pages/Err';
+import WeddingCity from './componets/WeddingCity';
 
 function App() {
   return (
@@ -40,9 +42,12 @@ function App() {
           <Route path='/Dashboard' element= {<Dashboard />} />
           <Route path='/Thanks' element={<Thanks />}/>
           <Route path='/wedding' element={<Wedding />}/>
-          <Route path='/wedding/UdaipurWedding' element={<UdaipurWedding />}/>
-          <Route path='/birthdayParty' element={<BirthdayParty />}/>
+          <Route path='/wedding/:weddingCity' element={<WeddingCity />}/>
 
+          {/* <Route path='/wedding/UdaipurWedding' element={<UdaipurWedding />}/> */}
+          <Route path='/birthdayParty' element={<BirthdayParty />}/>
+          <Route path='/err' element={<Err />}/>
+        
         </Routes>
         <Footer />
       </Router>

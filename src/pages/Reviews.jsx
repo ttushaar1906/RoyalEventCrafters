@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../styles/styling.css';
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Reviews() {
     const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ export default function Reviews() {
         rating: "",
         message: "",
     });
+const navigate = useNavigate(); // You were missing parentheses here.
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -33,6 +35,8 @@ export default function Reviews() {
             if (response.status === 200) {
                 // Handle success, e.g., show a confirmation message
                 console.log("Feedback submitted successfully.");
+                alert('Thanks for valuable review')
+                navigate('/Home')
             } else {
                 // Handle errors, display an error message to the user
                 console.error("Feedback submission failed.");
@@ -48,7 +52,7 @@ export default function Reviews() {
             <div className="container">
     <div className="reviews">
         <img src="https://shorturl.at/cgpv5" alt="Conference" />
-        <h1 className="lg-heading">Gururaj & Diksha</h1>
+        <h1 className="lg-heading">TechWizards</h1>
         <p>The IT conference organized by the Royal Event Crafters team was a resounding success. The hall was well-equipped, the food was delicious, and the seating and sound system were top-notch. These factors combined to create a seamless and enjoyable event that left a lasting impression on attendees.</p>
     </div>
 

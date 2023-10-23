@@ -20,7 +20,6 @@ export default function Login() {
       [name]: value,
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Send a POST request to your backend with formData
@@ -32,14 +31,13 @@ export default function Login() {
         },
         body: JSON.stringify(formData),
       });
-
       // Handle response and redirect if necessary
       if (response.status === 200) {
         // Redirect the user to the dashboard or a success page
         navigate('/Home');
-      } else {
-        // Handle errors, e.g., display an error message to the user
-        alert("Invalid")
+      // } else {
+        // // Handle errors, e.g., display an error message to the user
+        // alert("Invalid")
       }
     } catch (error) {
       console.error("Error:", error);
