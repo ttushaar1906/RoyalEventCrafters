@@ -23,7 +23,7 @@ export default function RoyalEvent() {
                     <p className="title-head">At Royal Event Crafters, we turn moments into memories and visions into reality. Your
                         event, our expertise!</p>
                     <div className="personal-event" id='FamilyEvent'>
-                        <Link to="../FamilyEvents">
+                        <Link to="../RoyalEvent/FamilyEvents">
                             <div className="img-container">
                                 <img
                                     src="https://i.postimg.cc/Y2sJn35b/top-12-wedding-destinations-in-india-20171027033333.jpg"
@@ -74,7 +74,7 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
-                    <Link to="../">
+                    <Link to="../RoyalEvent/anniversary">
                         <div className="main-event-img">
                             <img src="https://i.postimg.cc/fbL88BVh/25-anniversary.jpg" alt="anniversary" />
                         </div>

@@ -30,7 +30,7 @@ export default function Wedding() {
                             <h5 className="md-heading">{event.placeTitle}</h5>
                             {/* <p className="card-text">{event.location}</p> */}
                             <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#000",}} /> Planning Fee</p>
-                            <p className="price">Price: {event.partyPrice } </p>
+                            <p className="price">Price: {event.price } </p>
                             {/* Add your button here */}
                             <button className='btn'><Link to ="">Show More </Link></button>
                         </div>

@@ -933,7 +933,6 @@ td {
     background-position: center;
     object-fit: cover;
     background-repeat: no-repeat;
-    /* opacity: 0.2; */
 }
 
 .card-events .card-img img:hover {
@@ -943,8 +942,6 @@ td {
 
 .card-text {
     text-align: left;
-    /* height: 270px; */
-    /* border: 2px solid yellow; */
 }
 
 .price {
@@ -972,6 +969,42 @@ td {
 .wed-heads {
     margin-top: 1rem;
 }
+
+.card-display{
+    max-width: 1200px;
+    width: 90%;
+    height: auto;
+    /* border: 2px solid red; */
+}
+.card-display .card-img{
+    width: 100%;
+    /* height: 1200px; */
+}
+.card-display .card-img img{
+    height: auto;
+}
+.card-body .city-display{
+    color: var(--third--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 0.2rem;
+}
+.card-display .planning-fee{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.city-loc{
+    color: var(--main-text-color);
+    font-weight: 600;
+    font-size: 2rem;
+}
+.city-display 
+
+
+
+
+
 
 /* ## Booking form ## */
 .bg {
