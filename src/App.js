@@ -21,6 +21,7 @@ import BirthdayParty from './pages/BirthdayParty';
 // import UdaipurWedding from './pages/UdaipurWedding';
 import Err from './pages/Err';
 import WeddingCity from './componets/WeddingCity';
+import Anniversary from  './pages/Anniversary';
 
 function App() {
   return (
@@ -43,8 +44,7 @@ function App() {
           <Route path='/Thanks' element={<Thanks />}/>
           <Route path='/wedding' element={<Wedding />}/>
           <Route path='/wedding/:weddingCity' element={<WeddingCity />}/>
-
-          {/* <Route path='/wedding/UdaipurWedding' element={<UdaipurWedding />}/> */}
+          <Route path='/RoyalEvent/anniversary' element={<Anniversary/>}/>
           <Route path='/birthdayParty' element={<BirthdayParty />}/>
           <Route path='/err' element={<Err />}/>
         
