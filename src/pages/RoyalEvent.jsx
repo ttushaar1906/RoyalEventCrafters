@@ -74,7 +74,7 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
-                    <Link to="../birthdayParty">
+                    <Link to="../">
                         <div className="main-event-img">
                             <img src="https://i.postimg.cc/fbL88BVh/25-anniversary.jpg" alt="anniversary" />
                         </div>
@@ -85,13 +85,15 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
-                    <div className="main-event-img">
-                        <img src="https://i.postimg.cc/LXBvsg0H/happy-birthday.jpg" alt="birthday" />
-                    </div>
+                    <Link to="../birthdayParty">
+                        <div className="main-event-img">
+                            <img src="https://i.postimg.cc/LXBvsg0H/happy-birthday.jpg" alt="birthday" />
+                        </div>
 
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Birthdays</h1>
-                    </div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Birthdays</h1>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className="main-event">
