@@ -97,6 +97,7 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
+                <a href='/componets/Conferences'></a>
                     <div className="main-event-img">
                         <img src="https://pegasusevents.in/wp-content/uploads/2017/06/Marsh-and-Mclennan-Conference-by-Pegasus-Events-India-Pvt-Ltd-2.jpg" alt="" />
                     </div>

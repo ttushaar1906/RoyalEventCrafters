@@ -11,7 +11,7 @@ export default function Login() {
     password: "",
   });
 
-  const navigate = useNavigate(); // You were missing parentheses here.
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,24 +20,22 @@ export default function Login() {
       [name]: value,
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Send a POST request to your backend with formData
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch("/signup", { // Change this to /login
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-      // Handle response and redirect if necessary
+  
       if (response.status === 200) {
-        // Redirect the user to the dashboard or a success page
         navigate('/Home');
-      // } else {
-        // // Handle errors, e.g., display an error message to the user
-        // alert("Invalid")
+      } else {
+        console.error("Error:", response.status);
       }
     } catch (error) {
       console.error("Error:", error);
