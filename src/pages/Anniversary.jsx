@@ -3,7 +3,7 @@ import '../styles/styling.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
-export default function Wedding() {
+export default function Anniversary() {
     const [eventdata, setEventData] = useState([]);
 
     useEffect(() => {
@@ -28,11 +28,10 @@ export default function Wedding() {
                         </div>
                         <div className="card-body">
                             <h5 className="md-heading">{event.placeTitle}</h5>
-                            {/* <p className="card-text">{event.location}</p> */}
-                            <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#000",}} /> Planning Fee</p>
-                            <p className="price">Price: {event.price } </p>
+                            <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{ color: "#000", }} /> Planning Fee</p>
+                            <p className="price">Price: {event.price} </p>
                             {/* Add your button here */}
-                            <button className='btn'><Link to ="">Show More </Link></button>
+                            <button className='btn'><Link to={`/RoyalEvent/anniversary/${event.placeTitle}`}>Show More</Link></button>
                         </div>
                     </div>
                 ))}

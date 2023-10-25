@@ -22,6 +22,9 @@ import BirthdayParty from './pages/BirthdayParty';
 import Err from './pages/Err';
 import WeddingCity from './componets/WeddingCity';
 import Anniversary from  './pages/Anniversary';
+import AnniversaryCity from './componets/AnniversaryCity';
+import BirthdayPlace from './componets/BirthdayPlace';
+
 
 function App() {
   return (
@@ -32,22 +35,31 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path='/signUp' element={<SignUp />} />
           <Route path="/Index" element={<Index />} />
-          <Route path='/RoyalEvent/familyEvents' element={<FamilyEvents />} />
           <Route path='/RoyalEvent' element={<RoyalEvent />} />
+          <Route path='/RoyalEvent/familyEvents' element={<FamilyEvents />} />
           <Route path='/RoyalEvent/co-operativeEvent' element={<CooperativeEvents />} />
           <Route path="/photos" element={<Photos />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/reviews' element={<Reviews />} />
           <Route path='Home' element = {<Home />} />
-          {/* <Route path='/main' element = {<Main />} /> */}
           <Route path='/Dashboard' element= {<Dashboard />} />
-          <Route path='/Thanks' element={<Thanks />}/>
-          <Route path='/wedding' element={<Wedding />}/>
+          {/* <Route path='/main' element = {<Main />} /> */}
+
+          {/* Wedding */}
+          <Route path='/RoyalEvent/wedding' element={<Wedding />}/>
           <Route path='/wedding/:weddingCity' element={<WeddingCity />}/>
+
+          {/* Anniversary */}
           <Route path='/RoyalEvent/anniversary' element={<Anniversary/>}/>
-          <Route path='/birthdayParty' element={<BirthdayParty />}/>
-          <Route path='/err' element={<Err />}/>
+          <Route path='/RoyalEvent/anniversary/:placeTitle' element={<AnniversaryCity />}/>
+
+          {/* Birthday */}
+          <Route path='/RoyalEvent/birthdayParty' element={<BirthdayParty />}/>
+          <Route path='/RoyalEvent/birthdayParty/:partyType' element={<BirthdayPlace />}/>
+
         
+          <Route path='/err' element={<Err />}/>
+          <Route path='/Thanks' element={<Thanks />}/>
         </Routes>
         <Footer />
       </Router>

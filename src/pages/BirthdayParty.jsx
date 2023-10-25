@@ -8,7 +8,7 @@ export default function Wedding() {
 
     useEffect(() => {
         const getEventData = async () => {
-            const reqEventdata = await fetch('http://localhost:3000/packages/birthdayparty');
+            const reqEventdata = await fetch('http://localhost:3000/packages/RoyalEvent/birthdayparty');
             const respEventData = await reqEventdata.json();
             setEventData(respEventData);
             console.log("data", respEventData)
@@ -29,10 +29,10 @@ export default function Wedding() {
                         <div className="card-body">
                             <h5 className="md-heading">{event.partyType}</h5>
                             {/* <p className="card-text">{event.location}</p> */}
-                            <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#000",}} /> Planning Fee</p>
-                            <p className="price">Price: {event.partyPrice } </p>
+                            <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{ color: "#000", }} /> Planning Fee</p>
+                            <p className="price">Price: {event.partyPrice} </p>
                             {/* Add your button here */}
-                            <button className='btn'><Link to ="">Show More </Link></button>
+                            <button className='btn'><Link to={`/RoyalEvent/birthdayParty/${event.partyType}`}>Show More</Link></button>
                         </div>
                     </div>
                 ))}

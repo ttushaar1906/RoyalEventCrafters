@@ -63,7 +63,7 @@ export default function RoyalEvent() {
 
             <div className="main-events container" id='main-events'>
                 <div className="main-event">
-                    <Link to="../wedding">
+                    <Link to="../RoyalEvent/wedding">
                         <div className="main-event-img">
                             <img src="https://www.tharoasis.com/image/a-grand-wedding-at-thar-oasis-resort-in-jodhpur.jpg" alt="wedding" />
                         </div>
@@ -85,7 +85,7 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
-                    <Link to="../birthdayParty">
+                    <Link to="../RoyalEvent/birthdayParty">
                         <div className="main-event-img">
                             <img src="https://i.postimg.cc/LXBvsg0H/happy-birthday.jpg" alt="birthday" />
                         </div>
