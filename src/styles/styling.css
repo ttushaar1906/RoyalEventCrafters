@@ -935,11 +935,6 @@ td {
     background-repeat: no-repeat;
 }
 
-.card-events .card-img img:hover {
-    opacity: 1;
-    transition: ease-in-out 1s;
-}
-
 .card-text {
     text-align: left;
 }
@@ -974,11 +969,9 @@ td {
     max-width: 1200px;
     width: 90%;
     height: auto;
-    /* border: 2px solid red; */
 }
 .card-display .card-img{
     width: 100%;
-    /* height: 1200px; */
 }
 .card-display .card-img img{
     height: auto;
@@ -999,8 +992,6 @@ td {
     font-weight: 600;
     font-size: 2rem;
 }
-.city-display 
-
 
 
 
@@ -1021,6 +1012,36 @@ td {
     background-position: center;
     background-size:cover;
 }
+.forms .container{
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+}
+.booking-display{
+    border: 2px solid blue;
+    width: 50%;
+}
+
+.booking-form{
+    width: 50%;
+    border: 2px solid black;
+
+}
+.booking-form input{
+    display: inline;
+    margin: 0.5rem;
+    width: 70%;
+    padding: 0.5rem;
+    border: 2px solid red;
+}
+.booking-form label{
+    border: 2px solid black;
+    display: inline;
+}
+
 
 /* ## err ## */
 .err{
