@@ -8,6 +8,7 @@ export default function WeddingCity() {
     const { weddingCity } = useParams(); // Get the 'city' parameter from the route
 
     const [eventdata, setEventData] = useState([]);
+    const [otheritemdata, setOtheritemData] = useState([]);
 
     useEffect(() => {
         const getEventData = async () => {
@@ -18,6 +19,27 @@ export default function WeddingCity() {
         }
         getEventData();
     }, [weddingCity]); // Make sure to include 'city' in the dependency array
+
+    useEffect(() => {
+        const getotheritemdata = async () => {
+            try {
+                const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
+                if (reqOtheritemData.ok) {
+                    const respOtheritemData = await reqOtheritemData.json();
+                    setOtheritemData(respOtheritemData);
+                    console.log("data", respOtheritemData);
+                } else {
+                    console.error("Error fetching other item data");
+                }
+            } catch (error) {
+                console.error("Error: ", error);
+            }
+        }
+        getotheritemdata();
+    }, [weddingCity]);
+
+
+
 
     return (
         <>
@@ -39,6 +61,24 @@ export default function WeddingCity() {
                     </div>
                 ))}
             </div>
+
+            <form action="" className="booking-form">
+                <h1>this is form</h1>
+                <div className="container">
+                    {otheritemdata.map((event, index) => (
+                        <div className="card-events card-display" key={index}>
+                            <div className="card-img">
+                                {/* <img src={event.weddingImg} alt="" /> */}
+                             <input type="checkbox" name="item" id="" />   <p className="card-text city-loc">{event.items}</p>
+                                <p className="card-text city-loc">{event.prices}/-</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </form>
+
+
+
         </>
     )
 }

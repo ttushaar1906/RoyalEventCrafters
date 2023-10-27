@@ -49,6 +49,8 @@ function App() {
           {/* Wedding */}
           <Route path='/RoyalEvent/wedding' element={<Wedding />}/>
           <Route path='/wedding/:weddingCity' element={<WeddingCity />}/>
+          <Route path='/RoyalEvent/wedding/otheritems' element={<WeddingCity />}/>
+          {/* http://localhost:4000/packages/wedding/otheritem */}
 
           {/* Anniversary */}
           <Route path='/RoyalEvent/anniversary' element={<Anniversary/>}/>
