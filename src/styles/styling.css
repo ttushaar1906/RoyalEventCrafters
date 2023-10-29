@@ -910,6 +910,7 @@ td {
 }
 
 /* ## cards for events ## */
+
 .card-events {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -948,7 +949,7 @@ td {
 
 .planning-fee {
     color: var(--primary-text-color);
-    font-weight: 300;
+    font-weight: 400;
     text-align: left;
 }
 
@@ -990,44 +991,46 @@ td {
 .city-loc{
     color: var(--main-text-color);
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
-
-
-
-
-
+.card-body .md-heading{
+    text-align: left;
+    color: var(--primary-text-color);
+    font-weight: 600;
+}
 /* ## Booking form ## */
-.bg {
-    border: 2px solid red;
-    width: 100%;
+
+.booking-pg{
+    /* border: 2px solid green; */
     margin-top: 1rem;
 }
+.booking-pg .container{
+    align-items: flex-start;
+}
 
-.bg img {
+.bookings-display{
+    width: 50%;
+    /* border: 2px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* height: 1050px; */
+    /* position:fixed; */
+}
+.booking-display-img{
+    width: 100%;  
+    /* border: 2px solid red; */
+}
+
+.booking-display-img img{
     width: 100%;
-    height: 85vh;
+    background-position: center;
     object-fit: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-}
-.forms .container{
-    border: 2px solid red;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 90%;
-    max-width: 1200px;
-}
-.booking-display{
-    border: 2px solid blue;
-    width: 50%;
+    background-size: cover;
 }
 
 .booking-form{
     width: 50%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 
 }
 .booking-form input{
@@ -1035,15 +1038,40 @@ td {
     margin: 0.5rem;
     width: 70%;
     padding: 0.5rem;
-    border: 2px solid red;
+    border: 1px solid;
+    background-color: var(--secondary-text-color);
 }
-.booking-form label{
-    border: 2px solid black;
+
+.function{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.function label{
+    color: #000;
+}
+
+.other-items{
+    /* border:2px solid red ; */
+    margin: 0.5rem;
+    /* display: flex; */
+}
+.otherItem-show{
+    display: flex;
+    padding: 0.5rem 0;
+    border: 1px solid black;
+}
+.otherItem-show input{
     display: inline;
+    width: 20px;
 }
 
 
-/* ## err ## */
+
+
+    /* ## err ## */
 .err{
     padding-top: 6rem;
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
