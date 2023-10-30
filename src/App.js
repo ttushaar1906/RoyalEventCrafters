@@ -13,12 +13,10 @@ import SignUp from './pages/SignUp';
 import Photos from './pages/Photos';
 import Reviews from './pages/Reviews';
 import Home from './pages/Home';
-// import Main from './pages/Main';
 import Dashboard from './componets/Dashboard';
 import Thanks from './pages/Thanks';
 import Wedding from './pages/Wedding';
 import BirthdayParty from './pages/BirthdayParty';
-// import UdaipurWedding from './pages/UdaipurWedding';
 import Err from './pages/Err';
 import WeddingCity from './componets/WeddingCity';
 import Anniversary from  './pages/Anniversary';
@@ -48,8 +46,8 @@ function App() {
 
           {/* Wedding */}
           <Route path='/RoyalEvent/wedding' element={<Wedding />}/>
-          <Route path='/wedding/:weddingCity' element={<WeddingCity />}/>
-          <Route path='/RoyalEvent/wedding/otheritems' element={<WeddingCity />}/>
+          <Route path='/RoyalEvent/wedding/:weddingCity' element={<WeddingCity />}/>
+          <Route path='/RoyalEvent/wedding/::weddingCity/otheritems' element={<WeddingCity />}/>
           {/* http://localhost:4000/packages/wedding/otheritem */}
 
           {/* Anniversary */}

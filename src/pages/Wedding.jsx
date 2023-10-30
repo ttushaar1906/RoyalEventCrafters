@@ -10,7 +10,7 @@ export default function Wedding() {
 
     useEffect(() => {
         const getEventData = async () => {
-            const reqEventdata = await fetch('http://localhost:4000/packages/wedding');
+            const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/wedding');
             const respEventData = await reqEventdata.json();
             setEventData(respEventData);
             console.log("data", respEventData)
@@ -34,7 +34,7 @@ export default function Wedding() {
                             <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{ color: "#000", }} /> Planning Fee</p>
                             <p className="price">Price: {event.price} </p>
                             {/* Add your button here */}
-                            <button className='btn'><Link to={`/wedding/${event.weddingCity}`}>Show More</Link></button>
+                            <button className='btn'><Link to={`/RoyalEvent/wedding/${event.weddingCity}`}>Show More</Link></button>
                         </div>
                     </div>
                 ))}

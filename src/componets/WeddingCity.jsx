@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faLocationDot,faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function WeddingCity() {
     const { weddingCity } = useParams(); // Get the 'city' parameter from the route
@@ -9,10 +10,11 @@ export default function WeddingCity() {
     const [eventdata, setEventData] = useState([]);
     const [otheritemdata, setOtheritemData] = useState([]);
 
+  
     useEffect(() => {
         const getEventData = async () => {
             try {
-                const reqEventdata = await fetch(`http://localhost:4000/packages/wedding/${weddingCity}`);
+                const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/${weddingCity}`);
                 if (reqEventdata.ok) {
                     const respEventData = await reqEventdata.json();
                     setEventData(respEventData);
@@ -46,7 +48,6 @@ export default function WeddingCity() {
     }, [weddingCity]);
 
 // Function to handle checkbox changes
-// Function to handle checkbox changes
 const handleCheckboxChange = (index) => {
     const updatedOtherItemData = [...otheritemdata];
     updatedOtherItemData[index].checked = !updatedOtherItemData[index].checked;
@@ -70,15 +71,6 @@ const decreaseCount = (index) => {
     if (otheritemdata[index].checked && otheritemdata[index].count > 0) {
         const updatedOtherItemData = [...otheritemdata];
         updatedOtherItemData[index].count--;
-        setOtheritemData(updatedOtherItemData);
-    }
-};
-
-// Function to set count to zero
-const setToZero = (index) => {
-    if (otheritemdata[index].checked) {
-        const updatedOtherItemData = [...otheritemdata];
-        updatedOtherItemData[index].count = 0;
         setOtheritemData(updatedOtherItemData);
     }
 };
@@ -128,6 +120,10 @@ useEffect(() => {
 
     return (
         <div className='booking-pg'>
+            <div className="linking-tags">
+            <Link to="/Home">Home </Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{color: "#000000",}} /> <Link to="/RoyalEvent">RoyalEvents</Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{color: "#000000",}} /><Link to="/RoyalEvent/Wedding">Wedding</Link>
+            </div>c
+
             <div className="container">
                 {eventdata.map((event, index) => (
                     <div className="bookings-display" key={index}>
@@ -143,7 +139,8 @@ useEffect(() => {
                             <p className='card-text'>{event.aboutPackage}</p>
                         </div>
                     </div>
-                ))}<form action="" className="booking-form">
+                ))}
+                <form action="" className="booking-form">
                     <h1 className='lg-heading'>"Dreamy Destination Weddings: Book Your Blissful Celebration Today!"</h1>
                     {/* <h1>This is the form</h1> */}
 
@@ -180,15 +177,14 @@ useEffect(() => {
                                     <p className="otherItems-List">
                                         {item.items} <span>{item.prices}/-</span>
                                     </p>
-                                    <button onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
+                                    <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
                                     {item.count}
-                                    <button onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
-                                    <button onClick={() => setToZero(index)}>Set to Zero</button>
+                                    <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <input type="button" value="Book" />
+                   <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>
         </div>

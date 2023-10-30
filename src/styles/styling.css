@@ -97,6 +97,21 @@ body {
     font-weight: 600;
 }
 
+.linking-tags {
+    display: flex;
+    padding: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.linking-tags a {
+    text-decoration: none;
+    color: var(--third--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 /* ##### Nav Bar ##### */
 .nav-section {
     height: 120px;
@@ -966,61 +981,66 @@ td {
     margin-top: 1rem;
 }
 
-.card-display{
+.card-display {
     max-width: 1200px;
     width: 90%;
     height: auto;
 }
-.card-display .card-img{
+
+.card-display .card-img {
     width: 100%;
 }
-.card-display .card-img img{
+
+.card-display .card-img img {
     height: auto;
 }
-.card-body .city-display{
+
+.card-body .city-display {
     color: var(--third--text-color);
     font-size: 1.5rem;
     font-weight: 600;
     text-align: left;
     padding-left: 0.2rem;
 }
-.card-display .planning-fee{
+
+.card-display .planning-fee {
     font-size: 1rem;
     font-weight: 500;
 }
-.city-loc{
+
+.city-loc {
     color: var(--main-text-color);
     font-weight: 600;
     font-size: 1.8rem;
 }
-.card-body .md-heading{
+
+.card-body .md-heading {
     text-align: left;
     color: var(--primary-text-color);
     font-weight: 600;
 }
+
 /* ## Booking form ## */
 
-.booking-pg{
+.booking-pg {
     /* border: 2px solid green; */
     margin-top: 1rem;
 }
-.booking-pg .container{
+
+.booking-pg .container {
     align-items: flex-start;
 }
 
-.bookings-display{
+.bookings-display {
     width: 50%;
-    /* border: 2px solid black; */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    /* height: 1050px; */
-    /* position:fixed; */
-}
-.booking-display-img{
-    width: 100%;  
-    /* border: 2px solid red; */
 }
 
-.booking-display-img img{
+.booking-display-img {
+    width: 100%;
+}
+
+.booking-display-img img {
     width: 100%;
     background-position: center;
     object-fit: cover;
@@ -1028,12 +1048,11 @@ td {
     background-size: cover;
 }
 
-.booking-form{
+.booking-form {
     width: 50%;
-    /* border: 2px solid black; */
-
 }
-.booking-form input{
+
+.booking-form input {
     display: inline;
     margin: 0.5rem;
     width: 70%;
@@ -1042,72 +1061,112 @@ td {
     background-color: var(--secondary-text-color);
 }
 
-.function{
+.function {
     display: flex;
     width: 90%;
     margin: auto;
-    justify-content: center;
     align-items: center;
 }
-.function label{
+
+.function label {
     color: #000;
 }
 
-.other-items{
+.other-items {
     /* border:2px solid red ; */
     margin: 0.5rem;
     /* display: flex; */
 }
-.otherItem-show{
+
+.otherItem-show {
     display: flex;
     padding: 0.5rem 0;
     border: 1px solid black;
+    align-items: center;
+    justify-content: flex-start;
 }
-.otherItem-show input{
+
+.otherItem-show input {
     display: inline;
     width: 20px;
 }
 
+.incDec-btn {
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    margin: 0.3rem;
+}
+
+/* Default button styles */
+.submit-btn {
+    width: 90%;
+    /* Set your desired width */
+    background-color: var(--third--text-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Button hover effect */
+.submit-btn:hover {
+    background-color: #d40075;
+    color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
 
 
-
-    /* ## err ## */
-.err{
+/* ## err ## */
+.err {
     padding-top: 6rem;
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
     justify-content: center;
     align-items: center;
 }
-.err-heading{
+
+.err-heading {
     font-size: 4rem;
     color: var(--primary-text-color);
 }
-.err .md-heading{
+
+.err .md-heading {
     color: var(--main-text-color);
     font-weight: 600;
     font-size: 2rem;
 }
-.err .btn{
-    margin-top:1rem ;
+
+.err .btn {
+    margin-top: 1rem;
     background-color: var(--primary-text-color);
     color: var(--main-text-color);
 }
-.err .btn a{
+
+.err .btn a {
     text-decoration: none;
     color: var(--main-text-color);
 }
-.err-msg{
+
+.err-msg {
     height: 400px;
     width: 400px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding-top: 2rem;
 }
-.err-img{
+
+.err-img {
     width: 400px;
     height: 400px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.err-img img{
+
+.err-img img {
     width: 100%;
     object-fit: cover;
     background-position: center;
