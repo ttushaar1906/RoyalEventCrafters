@@ -56,7 +56,9 @@ export default function BirthdayPlace() {
         email: "",
         bookingDate: "",
         noOfGuests: "",
-        eventTime: ""
+        eventTime: "",
+        city:"",
+        address:"",
     });
 
     const handleInputChange = (e) => {

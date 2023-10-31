@@ -65,6 +65,7 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
+                <Link to='../RoyalEvent/AwardCeremony'>
                     <div className="main-event-img">
                         <img src="https://www.inventiveevents.com/wp-content/uploads/2019/03/awards-room-copy.jpg" alt="Award-ceremony" />
                     </div>
@@ -72,6 +73,7 @@ export default function RoyalEvent() {
                         <h1 className="lg-heading">Award Ceremony
                         </h1>
                     </div>
+                    </Link>
                 </div>
 
                 <div className="main-event">
