@@ -978,7 +978,7 @@ td {
 }
 
 .wed-heads {
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
 .card-display {
@@ -1073,9 +1073,7 @@ td {
 }
 
 .other-items {
-    /* border:2px solid red ; */
     margin: 0.5rem;
-    /* display: flex; */
 }
 
 .otherItem-show {
@@ -1121,7 +1119,16 @@ td {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
-
+.additional-info label{
+    color: var(--primary-text-color);
+}
+.additional-info select{
+    width: 70%;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0.5rem;
+}
+    
 
 /* ## err ## */
 .err {

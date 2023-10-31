@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/styling.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faLocationDot,faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function BirthdayPlace() {
     const { partyType } = useParams(); // Get the 'city' parameter from the route
+    const [selectedOption, setSelectedOption] = useState('option1');
+    const handleDropdownChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
 
     const [eventdata, setEventData] = useState([]);
     const [otheritemdata, setOtheritemData] = useState([]);
-
-
     useEffect(() => {
         const getEventData = async () => {
             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/birthdayParty/${partyType}`);
@@ -45,7 +47,7 @@ export default function BirthdayPlace() {
             }
         }
         getOtherItemData();
-    }, [BirthdayPlace]);
+    });
 
     const [formData, setFormData] = useState({
         eventLoc: "",
@@ -67,7 +69,7 @@ export default function BirthdayPlace() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
             const response = await fetch("/orders", {
                 method: "POST",
@@ -76,7 +78,7 @@ export default function BirthdayPlace() {
                 },
                 body: JSON.stringify(formData),
             });
-    
+
             if (response.status === 200) {
                 console.log("Order submitted successfully.");
                 // Redirect to another page (e.g., '/Home')
@@ -95,8 +97,8 @@ export default function BirthdayPlace() {
                 <Link to="/Home">Home </Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /> <Link to="/RoyalEvent">RoyalEvents</Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /><Link to="/RoyalEvent/Wedding">Birthday</Link>
             </div>
 
-            <h1 className="lg-heading wed-heads">Elevate your wedding with our royal touch.</h1>
-           
+            <h1 className="lg-heading wed-heads">"Sparkling Moments: A Birthday Celebration to Remember".</h1>
+
             <div className="container">
                 {eventdata.map((event, index) => (
                     <div className="bookings-display" key={index}>
@@ -105,15 +107,13 @@ export default function BirthdayPlace() {
                         </div>
                         <div className="card-body">
                             <p className="card-text city-loc">{event.partyType}</p>
-                            <h1 className="md-heading city-display"><span className='price'><FontAwesomeIcon icon={faLocationDot} style={{ color: "#e4007d", }} /> {event.weddingCity}</span></h1>
                             <p className="card-text card-text-desc">{event.partyDesc}</p>
                             <p className="planning-fee">Price: <span className='price'><FontAwesomeIcon icon={faIndianRupeeSign} /> {event.partyPrice}</span></p>
+                            <p className="card-text card-text-desc">{event.aboutPackage}</p>
                         </div>
                     </div>
                 ))}
-                <form action="" className="booking-form" onSubmit={handleSubmit}>
-                    <h1 className='lg-heading'>"Dreamy Destination Weddings: Book Your Blissful Celebration Today!"</h1>
-                    {/* <h1>This is the form</h1> */}
+                <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
 
                     {eventdata.map((event, index) => (
                         <div key={index}>
@@ -121,11 +121,33 @@ export default function BirthdayPlace() {
 
                         </div>
                     ))}
-                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder='Enter your Name'/>
+                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder='Enter your Name' />
                     <input type="number" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} placeholder='Enter your Mobile No' />
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='Enter Your Email'/>
+                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='Enter Your Email' />
+
                     <input type="date" name="bookingDate" value={formData.bookingDate} onChange={handleInputChange} />
-                    <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter NO of  Guests' />
+
+                    <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter No of  Guests' />
+
+                    <label htmlFor="dropdown">Select City:</label>
+
+                    <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Agra">Agra</option>
+                        <option value="Raipur">Raipur</option>
+                        <option value="Raipur">Raipur</option>
+                        <option value="Kota">Kota</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Hydrabad">Hydrabad</option>
+                    </select>
+
+                    <input type="text" name="address" value={formData.address} onChange={handleInputChange} placeholder='Enter Your Address' />
                     <p className='event-time'>Function Time</p>
                     <div className="function">
                         <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} />

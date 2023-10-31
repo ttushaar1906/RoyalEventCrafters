@@ -10,8 +10,6 @@ export default function WeddingCity() {
 
     const [eventdata, setEventData] = useState([]);
     const [otheritemdata, setOtheritemData] = useState([]);
-
-
     useEffect(() => {
         const getEventData = async () => {
             try {
