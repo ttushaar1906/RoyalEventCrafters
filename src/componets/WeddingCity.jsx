@@ -77,7 +77,7 @@ export default function WeddingCity() {
     useEffect(() => {
         const getOtherItemData = async () => {
             try {
-                const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
+                const reqOtheritemData = await fetch('http://localhost:4000/packages/RoyalEvent/wedding/otheritems');
                 if (reqOtheritemData.ok) {
                     const respOtheritemData = await reqOtheritemData.json();
                     // Initialize checked and count properties in otheritemdata
@@ -183,8 +183,6 @@ export default function WeddingCity() {
                 ))}
                 <form action="" className="booking-form" onSubmit={handleSubmit}>
                     <h1 className='lg-heading'>"Dreamy Destination Weddings: Book Your Blissful Celebration Today!"</h1>
-                    {/* <h1>This is the form</h1> */}
-
                     {eventdata.map((event, index) => (
                         <div key={index}>
                             <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.location}, ${event.weddingCity}`} />
@@ -204,26 +202,7 @@ export default function WeddingCity() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                    <div className="other-items">
-                        {otheritemdata.map((item, index) => (
-                            <div key={index}>
-                                <div className='otherItem-show'>
-                                    <input
-                                        type="checkbox"
-                                        name={`item-${index}`}
-                                        checked={item.checked}
-                                        onChange={() => handleCheckboxChange(index)}
-                                    />
-                                    <p className="otherItems-List">
-                                        {item.items} <span>{item.prices}/-</span>
-                                    </p>
-                                    <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                    {item.count}
-                                    <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>

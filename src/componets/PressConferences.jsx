@@ -13,7 +13,7 @@ export default function Award(){
 
   useEffect(() => {
     const getEventData = async () => {
-        const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/awardceremony');
+        const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/pressconferences');
         const respEventData = await reqEventdata.json();
         setEventData(respEventData);
         console.log("data", respEventData)

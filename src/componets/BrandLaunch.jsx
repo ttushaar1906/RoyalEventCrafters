@@ -13,7 +13,7 @@ export default function Award(){
 
   useEffect(() => {
     const getEventData = async () => {
-        const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/awardceremony');
+        const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/brandlaunch');
         const respEventData = await reqEventdata.json();
         setEventData(respEventData);
         console.log("data", respEventData)
@@ -79,6 +79,7 @@ const handleSubmit = async (e) => {
                             <p className="card-text card-text-desc">{event.eventDesc}</p>
                             <p className="planning-fee">Price: <span className='price'><FontAwesomeIcon icon={faIndianRupeeSign} /> {event.price}</span></p>
                             <h3 className='md-heading'>About This Package:</h3>
+                        
                             <p className="card-text card-text-desc">{event.aboutPackage}</p>
                         </div>
                     </div>

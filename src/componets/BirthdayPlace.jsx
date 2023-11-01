@@ -1,53 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/styling.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faLocationDot, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
-export default function BirthdayPlace() {
+export default function WeddingCity() {
     const { partyType } = useParams(); // Get the 'city' parameter from the route
-    const [selectedOption, setSelectedOption] = useState('option1');
-    const handleDropdownChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
 
     const [eventdata, setEventData] = useState([]);
     const [otheritemdata, setOtheritemData] = useState([]);
     useEffect(() => {
         const getEventData = async () => {
-            const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/birthdayParty/${partyType}`);
-            const respEventData = await reqEventdata.json();
-            setEventData(respEventData);
-            console.log("data", respEventData);
-        }
-        getEventData();
-    }, [partyType]); // Make sure to include 'city' in the dependency array
-
-    //other items
-    useEffect(() => {
-        const getOtherItemData = async () => {
             try {
-                const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
-                if (reqOtheritemData.ok) {
-                    const respOtheritemData = await reqOtheritemData.json();
-                    // Initialize checked and count properties in otheritemdata
-                    const initializedOtheritemdata = respOtheritemData.map(item => ({
-                        ...item,
-                        checked: false,
-                        count: 0,
-                    }));
-                    setOtheritemData(initializedOtheritemdata);
-                    console.log("data", initializedOtheritemdata);
+                const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/${partyType}`);
+                if (reqEventdata.ok) {
+                    const respEventData = await reqEventdata.json();
+                    setEventData(respEventData);
+                    console.log("data", respEventData);
                 } else {
-                    console.error("Error fetching other item data");
+                    console.error("Error fetching event data");
                 }
             } catch (error) {
                 console.error("Error: ", error);
             }
         }
-        getOtherItemData();
-    });
+        getEventData();
+    }, [partyType]); // Make sure to include 'weddingCity' in the dependency array
+
+    //other items
+    // useEffect(() => {
+    //     const getOtherItemData = async () => {
+    //         try {
+    //             const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
+    //             if (reqOtheritemData.ok) {
+    //                 const respOtheritemData = await reqOtheritemData.json();
+    //                 // Initialize checked and count properties in otheritemdata
+    //                 const initializedOtheritemdata = respOtheritemData.map(item => ({
+    //                     ...item,
+    //                     checked: false,
+    //                     count: 0,
+    //                 }));
+    //                 setOtheritemData(initializedOtheritemdata);
+    //                 console.log("data", initializedOtheritemdata);
+    //             } else {
+    //                 console.error("Error fetching other item data");
+    //             }
+    //         } catch (error) {
+    //             console.error("Error: ", error);
+    //         }
+    //     }
+    //     getOtherItemData();
+    // });
 
     const [formData, setFormData] = useState({
         eventLoc: "",

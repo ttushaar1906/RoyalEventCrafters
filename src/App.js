@@ -24,6 +24,8 @@ import AnniversaryCity from './componets/AnniversaryCity';
 import BirthdayPlace from './componets/BirthdayPlace';
 import Conferences from './componets/Conferences';
 import Awards from './componets/Awards';
+import BrandLaunch from './componets/BrandLaunch';
+import PressConferences from './componets/PressConferences';
 
 
 function App() {
@@ -48,7 +50,6 @@ function App() {
           {/* Wedding */}
           <Route path='/RoyalEvent/wedding' element={<Wedding />}/>
           <Route path='/RoyalEvent/wedding/:weddingCity' element={<WeddingCity />}/>
-          <Route path='/wedding/otheritems' element={<WeddingCity />}/>
           {/* http://localhost:4000/packages/wedding/otheritem */}
 
           {/* Anniversary */}
@@ -60,7 +61,10 @@ function App() {
           <Route path='/RoyalEvent/birthdayParty/:partyType' element={<BirthdayPlace />}/>
 
           {/*Events  */}
-          <Route path='/RoyalEvent/AwardCeremony' element={<Awards />}/>
+          <Route path='/RoyalEvent/awardceremony' element={<Awards />}/>
+          <Route path='/RoyalEvent/conferences' element={<Conferences />}/>
+          <Route path='/RoyalEvent/brandlaunch' element={<BrandLaunch />}/>
+          <Route path='/RoyalEvent/pressconferences' element={<PressConferences />}/>
 
 
 

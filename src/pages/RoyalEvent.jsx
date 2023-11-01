@@ -18,7 +18,7 @@ export default function RoyalEvent() {
                 </div>
             </div>
 
-           
+
             <div className="main-events container" id='main-events'>
                 <div className="main-event">
                     <Link to="../RoyalEvent/wedding">
@@ -55,42 +55,47 @@ export default function RoyalEvent() {
                 </div>
 
                 <div className="main-event">
-                <Link to='/componets/Conferences'></Link>
-                    <div className="main-event-img">
-                        <img src="https://pegasusevents.in/wp-content/uploads/2017/06/Marsh-and-Mclennan-Conference-by-Pegasus-Events-India-Pvt-Ltd-2.jpg" alt="" />
-                    </div>
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Conferences</h1>
-                    </div>
-                </div>
-
-                <div className="main-event">
-                <Link to='../RoyalEvent/AwardCeremony'>
-                    <div className="main-event-img">
-                        <img src="https://www.inventiveevents.com/wp-content/uploads/2019/03/awards-room-copy.jpg" alt="Award-ceremony" />
-                    </div>
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Award Ceremony
-                        </h1>
-                    </div>
+                    <Link to='/RoyalEvent/Conferences'>
+                        <div className="main-event-img">
+                            <img src="https://pegasusevents.in/wp-content/uploads/2017/06/Marsh-and-Mclennan-Conference-by-Pegasus-Events-India-Pvt-Ltd-2.jpg" alt="" />
+                        </div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Conferences</h1>
+                        </div>
                     </Link>
                 </div>
 
                 <div className="main-event">
-                    <div className="main-event-img">
-                        <img src="https://5.imimg.com/data5/RA/HA/GLADMIN-36077309/product-launch-events-management-service.png" alt="brand-launch" />
-                    </div>
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Brand Launch</h1>
-                    </div>
+                    <Link to='../RoyalEvent/AwardCeremony'>
+                        <div className="main-event-img">
+                            <img src="https://www.inventiveevents.com/wp-content/uploads/2019/03/awards-room-copy.jpg" alt="Award-ceremony" />
+                        </div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Award Ceremony
+                            </h1>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className="main-event">
-                    <div className="main-event-img">
-                        <img src="https://images.squarespace-cdn.com/content/v1/56a93c3bc647ad307dd7a6d4/1644261012745-BL0WN0WTEMU9DH187K9K/Outback+Bowl+2022+Press+Conference.jpg" alt="press-confernce" /></div>
-                    <div className="main-event-title">
-                        <h1 className="lg-heading">Press Conferences</h1>
-                    </div>
+                    <Link to='../RoyalEvent/BrandLaunch'>
+                        <div className="main-event-img">
+                            <img src="https://5.imimg.com/data5/RA/HA/GLADMIN-36077309/product-launch-events-management-service.png" alt="brand-launch" />
+                        </div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Brand Launch</h1>
+                        </div>
+                    </Link>
+                </div>
+
+                <div className="main-event">
+                    <Link to='../RoyalEvent/pressconferences'>
+                        <div className="main-event-img">
+                            <img src="https://images.squarespace-cdn.com/content/v1/56a93c3bc647ad307dd7a6d4/1644261012745-BL0WN0WTEMU9DH187K9K/Outback+Bowl+2022+Press+Conference.jpg" alt="press-confernce" /></div>
+                        <div className="main-event-title">
+                            <h1 className="lg-heading">Press Conferences</h1>
+                        </div>
+                        </Link>
                 </div>
             </div>
 
@@ -144,7 +149,7 @@ export default function RoyalEvent() {
 
 
 
-                {/* photos */}
+            {/* photos */}
             <section className="post">
 
                 <h1 className="lg-heading" id="photos">
