@@ -35,7 +35,7 @@ export default function WeddingCity() {
                 if (reqOtheritemData.ok) {
                     const respOtheritemData = await reqOtheritemData.json();
                     setOtheritemData(respOtheritemData);
-                    console.log("data", respOtheritemData);
+                    // console.log("data", respOtheritemData);
                 } else {
                     console.error("Error fetching other item data");
                 }
@@ -87,7 +87,7 @@ export default function WeddingCity() {
                         count: 0,
                     }));
                     setOtheritemData(initializedOtheritemdata);
-                    console.log("data", initializedOtheritemdata);
+                    // console.log("data", initializedOtheritemdata);
                 } else {
                     console.error("Error fetching other item data");
                 }

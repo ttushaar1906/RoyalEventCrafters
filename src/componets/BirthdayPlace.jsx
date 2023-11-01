@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faLocationDot, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 export default function WeddingCity() {
-    const { partyType } = useParams(); // Get the 'city' parameter from the route
-
+    const { partyType } = useParams(); 
+    const [selectedOption, setSelectedOption] = useState("");
     const [eventdata, setEventData] = useState([]);
-    const [otheritemdata, setOtheritemData] = useState([]);
+    const [formData, setFormData] = useState({
+        eventLoc: "",
+        username: "",
+        mobileNo: "",
+        email: "",
+        bookingDate: "",
+        noOfGuests: "",
+        eventTime: "",
+        city: "",
+        address: "",
+    });
+
     useEffect(() => {
         const getEventData = async () => {
             try {
@@ -28,44 +39,9 @@ export default function WeddingCity() {
         getEventData();
     }, [partyType]); // Make sure to include 'weddingCity' in the dependency array
 
-    //other items
-    // useEffect(() => {
-    //     const getOtherItemData = async () => {
-    //         try {
-    //             const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
-    //             if (reqOtheritemData.ok) {
-    //                 const respOtheritemData = await reqOtheritemData.json();
-    //                 // Initialize checked and count properties in otheritemdata
-    //                 const initializedOtheritemdata = respOtheritemData.map(item => ({
-    //                     ...item,
-    //                     checked: false,
-    //                     count: 0,
-    //                 }));
-    //                 setOtheritemData(initializedOtheritemdata);
-    //                 console.log("data", initializedOtheritemdata);
-    //             } else {
-    //                 console.error("Error fetching other item data");
-    //             }
-    //         } catch (error) {
-    //             console.error("Error: ", error);
-    //         }
-    //     }
-    //     getOtherItemData();
-    // });
+   
 
-    const [formData, setFormData] = useState({
-        eventLoc: "",
-        username: "",
-        mobileNo: "",
-        email: "",
-        bookingDate: "",
-        noOfGuests: "",
-        eventTime: "",
-        city:"",
-        address:"",
-    });
-
-    const handleInputChange = (e) => {
+   const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -73,30 +49,12 @@ export default function WeddingCity() {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await fetch("/orders", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.status === 200) {
-                console.log("Order submitted successfully.");
-                // Redirect to another page (e.g., '/Home')
-                window.location.href = '/Home';
-            } else {
-                console.error("Order submission failed.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-        }
+    const handleDropdownChange = (e) => {
+        setSelectedOption(e.target.value);
     };
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
     return (
         <div className='booking-pg'>
             <div className="linking-tags">
@@ -162,26 +120,7 @@ export default function WeddingCity() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                    {/* <div className="other-items">
-                        {otheritemdata.map((item, index) => (
-                            <div key={index}>
-                                <div className='otherItem-show'>
-                                    <input
-                                        type="checkbox"
-                                        name={`item-${index}`}
-                                        checked={item.checked}
-                                        onChange={() => handleCheckboxChange(index)}
-                                    />
-                                    <p className="otherItems-List">
-                                        {item.items} <span>{item.prices}/-</span>
-                                    </p>
-                                    <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                    {item.count}
-                                    <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
-                                </div>
-                            </div>
-                        ))}
-                    </div> */}
+
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>

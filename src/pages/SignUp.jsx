@@ -23,7 +23,7 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/signUp", { // Update the endpoint to match the server route
+      const response = await fetch("/signup", { // Update the endpoint to match the server route
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,10 +32,8 @@ export default function SignUp() {
       });
 
       if (response.status === 200) {
-        // Redirect to the home page on successful sign-up
-        navigate('/RoyalEvent');
+        navigate('/Home');
       } else {
-        // Handle errors, display an error message to the user
         console.error("Sign-up failed");
       }
     } catch (error) {
@@ -86,7 +84,7 @@ export default function SignUp() {
           </button>
         </form>
         <p>
-          Already have an Account? <Link to="/Home">Login</Link>
+          Already have an Account? <Link to="/">Login</Link>
         </p>
       </div>
     </div>

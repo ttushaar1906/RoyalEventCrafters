@@ -21,7 +21,7 @@ export default function CooperativeEvents() {
                     <p className="title-head">"Royal Event Crafters host collaborative extravaganzas, uniting
                         creativity, culture, and community in unforgettable experiences."</p>
                     <div className="co-operative-events">
-                    <Link to="/Index" className="link-edit">
+                    <Link to="/RoyalEvent/Conferences" className="link-edit">
                         <div className="cooperative-img">
                             <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZXZlbnQlMjBwbGFubmluZ3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
                                 alt="" />
@@ -35,7 +35,7 @@ export default function CooperativeEvents() {
                     </div>
 
                     <div className="co-operative-events">
-                    <Link to="/Index" className="link-edit">
+                    <Link to="/RoyalEvent/pressconferences" className="link-edit">
                         <div className="cooperative-img">
                             <img src="https://images.squarespace-cdn.com/content/v1/60da576b8b440e12699c9263/1d3b07b5-f348-45a9-8f7b-fdc4d10fc4bd/20210915-110858-OVATION-02944.jpg"
                                 alt="" />
@@ -49,7 +49,7 @@ export default function CooperativeEvents() {
                     </div>
 
                     <div className="co-operative-events">
-                    <Link to="/Index" className="link-edit">
+                    <Link to="//RoyalEvent/AwardCeremony" className="link-edit">
                         <div className="cooperative-img">
                             <img src="https://bizzabo.com/wp-content/uploads/2021/09/The-Europas-Awards-Ceremony-Ideas-min.png"
                                 alt="" />
@@ -63,7 +63,7 @@ export default function CooperativeEvents() {
                     </div>
 
                     <div className="co-operative-events">
-                    <Link to="/Index" className="link-edit">
+                    <Link to="/RoyalEvent/BrandLaunch" className="link-edit">
                         <div className="cooperative-img">
                             <img src="https://i.pinimg.com/originals/ce/ef/d4/ceefd4edaf32cd654759df91cddebad0.png" alt="" />
                         </div>

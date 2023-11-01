@@ -25,7 +25,7 @@ export default function FamilyEvents() {
                     <p className="title-heads title-head">"Royal Event Crafters specialize in crafting cherished family gatherings with personalized touches and memorable moments."</p>
 
                     <div className="co-operative-events">
-                        <Link to="/wedding" className="link-edit">
+                        <Link to="/RoyalEvent/wedding" className="link-edit">
                             <div className="family-img">
                                 <img src="https://cdn0.weddingwire.in/article/5378/3_2/1280/jpg/78735-open-air-venues-in-delhi-for-day-weddings-pixelstory-in-lead-image.jpeg"
                                     alt="" />
@@ -38,7 +38,7 @@ export default function FamilyEvents() {
                     </div>
 
                     <div className="co-operative-events">
-                        <Link to="/Index" className="link-edit">
+                        <Link to="/RoyalEvent/anniversary" className="link-edit">
                             <div className="family-img">
                                 <img src="https://5.imimg.com/data5/GLADMIN/Default/2021/12/DH/RR/QG/4049929/wedding-anniversary-decoration.jpg"
                                     alt="" />
@@ -50,7 +50,7 @@ export default function FamilyEvents() {
                         </Link>
                     </div>
                     <div className="co-operative-events">
-                        <Link to="/Index" className="link-edit">
+                        <Link to="/RoyalEvent/birthdayParty" className="link-edit">
                             <div className="family-img">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCcUHl4Y38F2hy29o4lfcuXXvM2DrYq86X1W63oT0MoU44ItVG5vvaNrDeaur0mSZMUHw&usqp=CAU"
                                     alt="" />

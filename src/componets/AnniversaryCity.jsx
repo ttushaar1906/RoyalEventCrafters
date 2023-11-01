@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/styling.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faLocationDot,faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign,faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 export default function AnniversaryCity() {
@@ -54,7 +54,7 @@ export default function AnniversaryCity() {
             if (response.status === 200) {
                 console.log("Order submitted successfully.");
                 // Redirect to another page (e.g., '/Home')
-                window.location.href = '/Home';
+                window.location.href = '/Thanks';
             } else {
                 console.error("Order submission failed.");
             }
