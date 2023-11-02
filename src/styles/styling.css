@@ -1099,7 +1099,6 @@ td {
 /* Default button styles */
 .submit-btn {
     width: 90%;
-    /* Set your desired width */
     background-color: var(--third--text-color);
     color: var(--primary-text-color);
     cursor: pointer;
@@ -1119,6 +1118,15 @@ td {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
+.form-cont .submit-btn{
+    width: 90%;
+    padding: 0.5rem;
+    margin: 1rem 0.5rem ;
+}
+.form-cont .submit-btn:hover{
+    transform: scale(1.02);
+}
+
 .additional-info label{
     color: var(--primary-text-color);
 }

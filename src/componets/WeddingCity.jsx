@@ -9,7 +9,7 @@ export default function WeddingCity() {
     const { weddingCity } = useParams(); // Get the 'city' parameter from the route
 
     const [eventdata, setEventData] = useState([]);
-    const [otheritemdata, setOtheritemData] = useState([]);
+    // const [otheritemdata, setOtheritemData] = useState([]);
     useEffect(() => {
         const getEventData = async () => {
             try {
@@ -28,94 +28,23 @@ export default function WeddingCity() {
         getEventData();
     }, [weddingCity]); // Make sure to include 'weddingCity' in the dependency array
 
-    useEffect(() => {
-        const getOtherItemData = async () => {
-            try {
-                const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
-                if (reqOtheritemData.ok) {
-                    const respOtheritemData = await reqOtheritemData.json();
-                    setOtheritemData(respOtheritemData);
-                    // console.log("data", respOtheritemData);
-                } else {
-                    console.error("Error fetching other item data");
-                }
-            } catch (error) {
-                console.error("Error: ", error);
-            }
-        }
-        getOtherItemData();
-    }, [weddingCity]);
-
-    // Function to handle checkbox changes
-    const handleCheckboxChange = (index) => {
-        const updatedOtherItemData = [...otheritemdata];
-        updatedOtherItemData[index].checked = !updatedOtherItemData[index].checked;
-        if (!updatedOtherItemData[index].checked) {
-            updatedOtherItemData[index].count = 0; // Set count to 0 when unchecked
-        }
-        setOtheritemData(updatedOtherItemData);
-    };
-
-    // Function to increase count
-    const increaseCount = (index) => {
-        if (otheritemdata[index].checked && otheritemdata[index].count < 10) {
-            const updatedOtherItemData = [...otheritemdata];
-            updatedOtherItemData[index].count++;
-            setOtheritemData(updatedOtherItemData);
-        }
-    };
-
-    // Function to decrease count
-    const decreaseCount = (index) => {
-        if (otheritemdata[index].checked && otheritemdata[index].count > 0) {
-            const updatedOtherItemData = [...otheritemdata];
-            updatedOtherItemData[index].count--;
-            setOtheritemData(updatedOtherItemData);
-        }
-    };
-//other items
-    useEffect(() => {
-        const getOtherItemData = async () => {
-            try {
-                const reqOtheritemData = await fetch('http://localhost:4000/packages/RoyalEvent/wedding/otheritems');
-                if (reqOtheritemData.ok) {
-                    const respOtheritemData = await reqOtheritemData.json();
-                    // Initialize checked and count properties in otheritemdata
-                    const initializedOtheritemdata = respOtheritemData.map(item => ({
-                        ...item,
-                        checked: false,
-                        count: 0,
-                    }));
-                    setOtheritemData(initializedOtheritemdata);
-                    // console.log("data", initializedOtheritemdata);
-                } else {
-                    console.error("Error fetching other item data");
-                }
-            } catch (error) {
-                console.error("Error: ", error);
-            }
-        }
-        getOtherItemData();
-    }, [weddingCity]);
-
     // useEffect(() => {
-    //     const getEventData = async () => {
+    //     const getOtherItemData = async () => {
     //         try {
-    //             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/${weddingCity}`);
-    //             if (reqEventdata.ok) {
-    //                 const respEventData = await reqEventdata.json();
-    //                 setEventData(respEventData);
-    //                 console.log("data", respEventData);
+    //             const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
+    //             if (reqOtheritemData.ok) {
+    //                 const respOtheritemData = await reqOtheritemData.json();
+    //                 setOtheritemData(respOtheritemData);
+    //                 // console.log("data", respOtheritemData);
     //             } else {
-    //                 console.error("Error fetching event data");
+    //                 console.error("Error fetching other item data");
     //             }
     //         } catch (error) {
     //             console.error("Error: ", error);
     //         }
     //     }
-    //     getEventData();
+    //     getOtherItemData();
     // }, [weddingCity]);
-
 
 
     const [formData, setFormData] = useState({
@@ -150,8 +79,7 @@ export default function WeddingCity() {
     
             if (response.status === 200) {
                 console.log("Order submitted successfully.");
-                // Redirect to another page (e.g., '/Home')
-                window.location.href = '/Home';
+                window.location.href = '/Thanks';
             } else {
                 console.error("Order submission failed.");
             }

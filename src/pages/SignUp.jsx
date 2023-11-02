@@ -79,7 +79,7 @@ export default function SignUp() {
             value={formData.password}
             onChange={handleInputChange}
           />
-          <button type="submit" className="btn login-btn">
+          <button type="submit" className="btn submit-btn">
             Create Account
           </button>
         </form>
