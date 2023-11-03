@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
       if (response.status === 200) {
           console.log("Order submitted successfully.");
           // Redirect to another page (e.g., '/Home')
-          window.location.href = '/Home';
+          window.location.href = '/Thanks';
       } else {
           console.error("Order submission failed.");
       }

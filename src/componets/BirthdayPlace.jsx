@@ -24,7 +24,7 @@ export default function WeddingCity() {
     useEffect(() => {
         const getEventData = async () => {
             try {
-                const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/${partyType}`);
+                const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/birthdayparty/${partyType}`);
                 if (reqEventdata.ok) {
                     const respEventData = await reqEventdata.json();
                     setEventData(respEventData);

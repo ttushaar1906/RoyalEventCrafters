@@ -40,28 +40,33 @@ const [formData, setFormData] = useState({
   address:"",
 });
 const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-      const response = await fetch("/orders", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-      });
-
-      if (response.status === 200) {
-          console.log("Order submitted successfully.");
-          // Redirect to another page (e.g., '/Home')
-          window.location.href = '/Home';
-      } else {
-          console.error("Order submission failed.");
-      }
-  } catch (error) {
-      console.error("Error:", error);
-  }
+    e.preventDefault();
+  
+    try {
+        const response = await fetch("/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+  
+        if (response.status === 200) {
+            console.log("Order submitted successfully.");
+            // Redirect to another page (e.g., '/Home')
+            window.location.href = '/Thanks';
+        } else {
+            console.error("Order submission failed.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+  };
+const handleDropdownChange = (e) => {
+    setSelectedOption(e.target.value);
 };
+const [selectedOption, setSelectedOption] = useState("");
+
   return (
     <div className='booking-pg'>
     <div className="linking-tags">
@@ -83,11 +88,11 @@ const handleSubmit = async (e) => {
                         </div>
                     </div>
                 ))} 
-                {/* <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
+                <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
 
                 {eventdata.map((event, index) => (
                     <div key={index}>
-                        <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.partyType}`} />
+                        <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.eventTitle}`} />
 
                     </div>
                 ))}
@@ -126,7 +131,7 @@ const handleSubmit = async (e) => {
                     <label htmlFor="Evening">Evening</label>
                 </div>
                 <h1>Others</h1> 
-                 <div className="other-items">
+                 {/* <div className="other-items">
                     {otheritemdata.map((item, index) => (
                         <div key={index}>
                             <div className='otherItem-show'>
@@ -145,9 +150,9 @@ const handleSubmit = async (e) => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
                 <button type='submit' className='submit-btn'>Book</button>
-            </form> */}
+            </form>
         </div>
     </div>
 )
