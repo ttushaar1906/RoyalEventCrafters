@@ -20,6 +20,7 @@ export default function Award(){
     }
     getEventData();
 }, []);
+
 useEffect(() => {
     const getOtherItemData = async () => {
       const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');

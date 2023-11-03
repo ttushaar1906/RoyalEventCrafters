@@ -24,6 +24,16 @@ export default function Award(){
     getEventData();
 }, []);
 
+useEffect(() => {
+    const getOtherItemData = async () => {
+      const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
+      const respOtheritemData = await reqOtheritemData.json();
+      setOtheritemData(respOtheritemData);
+      console.log('data', respOtheritemData);
+    };
+    getOtherItemData();
+  }, [])
+
 const handleInputChange = (e) => {
   const { name, value } = e.target;
   setFormData({
@@ -106,7 +116,7 @@ const setToZero = (index) => {
     <div className="linking-tags">
         <Link to="/Home">Home </Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /> <Link to="/RoyalEvent">RoyalEvents</Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /><Link to="/RoyalEvent/Wedding">Award Ceremony</Link>
     </div>
-    <h1 className="lg-heading wed-heads">"Dazzling Stars: A Night of Excellence and Achievement".</h1>
+    <h1 className="lg-heading wed-heads">"Stay informed, stay ahead. Join us at our press conference for the latest updates.".</h1>
     <div className="container">
                 {eventdata.map((event, index) => (
                     <div className="bookings-display" key={index}>
@@ -164,25 +174,14 @@ const setToZero = (index) => {
                     <label htmlFor="Evening">Evening</label>
                 </div>
                 <h1>Others</h1> 
-                 <div className="other-items">
-                    {otheritemdata.map((item, index) => (
-                        <div key={index}>
-                            <div className='otherItem-show'>
-                                <input
-                                    type="checkbox"
-                                    name={`item-${index}`}
-                                    checked={item.checked}
-                                    onChange={() => handleCheckboxChange(index)}
-                                />
-                                <p className="otherItems-List">
-                                    {item.items} <span>{item.prices}/-</span>
-                                </p>
-                                <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                {item.count}
-                                <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
+                <div className="other-items">
+                        {otheritemdata.map((event, index) => (
+                            <div className="otherItem-show" key={index}>
+                                <input type="checkbox" name="" id="" />
+                                <p className="card-text">{event.items}</p>
+                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
                             </div>
-                        </div>
-                    ))}
+                        ))}
                 </div>
                 <button type='submit' className='submit-btn'>Book</button>
             </form>
