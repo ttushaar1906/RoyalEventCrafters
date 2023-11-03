@@ -5,17 +5,19 @@ import { faIndianRupeeSign,faArrowRight } from "@fortawesome/free-solid-svg-icon
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 export default function AnniversaryCity() {
-    const { placeTitle } = useParams(); // Get the 'city' parameter from the route
+    // const { placeTitle } = useParams(); // Get the 'city' parameter from the route
     const [eventdata, setEventData] = useState([]);
+    const [otheritemdata, setOtheritemData] = useState([]);
+
     useEffect(() => {
-        const getEventData = async () => {
-            const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/anniversary/${placeTitle}`);
-            const respEventData = await reqEventdata.json();
-            setEventData(respEventData);
-            console.log("data", respEventData);
+        const getOtherItemData = async () => {
+            const reqOtheritemData = await fetch(`http://localhost:4000/packages/wedding/otheritems`);
+            const respOtheritemData = await reqOtheritemData.json();
+            setEventData(respOtheritemData);
+            console.log("data", respOtheritemData);
         }
-        getEventData();
-    }, [placeTitle]); // Make sure to include 'city' in the dependency array
+        getOtherItemData();
+    }, []); // Make sure to include 'city' in the dependency array
 
 
     
@@ -68,29 +70,29 @@ export default function AnniversaryCity() {
                     <Link to="/Home">Home</Link><FontAwesomeIcon icon={faArrowRight} size="xs" style={{color: "#000000",}} /><Link to="/RoyalEvent">RoyalEvents</Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{color: "#000000",}} /><Link to="/RoyalEvent/Anniversary">Anniversary</Link>
                 </div>
 
-                <div className="container">
+                {/* <div className="container">
                     {eventdata.map((event, index) => (
                         <div className="bookings-display" key={index}>
                             <div className="booking-display-img">
                                 <img src={event.decoImg} alt="" />
                             </div>
                             <div className="card-body">
-                                <p className="card-text city-loc">{event.placeTitle}</p>
+                                <p className="card-text city-loc">{event.placeTitle}</p> */}
                                 {/* <h1 className="md-heading city-display"><span className='price'><FontAwesomeIcon icon={faLocationDot} style={{ color: "#e4007d" }} /> {event.weddingCity}</span></h1> */}
 
                                 {/* Add DropDown Options */}
-                                <p className="card-text card-text-desc">{event.decodesc}</p>
+                                {/* <p className="card-text card-text-desc">{event.decodesc}</p>
                                 <p className="planning-fee">Price: <span className='price'><FontAwesomeIcon icon={faIndianRupeeSign} /> {event.price}</span></p>
                                 <h3 className='md-heading'>About This Package:</h3>
                                 <p className='card-text'>{event.aboutPackage}</p>
                             </div>
                         </div>
-                    ))}
+                    ))} */}
                     <form action="" className="booking-form" onSubmit={handleSubmit}>
                     <h1 className='lg-heading'>"Dreamy Destination Weddings: Book Your Blissful Celebration Today!"</h1>
                     {/* <h1>This is the form</h1> */}
 
-                    {eventdata.map((event, index) => (
+                    {/* {eventdata.map((event, index) => (
                         <div key={index}>
                             <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.placeTitle}`} />
 
@@ -107,9 +109,9 @@ export default function AnniversaryCity() {
                         <label htmlFor="Day">Day</label>
                         <input type="radio" name="eventTime" value="Evening" onChange={handleInputChange} />
                         <label htmlFor="Evening">Evening</label>
-                    </div>
+                    </div> */}
                     <h1>Others</h1>
-                    {/* <div className="other-items">
+                    <div className="other-items">
                         {otheritemdata.map((item, index) => (
                             <div key={index}>
                                 <div className='otherItem-show'>
@@ -117,22 +119,22 @@ export default function AnniversaryCity() {
                                         type="checkbox"
                                         name={`item-${index}`}
                                         checked={item.checked}
-                                        onChange={() => handleCheckboxChange(index)}
+                                        // onChange={() => handleCheckboxChange(index)}
                                     />
                                     <p className="otherItems-List">
                                         {item.items} <span>{item.prices}/-</span>
                                     </p>
-                                    <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                    {item.count}
-                                    <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
+                                    {/* <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button> */}
+                                    {/* {item.count} */}
+                                    {/* <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button> */}
                                 </div>
                             </div>
-                        ))} */}
-                    {/* </div> */}
+                        ))}
+                    </div>
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
                 </div>
-            </div>   
+            {/* </div>    */}
         </>
                 )
 }

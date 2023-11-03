@@ -6,7 +6,6 @@ import '../styles/styling.css';
 export default function CustomNavbar() {
   const location = useLocation();
   const isLoginOrSignUp = location.pathname === '/' || location.pathname === '/signUp' || location.pathname === '/Err' || location.pathname === '/Thanks';
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <>
@@ -24,7 +23,6 @@ export default function CustomNavbar() {
               <li className="nav-item"><Link to="/photos">Photos</Link></li>
               <li className="nav-item"><Link to="/dashboard">Dashboard</Link></li>
               <li className="nav-item"><Link to='/'>Logout</Link></li>
-              {/* <li className="nav-item"><Link to="/Index">Login</Link></li> */}
             </ul>
           </div>
         </nav>

@@ -26,7 +26,7 @@ import Conferences from './componets/Conferences';
 import Awards from './componets/Awards';
 import BrandLaunch from './componets/BrandLaunch';
 import PressConferences from './componets/PressConferences';
-
+import Otheritems from './componets/Otheritems';
 
 function App() {
   return (
@@ -50,7 +50,9 @@ function App() {
           {/* Wedding */}
           <Route path='/RoyalEvent/wedding' element={<Wedding />}/>
           <Route path='/RoyalEvent/wedding/:weddingCity' element={<WeddingCity />}/>
-          {/* http://localhost:4000/packages/wedding/otheritem */}
+          <Route path='/RoyalEvent/wedding/otheritems' element={<Wedding />}/>
+           {/* http://localhost:4000/packages/wedding/otheritem */}
+           <Route path='/wedding/otheritems' element={<Otheritems />}/>
 
           {/* Anniversary */}
           <Route path='/RoyalEvent/anniversary' element={<Anniversary/>}/>

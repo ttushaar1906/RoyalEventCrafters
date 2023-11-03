@@ -10,7 +10,10 @@ export default function Award(){
   const [eventdata, setEventData] = useState([]);
   const [otheritemdata, setOtheritemData] = useState([]);
   // const [formData, setFormData] = useState([]);
-
+  const [selectedOption, setSelectedOption] = useState("");
+  const handleDropdownChange = (e) => {
+      setSelectedOption(e.target.value);
+    };
   useEffect(() => {
     const getEventData = async () => {
         const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/pressconferences');
@@ -37,7 +40,7 @@ const [formData, setFormData] = useState({
   noOfGuests: "",
   eventTime: "",
   city:"",
-  address:"",
+  addresss:"",
 });
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -62,6 +65,42 @@ const handleSubmit = async (e) => {
       console.error("Error:", error);
   }
 };
+
+const handleCheckboxChange = (index) => {
+    const updatedOtherItemData = [...otheritemdata];
+    updatedOtherItemData[index].checked = !updatedOtherItemData[index].checked;
+    if (!updatedOtherItemData[index].checked) {
+        updatedOtherItemData[index].count = 0; // Set count to 0 when unchecked
+    }
+    setOtheritemData(updatedOtherItemData);
+};
+
+// Function to increase count
+const increaseCount = (index) => {
+    if (otheritemdata[index].checked && otheritemdata[index].count < 10) {
+        const updatedOtherItemData = [...otheritemdata];
+        updatedOtherItemData[index].count++;
+        setOtheritemData(updatedOtherItemData);
+    }
+};
+
+// Function to decrease count
+const decreaseCount = (index) => {
+    if (otheritemdata[index].checked && otheritemdata[index].count > 0) {
+        const updatedOtherItemData = [...otheritemdata];
+        updatedOtherItemData[index].count--;
+        setOtheritemData(updatedOtherItemData);
+    }
+};
+
+// Function to set count to zero
+const setToZero = (index) => {
+    if (otheritemdata[index].checked) {
+        const updatedOtherItemData = [...otheritemdata];
+        updatedOtherItemData[index].count = 0;
+        setOtheritemData(updatedOtherItemData);
+    }
+};
   return (
     <div className='booking-pg'>
     <div className="linking-tags">
@@ -83,11 +122,11 @@ const handleSubmit = async (e) => {
                         </div>
                     </div>
                 ))} 
-                {/* <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
+                <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
 
                 {eventdata.map((event, index) => (
                     <div key={index}>
-                        <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.partyType}`} />
+                        <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.eventTitle}`} />
 
                     </div>
                 ))}
@@ -101,7 +140,7 @@ const handleSubmit = async (e) => {
 
                 <label htmlFor="dropdown">Select City:</label>
 
-                <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+                <select id="dropdown" value={formData.selectedOption} onChange={handleDropdownChange}>
                     <option value="Mumbai">Mumbai</option>
                     <option value="Pune">Pune</option>
                     <option value="Bangalore">Bangalore</option>
@@ -110,14 +149,13 @@ const handleSubmit = async (e) => {
                     <option value="Chennai">Chennai</option>
                     <option value="Agra">Agra</option>
                     <option value="Raipur">Raipur</option>
-                    <option value="Raipur">Raipur</option>
                     <option value="Kota">Kota</option>
                     <option value="Surat">Surat</option>
                     <option value="Kolkata">Kolkata</option>
                     <option value="Hydrabad">Hydrabad</option>
                 </select>
 
-                <input type="text" name="address" value={formData.address} onChange={handleInputChange} placeholder='Enter Your Address' />
+                <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
                 <p className='event-time'>Function Time</p>
                 <div className="function">
                     <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} />
@@ -147,7 +185,7 @@ const handleSubmit = async (e) => {
                     ))}
                 </div>
                 <button type='submit' className='submit-btn'>Book</button>
-            </form> */}
+            </form>
         </div>
     </div>
 )
