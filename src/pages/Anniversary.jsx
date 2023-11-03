@@ -18,7 +18,7 @@ export default function Anniversary() {
 
     return (
         <>
-            <h1 className="lg-heading wed-heads">Elevate your wedding with our royal touch.</h1>
+            <h1 className="lg-heading wed-heads">"Cherish your love story with a dream anniversary celebration. Book your unforgettable day now!"</h1>
             <div className="container">
                 {eventdata.map((event, index) => (
                     <div className="card-events" key={index}>

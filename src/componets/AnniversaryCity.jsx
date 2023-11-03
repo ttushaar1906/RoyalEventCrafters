@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIndianRupeeSign,faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 export default function AnniversaryCity() {
     const { placeTitle } = useParams(); // Get the 'city' parameter from the route
     const [eventdata, setEventData] = useState([]);
+    const [otheritemdata, setOtheritemData] = useState([]);
+
     useEffect(() => {
         const getEventData = async () => {
             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/anniversary/${placeTitle}`);
@@ -17,7 +20,15 @@ export default function AnniversaryCity() {
         getEventData();
     }, [placeTitle]); // Make sure to include 'city' in the dependency array
 
-
+    useEffect(() => {
+        const getOtherItemData = async () => {
+          const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
+          const respOtheritemData = await reqOtheritemData.json();
+          setOtheritemData(respOtheritemData);
+          console.log('data', respOtheritemData);
+        };
+        getOtherItemData();
+      }, []);
     
     const [formData, setFormData] = useState({
         eventLoc: "",
@@ -26,7 +37,9 @@ export default function AnniversaryCity() {
         email: "",
         bookingDate: "",
         noOfGuests: "",
-        eventTime: ""
+        eventTime: "",
+        city:"",
+        addresss:""
     });
 
     const handleInputChange = (e) => {
@@ -61,6 +74,12 @@ export default function AnniversaryCity() {
         }
     };
 
+    // Define selectedOption state and handleDropdownChange function
+    const [selectedOption, setSelectedOption] = useState('');
+    const handleDropdownChange = (e) => {
+        setSelectedOption(e.target.value);
+    };
+
     return (
        <>
             <div className='booking-pg'>
@@ -87,7 +106,7 @@ export default function AnniversaryCity() {
                         </div>
                     ))}
                     <form action="" className="booking-form" onSubmit={handleSubmit}>
-                    <h1 className='lg-heading'>"Dreamy Destination Weddings: Book Your Blissful Celebration Today!"</h1>
+                    <h1 className='lg-heading'>"Create unforgettable memories on your special day!"</h1>
                     {/* <h1>This is the form</h1> */}
 
                     {eventdata.map((event, index) => (
@@ -101,6 +120,25 @@ export default function AnniversaryCity() {
                     <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='Enter Your Email'/>
                     <input type="date" name="bookingDate" value={formData.bookingDate} onChange={handleInputChange} />
                     <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter NO of  Guests' />
+                    <label htmlFor="dropdown">Select City:</label>
+                    <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+                       
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Agra">Agra</option>
+                            <option value="Raipur">Raipur</option>
+                            <option value="Raipur">Raipur</option>
+                            <option value="Kota">Kota</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Hydrabad">Hydrabad</option>
+                        </select>
+                        <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
+
                     <p className='event-time'>Function Time</p>
                     <div className="function">
                         <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} />
@@ -109,26 +147,15 @@ export default function AnniversaryCity() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                    {/* <div className="other-items">
-                        {otheritemdata.map((item, index) => (
-                            <div key={index}>
-                                <div className='otherItem-show'>
-                                    <input
-                                        type="checkbox"
-                                        name={`item-${index}`}
-                                        checked={item.checked}
-                                        onChange={() => handleCheckboxChange(index)}
-                                    />
-                                    <p className="otherItems-List">
-                                        {item.items} <span>{item.prices}/-</span>
-                                    </p>
-                                    <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                    {item.count}
-                                    <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
-                                </div>
+                    <div className="other-items">
+                        {otheritemdata.map((event, index) => (
+                            <div className="otherItem-show" key={index}>
+                                <input type="checkbox" name="" id="" />
+                                <p className="card-text">{event.items}</p>
+                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
                             </div>
-                        ))} */}
-                    {/* </div> */}
+                        ))}
+                    </div>
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
                 </div>

@@ -44,7 +44,7 @@ export default function WeddingCity() {
         }
         setOtheritemData(updatedOtherItemData);
     };
-    
+
     // Function to increase count
     const increaseCount = (index) => {
         if (otheritemdata[index].checked && otheritemdata[index].count < 10) {
@@ -53,7 +53,7 @@ export default function WeddingCity() {
             setOtheritemData(updatedOtherItemData);
         }
     };
-    
+
     // Function to decrease count
     const decreaseCount = (index) => {
         if (otheritemdata[index].checked && otheritemdata[index].count > 0) {
@@ -62,7 +62,7 @@ export default function WeddingCity() {
             setOtheritemData(updatedOtherItemData);
         }
     };
-    
+
     // Function to set count to zero
     const setToZero = (index) => {
         if (otheritemdata[index].checked) {
@@ -71,30 +71,16 @@ export default function WeddingCity() {
             setOtheritemData(updatedOtherItemData);
         }
     };
-    
     useEffect(() => {
         const getOtherItemData = async () => {
-            try {
-                const reqOtheritemData = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/otheritems`);
-                if (reqOtheritemData.ok) {
-                    const respOtheritemData = await reqOtheritemData.json();
-                    // Initialize checked and count properties in otheritemdata
-                    const initializedOtheritemdata = respOtheritemData.map(item => ({
-                        ...item,
-                        checked: false,
-                        count: 0,
-                    }));
-                    setOtheritemData(initializedOtheritemdata);
-                    console.log("data", initializedOtheritemdata);
-                } else {
-                    console.error("Error fetching other item data");
-                }
-            } catch (error) {
-                console.error("Error: ", error);
-            }
-        }
+            const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
+            const respOtheritemData = await reqOtheritemData.json();
+            setOtheritemData(respOtheritemData);
+            console.log('data', respOtheritemData);
+        };
         getOtherItemData();
-    }, [weddingCity]);
+    }, []);
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -169,27 +155,16 @@ export default function WeddingCity() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                   <div className="other-items">
-                        {otheritemdata.map((item, index) => (
-                            <div key={index}>
-                                <div className='otherItem-show'>
-                                    <input
-                                        type="checkbox"
-                                        name={`item-${index}`}
-                                        checked={item.checked}
-                                        onChange={() => handleCheckboxChange(index)}
-                                    />
-                                    <p className="otherItems-List">
-                                        {item.items} <span>{item.prices}/-</span>
-                                    </p>
-                                    <button onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                    {item.count}
-                                    <button onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
-                                    <button onClick={() => setToZero(index)}>Set to Zero</button>
-                                </div>
+                    <div className="other-items">
+                        {otheritemdata.map((event, index) => (
+                            <div className="otherItem-show" key={index}>
+                                <input type="checkbox" name="" id="" />
+                                <p className="card-text">{event.items}</p>
+                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
                             </div>
                         ))}
                     </div>
+                    <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>
         </div>

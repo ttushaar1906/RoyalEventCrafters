@@ -18,7 +18,7 @@ export default function Wedding() {
 
     return (
         <>
-            <h1 className="lg-heading wed-heads">Elevate your wedding with our royal touch.</h1>
+            <h1 className="lg-heading wed-heads">Let's make your birthday unforgettable! Celebrate with style and book your perfect party today.</h1>
             <div className="container">
                 {eventdata.map((event, index) => (
                     <div className="card-events" key={index}>

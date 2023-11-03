@@ -9,18 +9,26 @@ import { useState, useEffect } from 'react';
 export default function Award(){
   const [eventdata, setEventData] = useState([]);
   const [otheritemdata, setOtheritemData] = useState([]);
-  // const [formData, setFormData] = useState([]);
 
   useEffect(() => {
     const getEventData = async () => {
-        const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/awardceremony');
+        const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/AwardCeremony');
         const respEventData = await reqEventdata.json();
         setEventData(respEventData);
         console.log("data", respEventData)
     }
     getEventData();
 }, []);
-
+useEffect(() => {
+    const getOtherItemData = async () => {
+      const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
+      const respOtheritemData = await reqOtheritemData.json();
+      setOtheritemData(respOtheritemData);
+      console.log('data', respOtheritemData);
+    };
+    getOtherItemData();
+  }, [])
+  
 const handleInputChange = (e) => {
   const { name, value } = e.target;
   setFormData({
@@ -37,35 +45,39 @@ const [formData, setFormData] = useState({
   noOfGuests: "",
   eventTime: "",
   city:"",
-  address:"",
+  addresss:"",
 });
 const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-      const response = await fetch("/orders", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-      });
-
-      if (response.status === 200) {
-          console.log("Order submitted successfully.");
-          // Redirect to another page (e.g., '/Home')
-          window.location.href = '/Home';
-      } else {
-          console.error("Order submission failed.");
-      }
-  } catch (error) {
-      console.error("Error:", error);
-  }
+    e.preventDefault();
+  
+    try {
+        const response = await fetch("/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+  
+        if (response.status === 200) {
+            console.log("Order submitted successfully.");
+            window.location.href = '/Thanks';
+        } else {
+            console.error("Order submission failed.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+  };
+const handleDropdownChange = (e) => {
+    setSelectedOption(e.target.value);
 };
+const [selectedOption, setSelectedOption] = useState("");
+
   return (
     <div className='booking-pg'>
     <div className="linking-tags">
-        <Link to="/Home">Home </Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /> <Link to="/RoyalEvent">RoyalEvents</Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /><Link to="/RoyalEvent/Wedding">Award Ceremony</Link>
+        <Link to="/Home">Home </Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /> <Link to="/RoyalEvent">RoyalEvents</Link> <FontAwesomeIcon icon={faArrowRight} size="xs" style={{ color: "#000000", }} /><Link to="/RoyalEvent/AwardCeremony">AwardCeremony</Link>
     </div>
     <h1 className="lg-heading wed-heads">"Dazzling Stars: A Night of Excellence and Achievement".</h1>
     <div className="container">
@@ -83,11 +95,11 @@ const handleSubmit = async (e) => {
                         </div>
                     </div>
                 ))} 
-                {/* <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
+                <form action="" className="booking-form additional-info" onSubmit={handleSubmit}>
 
                 {eventdata.map((event, index) => (
                     <div key={index}>
-                        <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.partyType}`} />
+                        <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.eventTitle}`} />
 
                     </div>
                 ))}
@@ -117,7 +129,7 @@ const handleSubmit = async (e) => {
                     <option value="Hydrabad">Hydrabad</option>
                 </select>
 
-                <input type="text" name="address" value={formData.address} onChange={handleInputChange} placeholder='Enter Your Address' />
+                <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
                 <p className='event-time'>Function Time</p>
                 <div className="function">
                     <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} />
@@ -126,28 +138,17 @@ const handleSubmit = async (e) => {
                     <label htmlFor="Evening">Evening</label>
                 </div>
                 <h1>Others</h1> 
-                 <div className="other-items">
-                    {otheritemdata.map((item, index) => (
-                        <div key={index}>
-                            <div className='otherItem-show'>
-                                <input
-                                    type="checkbox"
-                                    name={`item-${index}`}
-                                    checked={item.checked}
-                                    onChange={() => handleCheckboxChange(index)}
-                                />
-                                <p className="otherItems-List">
-                                    {item.items} <span>{item.prices}/-</span>
-                                </p>
-                                <button className='incDec-btn' onClick={() => decreaseCount(index)} disabled={!item.checked}>-</button>
-                                {item.count}
-                                <button className='incDec-btn' onClick={() => increaseCount(index)} disabled={!item.checked}>+</button>
+                <div className="other-items">
+                        {otheritemdata.map((event, index) => (
+                            <div className="otherItem-show" key={index}>
+                                <input type="checkbox" name="" id="" />
+                                <p className="card-text">{event.items}</p>
+                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
                 <button type='submit' className='submit-btn'>Book</button>
-            </form> */}
+            </form>
         </div>
     </div>
 )

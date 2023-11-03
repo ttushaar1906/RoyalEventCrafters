@@ -376,7 +376,6 @@ textarea {
 .img-container,
 .text-contain {
     width: 400px;
-    /* height: ; */
     border: 2px solid rgb(255, 255, 255);
 }
 
@@ -460,7 +459,6 @@ textarea {
     margin-top: 1rem;
     background-color: var(--bg--color2);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    /* border: 1px solid black; */
     margin: 0.5rem;
 }
 
@@ -1051,8 +1049,11 @@ td {
 .booking-form {
     width: 50%;
 }
+.booking-form label{
+    color: var(--primary-text-color);
+}
 
-.booking-form input {
+.booking-form input ,select{
     display: inline;
     margin: 0.5rem;
     width: 70%;
@@ -1079,7 +1080,8 @@ td {
 .otherItem-show {
     display: flex;
     padding: 0.5rem 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     align-items: center;
     justify-content: flex-start;
 }
@@ -1141,7 +1143,6 @@ td {
 /* ## err ## */
 .err {
     padding-top: 6rem;
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
     justify-content: center;
     align-items: center;
 }
@@ -1187,4 +1188,16 @@ td {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* Thanks pg styling */
+.container a{
+    text-decoration: none;
+}
+.container .thanks-img{
+    width: 400px;
+    margin-top: 3rem;
+}
+.container .thanks-img img{
+    width: 100%;
 }
