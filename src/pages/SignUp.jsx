@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/styling.css";
+import axios from "axios";
+import * as Yup from "yup";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -19,27 +21,47 @@ export default function SignUp() {
     });
   };
 
+  const schema = Yup.object().shape({
+    username: Yup.string().required().min(3).max(25),
+    email: Yup.string().email().required(),
+    password: Yup.string().required().min(8).max(25),
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/signup", { // Update the endpoint to match the server route
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const formData = {
+        username: e.target.username.value,
+        email: e.target.email.value,
+        password: e.target.password.value,
+      };
 
-      if (response.status === 200) {
-        navigate('/Home');
-      } else {
-        console.error("Sign-up failed");
-      }
+      // Validate the form data with Yup schema
+      schema.validate(formData)
+        .then(() => {
+          // Form data is valid, send a POST request to your server
+          axios.post("/signup", formData)
+            .then((response) => {
+              if (response.status === 200) {
+                navigate("/Home");
+              } else {
+                console.error("Sign-up failed");
+              }
+            })
+            .catch((error) => {
+              console.error("Error logging in:", error);
+            });
+        })
+        .catch((errors) => {
+          // There are validation errors
+          alert(errors.errors.join("\n"));
+        });
     } catch (error) {
       console.error("Error:", error);
     }
   };
+
   return (
     <div className="container form-container">
       <div className="form-img">
@@ -79,12 +101,12 @@ export default function SignUp() {
             value={formData.password}
             onChange={handleInputChange}
           />
-          <button type="submit" className="btn submit-btn">
+          <button type="submit" className="btn login-btn">
             Create Account
           </button>
         </form>
         <p>
-          Already have an Account? <Link to="/">Login</Link>
+          Already have an Account? <Link to="/Home">Login</Link>
         </p>
       </div>
     </div>

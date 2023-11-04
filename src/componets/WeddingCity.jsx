@@ -45,32 +45,14 @@ export default function WeddingCity() {
         setOtheritemData(updatedOtherItemData);
     };
 
-    // Function to increase count
-    const increaseCount = (index) => {
-        if (otheritemdata[index].checked && otheritemdata[index].count < 10) {
-            const updatedOtherItemData = [...otheritemdata];
-            updatedOtherItemData[index].count++;
-            setOtheritemData(updatedOtherItemData);
-        }
-    };
-
-    // Function to decrease count
-    const decreaseCount = (index) => {
-        if (otheritemdata[index].checked && otheritemdata[index].count > 0) {
-            const updatedOtherItemData = [...otheritemdata];
-            updatedOtherItemData[index].count--;
-            setOtheritemData(updatedOtherItemData);
-        }
-    };
-
-    // Function to set count to zero
-    const setToZero = (index) => {
-        if (otheritemdata[index].checked) {
-            const updatedOtherItemData = [...otheritemdata];
-            updatedOtherItemData[index].count = 0;
-            setOtheritemData(updatedOtherItemData);
-        }
-    };
+    const [count,setCount] = useState(0);
+    const increasenum = ()=>{
+        setCount(count+1)
+    }
+    const decreasenum = () =>{
+        setCount(count-1)
+    }
+  
     useEffect(() => {
         const getOtherItemData = async () => {
             const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
@@ -161,6 +143,10 @@ export default function WeddingCity() {
                                 <input type="checkbox" name="" id="" />
                                 <p className="card-text">{event.items}</p>
                                 <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
+                               
+                                <button className="incDec-btn" onClick={decreasenum}>-</button>
+                                {count}
+                                <button className="incDec-btn" onClick={increasenum}>+</button>
                             </div>
                         ))}
                     </div>

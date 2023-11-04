@@ -35,7 +35,7 @@ function App() {
         <CustomNavbar />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path='/signUp' element={<SignUp />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path="/Index" element={<Index />} />
           <Route path='/RoyalEvent' element={<RoyalEvent />} />
           <Route path='/RoyalEvent/familyEvents' element={<FamilyEvents />} />

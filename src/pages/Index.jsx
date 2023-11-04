@@ -4,6 +4,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/styling.css';
+import axios from 'axios';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -24,23 +25,18 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/signup", { // Change this to /login
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post("/login", formData);
   
       if (response.status === 200) {
-        navigate('/Home');
+        // Successful login, navigate to "/home"
+        navigate("/Home");
       } else {
-        console.error("Error:", response.status);
+        console.error("Login failed.");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error logging in:", error);
     }
-  };
+  };;
 
   return (
     <div className="body">
