@@ -24,7 +24,7 @@ export default function SignUp() {
   const schema = Yup.object().shape({
     username: Yup.string().required().min(3).max(25),
     email: Yup.string().email().required(),
-    password: Yup.string().required().min(8).max(25),
+    password: Yup.string().required().min(8).max(16),
   });
 
   const handleSubmit = async (e) => {
@@ -101,12 +101,12 @@ export default function SignUp() {
             value={formData.password}
             onChange={handleInputChange}
           />
-          <button type="submit" className="btn login-btn">
+          <button type="submit" className="submit-btn">
             Create Account
           </button>
         </form>
         <p>
-          Already have an Account? <Link to="/Home">Login</Link>
+          Already have an Account? <Link to="/">Login</Link>
         </p>
       </div>
     </div>

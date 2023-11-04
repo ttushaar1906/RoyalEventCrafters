@@ -71,11 +71,6 @@ export default function Login() {
             </button>
           </form>
           <p>Don't have an account yet?<Link to="/signUp"> Signup</Link></p>
-          <p>OR</p>
-          <div className="social-media">
-            <a href="https://www.google.com/"><FontAwesomeIcon icon={faGoogle} style={{ color: "#ffffff" }} /></a>
-            <a href="https://www.facebook.com/"><FontAwesomeIcon icon={faFacebook} style={{ color: "#ffffff" }} /></a>
-          </div>
         </div>
       </div>
     </div>

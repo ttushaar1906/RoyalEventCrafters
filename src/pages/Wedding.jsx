@@ -21,10 +21,9 @@ export default function Wedding() {
     return (
         <>
             <h1 className="lg-heading wed-heads">Elevate your wedding with our royal touch.</h1>
-            <div className="container">
+            <div className="container wedding-container">
                 {eventdata.map((event, index) => (
                     <div className="card-events" key={index}>
-                        {/* <link to=""> */}
                         <div className="card-img">
                             <img src={event.weddingImg} alt="" />
                         </div>
@@ -33,7 +32,6 @@ export default function Wedding() {
                             <p className="card-text">{event.location}</p>
                             <p className="planning-fee"><FontAwesomeIcon icon={faIndianRupeeSign} style={{ color: "#000", }} /> Planning Fee</p>
                             <p className="price">Price: {event.price} </p>
-                            {/* Add your button here */}
                             <button className='btn'><Link to={`/RoyalEvent/wedding/${event.weddingCity}`}>Show More</Link></button>
                         </div>
                     </div>

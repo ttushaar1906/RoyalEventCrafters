@@ -48,8 +48,12 @@ export default function Dashboard() {
 
                         </p></li>
                         <li className="terms-list"> <span>Governing Law:</span><p>These terms and conditions will be governed by and construed in accordance and any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction of the courts.</p></li>
+                        <li className="terms-list"><span>Catering Information</span>
+                        <p>Catering orders are starting from minimum 50 plates. If you want to reduces the plates count,please contact us at RECrafters@gmail.com.</p></li>
+                   
                         <li className="terms-list"><span>Contact Information</span>
                         <p>If you have any questions or concerns about these terms and conditions, please contact us at RECrafters@gmail.com.</p></li>
+                        
                     </ol>
                 </div>
             </div>
