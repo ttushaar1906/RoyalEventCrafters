@@ -129,15 +129,14 @@ export default function WeddingCity() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                    <div className="other-items">
-                        {otheritemdata.map((event, index) => (
-                            <div className="otherItem-show" key={index}>
-                                <label className="card-text">{event.items}</label>
-                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
-                                <input type="number" name="" id=""  />            
-                               </div>
-                        ))}
-                    </div>
+                    {/* <div className=" otherItem-show"> */}
+                    <label htmlFor="Chairs">Chairs</label>
+                    <input type="number" name="chairs" value={formData.chairs} onChange={handleInputChange} placeholder='Enter NO of Guests' />
+
+                    <label htmlFor="Chairs">Chairs</label>
+                    <input type="number" name="chairs" value={formData.chairs} onChange={handleInputChange} placeholder='Enter NO of Guests' />
+
+                    {/* </div> */}
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>

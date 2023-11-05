@@ -30,6 +30,7 @@ export default function Login() {
         console.error("Login failed.");
       }
     } catch (error) {
+      navigate("/Err")
       console.error("Error logging in:", error);
     }
   };

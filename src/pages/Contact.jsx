@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import '../styles/styling.css';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Contact() {
-  // Define a state variable to manage the selected option
   const [selectedOption, setSelectedOption] = useState("");
 
   // Handle changes in the dropdown
@@ -45,10 +44,7 @@ export default function Contact() {
 
       // Handle response and display a success message or handle errors
       if (response.status === 200) {
-        // Display a success message or redirect to a thank-you page
         alert("Message sent successfully!");
-        Navigate('/Thanks');
-        // Optionally, reset the form
         setFormData({
           name: "",
           email: "",
@@ -61,7 +57,6 @@ export default function Contact() {
       }
     } catch (error) {
       console.error("Error:", error);
-      // Handle network or other errors
     }
   };
 
@@ -95,6 +90,8 @@ export default function Contact() {
                 id="name"
                 value={formData.name}
                 onChange={handleInputChange}
+                className='contact-input'
+                placeholder="Enter Your Name"
                 required
               />
               <label htmlFor="email">Email:</label>
@@ -104,10 +101,19 @@ export default function Contact() {
                 id="email"
                 value={formData.email}
                 onChange={handleInputChange}
+                className='contact-input'
+                placeholder="Enter Your Email"
                 required
               />
-              <label htmlFor="subject">MobileNO:</label>
-              <input type="tel" name="mobileNO" id="mobileNO" placeholder="Enter Your Phone Number" required onChange={handleInputChange} />
+              <label htmlFor="subject">Mobile No:</label>
+              <input 
+              type="tel" 
+              className='contact-input' 
+              name="mobileNO"
+              id="mobileNO" 
+              placeholder="Enter Your Phone Number" 
+              onChange={handleInputChange}
+              required />
 
               <label htmlFor="message">Message:</label>
               <textarea
@@ -117,6 +123,7 @@ export default function Contact() {
                 rows="5"
                 value={formData.message}
                 onChange={handleInputChange}
+                className='contact-input' 
                 required
               ></textarea>
               <button type="submit" className="btn">

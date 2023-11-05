@@ -18,7 +18,7 @@ export default function RoyalEvent() {
                 </div>
             </div>
 
-
+            <p className="lg-heading title-heading">Turning Dreams into Events, and Events into Memories.</p>
             <div className="main-events container" id='main-events'>
                 <div className="main-event">
                     <Link to="../RoyalEvent/wedding">
