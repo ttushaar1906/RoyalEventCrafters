@@ -48,31 +48,44 @@ const [formData, setFormData] = useState({
   city:"",
   addresss:"",
 });
+const handleDropdownChange = (e) => {
+    setSelectedOption(e.target.value);
+};
+
 const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
-        const response = await fetch("/orders", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+      const response = await fetch("/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          eventLoc: eventdata[0].eventTitle, // Use event.placeTitle directly
+          username: formData.username,
+          mobileNo: formData.mobileNo,
+          email: formData.email,
+          bookingDate: formData.bookingDate,
+          noOfGuests: formData.noOfGuests,
+          eventTime: formData.eventTime,
+          city: selectedOption,
+          addresss: formData.addresss,
+        }),
+      });
   
-        if (response.status === 200) {
-            console.log("Order submitted successfully.");
-            window.location.href = '/Thanks';
-        } else {
-            console.error("Order submission failed.");
-        }
+      if (response.status === 200) {
+        console.log("Order submitted successfully.");
+        // Redirect to another page (e.g., '/Thanks')
+        window.location.href = '/Thanks';
+      } else {
+        console.error("Order submission failed.");
+      }
     } catch (error) {
-        console.error("Error:", error);
+      console.error("Error:", error);
     }
   };
-const handleDropdownChange = (e) => {
-    setSelectedOption(e.target.value);
-};
+
 const [selectedOption, setSelectedOption] = useState("");
 
   return (
@@ -115,20 +128,19 @@ const [selectedOption, setSelectedOption] = useState("");
                 <label htmlFor="dropdown">Select City:</label>
 
                 <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Pune">Pune</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Jaipur">Jaipur</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Agra">Agra</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Kota">Kota</option>
-                    <option value="Surat">Surat</option>
-                    <option value="Kolkata">Kolkata</option>
-                    <option value="Hydrabad">Hydrabad</option>
-                </select>
+                <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
+                            <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>
+                            <option name="city" value="Bangalore" onChange={handleInputChange}>Bangalore</option>
+                            <option name="city" value="Jaipur" onChange={handleInputChange}>Jaipur</option>
+                            <option name="city" value="Delhi" onChange={handleInputChange}>Delhi</option>
+                            <option name="city" value="Chennai" onChange={handleInputChange}>Chennai</option>
+                            <option name="city" value="Agra" onChange={handleInputChange}>Agra</option>
+                            <option name="city" value="Raipur" onChange={handleInputChange}>Raipur</option>
+                            <option name="city" value="Kota" onChange={handleInputChange}>Kota</option>
+                            <option name="city" value="Surat" onChange={handleInputChange}>Surat</option>
+                            <option name="city" value="Kolkata" onChange={handleInputChange}>Kolkata</option>
+                            <option name="city" value="Hydrabad" onChange={handleInputChange}>Hydrabad</option>
+                        </select>
 
                 <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
                 <p className='event-time'>Function Time</p>

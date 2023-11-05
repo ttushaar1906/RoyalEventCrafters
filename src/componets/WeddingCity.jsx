@@ -16,6 +16,7 @@ export default function WeddingCity() {
         bookingDate: "",
         noOfGuests: "",
         eventTime: "",
+        chairs:"",
     });
 
     useEffect(() => {
@@ -35,23 +36,6 @@ export default function WeddingCity() {
         };
         getEventData();
     }, [weddingCity]);
-
-    const handleCheckboxChange = (index) => {
-        const updatedOtherItemData = [...otheritemdata];
-        updatedOtherItemData[index].checked = !updatedOtherItemData[index].checked;
-        if (!updatedOtherItemData[index].checked) {
-            updatedOtherItemData[index].count = 0; // Set count to 0 when unchecked
-        }
-        setOtheritemData(updatedOtherItemData);
-    };
-
-    const [count,setCount] = useState(0);
-    const increasenum = ()=>{
-        setCount(count+1)
-    }
-    const decreasenum = () =>{
-        setCount(count-1)
-    }
   
     useEffect(() => {
         const getOtherItemData = async () => {
@@ -74,26 +58,34 @@ export default function WeddingCity() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+      
         try {
-            const response = await fetch("/orders", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.status === 200) {
-                console.log("Order submitted successfully.");
-                window.location.href = '/Thanks';
-            } else {
-                console.error("Order submission failed.");
-            }
+          const response = await fetch("/orders", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            eventLoc: `${eventdata[0].location} ${eventdata[0].weddingCity}`,
+            username: formData.username,
+            mobileNo: formData.mobileNo,
+            email: formData.email,
+            bookingDate: formData.bookingDate,
+            noOfGuests: formData.noOfGuests,
+            eventTime: formData.eventTime,
+            }),
+          });
+      
+          if (response.status === 200) {
+            console.log("Order submitted successfully.");
+            window.location.href = '/Thanks';
+          } else {
+            console.error("Order submission failed.");
+          }
         } catch (error) {
-            console.error("Error:", error);
+          console.error("Error:", error);
         }
-    };
+      };
 
     return (
         <div className='booking-pg'>
@@ -124,7 +116,7 @@ export default function WeddingCity() {
                             <input type="text" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.location}, ${event.weddingCity}`} />
                         </div>
                     ))}
-                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder='Enter your Name' />
+                    <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder='Enter your FullName' />
                     <input type="number" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} placeholder='Enter your Mobile No' />
                     <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='Enter Your Email' />
                     <input type="date" name="bookingDate" value={formData.bookingDate} onChange={handleInputChange} />
@@ -140,14 +132,10 @@ export default function WeddingCity() {
                     <div className="other-items">
                         {otheritemdata.map((event, index) => (
                             <div className="otherItem-show" key={index}>
-                                <input type="checkbox" name="" id="" />
-                                <p className="card-text">{event.items}</p>
+                                <label className="card-text">{event.items}</label>
                                 <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
-                               
-                                <button className="incDec-btn" onClick={decreasenum}>-</button>
-                                {count}
-                                <button className="incDec-btn" onClick={increasenum}>+</button>
-                            </div>
+                                <input type="number" name="" id=""  />            
+                               </div>
                         ))}
                     </div>
                     <button type='submit' className='submit-btn'>Book</button>
