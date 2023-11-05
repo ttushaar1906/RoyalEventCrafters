@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/styling.css';
 import axios from 'axios';
@@ -25,10 +22,9 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/login", formData);
-  
+      const response = await axios.post("/login", formData); // Use the correct endpoint ("/login")
+
       if (response.status === 200) {
-        // Successful login, navigate to "/home"
         navigate("/Home");
       } else {
         console.error("Login failed.");
@@ -36,7 +32,7 @@ export default function Login() {
     } catch (error) {
       console.error("Error logging in:", error);
     }
-  };;
+  };
 
   return (
     <div className="body">
