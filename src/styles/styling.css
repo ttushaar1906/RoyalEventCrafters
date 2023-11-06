@@ -1135,6 +1135,15 @@ td {
     margin: 0.5rem;
 }
     
+.otherItem-show{
+    width: 180px;
+}
+.otherItem-show .price{
+font-size: 0.8rem;
+}
+.event-time .price{
+    font-size: 0.8rem;
+}
 
 /* ## err ## */
 .err {

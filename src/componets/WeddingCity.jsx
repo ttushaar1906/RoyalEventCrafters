@@ -16,7 +16,7 @@ export default function WeddingCity() {
         bookingDate: "",
         noOfGuests: "",
         eventTime: "",
-        chairs:"",
+        chairs: "",
     });
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function WeddingCity() {
         };
         getEventData();
     }, [weddingCity]);
-  
+
     useEffect(() => {
         const getOtherItemData = async () => {
             const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
@@ -58,34 +58,47 @@ export default function WeddingCity() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+
         try {
-          const response = await fetch("/orders", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-            eventLoc: `${eventdata[0].location} ${eventdata[0].weddingCity}`,
-            username: formData.username,
-            mobileNo: formData.mobileNo,
-            email: formData.email,
-            bookingDate: formData.bookingDate,
-            noOfGuests: formData.noOfGuests,
-            eventTime: formData.eventTime,
-            }),
-          });
-      
-          if (response.status === 200) {
-            console.log("Order submitted successfully.");
-            window.location.href = '/Thanks';
-          } else {
-            console.error("Order submission failed.");
-          }
+            const response = await fetch("/orders", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    eventLoc: `${eventdata[0].location} ${eventdata[0].weddingCity}`,
+                    username: formData.username,
+                    mobileNo: formData.mobileNo,
+                    email: formData.email,
+                    bookingDate: formData.bookingDate,
+                    noOfGuests: formData.noOfGuests,
+                    eventTime: formData.eventTime,
+                    Host: formData.Host,
+                    BallonDeco: formData.BallonDeco,
+                    Godi: formData.Godi,
+                    Car: formData.Car,
+                    Pandit: formData.Pandit,
+                    PaperBlast: formData.PaperBlast,
+                    FogMachine: formData.FogMachine,
+                    MicSound: formData.MicSound,
+                    MicSoundScreen: formData.MicSoundScreen,
+                    FlowerDeco: formData.FlowerDeco,
+                    Chairs: formData.Chairs,
+
+
+                }),
+            });
+
+            if (response.status === 200) {
+                console.log("Order submitted successfully.");
+                window.location.href = '/Thanks';
+            } else {
+                console.error("Order submission failed.");
+            }
         } catch (error) {
-          console.error("Error:", error);
+            console.error("Error:", error);
         }
-      };
+    };
 
     return (
         <div className='booking-pg'>
@@ -129,32 +142,113 @@ export default function WeddingCity() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                    <label className="otherItem-show" htmlFor="Chairs">Chairs</label>
-                    <input type="number" name="chairs" value={formData.chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
+                    <p className='event-time'>Do you need Host? <span className="price">Price:200000</span></p>
+                    <div className="function">
+                        <input type="radio" name="Host" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="Host" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="Chairs">Mic Sound System</label>
-                    <input type="number" name="MicSoundSystem" value={formData.MicSoundSystem} onChange={handleInputChange} placeholder='Enter' />
+                    {/* <p className='event-time'>Do you need Ballon Decoration? <span className="price">Price:200000</span></p>
+                    <div className="function">
+                        <input type="radio" name="Host" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="Host" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div> */}
 
-                    <label  className="otherItem-show" htmlFor="extraPlates">Extra Plates</label>
-                    <input type="number" name="extraPlates" value={formData.extraPlates} onChange={handleInputChange} placeholder='Enter Extra Plates' />
+                    <p className='event-time'>Do you need Godi? <span className="price">Price:20000</span></p>
+                    <div className="function">
+                        <input type="radio" name="Godi" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="Godi" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
+                    
+                    <p className='event-time'>Do you need Rental Car for Baraat?(Audi a6) <span className="price">Price:10000</span></p>
+                    <div className="function">
+                        <input type="radio" name="Car" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="Car" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="Dj">Dj</label>
-                    <input type="number" name="dj" value={formData.dj} onChange={handleInputChange} placeholder='Number of Speaker you want' />
+                    <p className='event-time'>Do you need Pandit <span className="price">Price:50000</span></p>
+                    <div className="function">
+                        <input type="radio" name="Pandit" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="Pandit" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="fogMachine">Fog Machine</label>
-                    <input type="number" name="fogMachine" value={formData.fogMachine} onChange={handleInputChange} placeholder='No of Fog Machine you Want' />
+                    <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
+                    <div className="function">
+                        <input type="radio" name="PaperBlast" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="PaperBlast" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="fogMachine">Lights</label>
-                    <input type="number" name="lights" value={formData.lights} onChange={handleInputChange} placeholder='Enter number of Lights' />
+                    <p className='event-time'>Do you need Fog Machine? <span className="price">Price:50000</span></p>
+                    <div className="function">
+                        <input type="radio" name="FogMachine" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="FogMachine" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="fogMachine">PaperBlast</label>
-                    <input type="number" name="PaperBlast" value={formData.PaperBlast} onChange={handleInputChange} placeholder='Enter Number of Paper Blast you need' />
+                    <p className='event-time'>Do you Need Mic and Sound System? <span className="price">Price:150000</span></p>
+                    <div className="function">
+                        <input type="radio" name="MicSound" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="MicSound" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="fogMachine">Horse</label>
-                    <input type="number" name="horse" value={formData.PaperBlast} onChange={handleInputChange} placeholder='Do you need Horse' />
+                    <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span></p>
+                    <div className="function">
+                        <input type="radio" name="MicSoundScreen" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="MicSoundScreen" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-                    <label  className="otherItem-show" htmlFor="fogMachine">Mata Ki Chowki</label>
-                    <input type="number" name="matakichowki" value={formData.PaperBlast} onChange={handleInputChange} placeholder='' />
+                    <p className='event-time'>Do you Need Flower Decoration? <span className="price">Price:100000</span></p>
+                    <div className="function">
+                        <input type="radio" name="FlowerDeco" value="Yes" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="FlowerDeco" value="No" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
+
+                    
+                    <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
+                    <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs'/>
+
+                    {/* <label  className="otherItem-show" htmlFor="Chairs">Mic Sound System</label
+                    <input type="number" name="MicSoundSystem" value={formData.MicSoundSystem} onChange={handleInputChange} placeholder='Enter' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="extraPlates">Extra Plates</label>
+                    <input type="number" name="extraPlates" value={formData.extraPlates} onChange={handleInputChange} placeholder='Enter Extra Plates' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="Dj">Dj</label>
+                    <input type="number" name="dj" value={formData.dj} onChange={handleInputChange} placeholder='Number of Speaker you want' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Fog Machine</label>
+                    <input type="number" name="fogMachine" value={formData.fogMachine} onChange={handleInputChange} placeholder='No of Fog Machine you Want' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Lights</label>
+                    <input type="number" name="lights" value={formData.lights} onChange={handleInputChange} placeholder='Enter number of Lights' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="fogMachine">PaperBlast</label>
+                    <input type="number" name="PaperBlast" value={formData.PaperBlast} onChange={handleInputChange} placeholder='Enter Number of Paper Blast you need' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Horse</label>
+                    <input type="number" name="horse" value={formData.PaperBlast} onChange={handleInputChange} placeholder='Do you need Horse' /> */}
+
+                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Mata Ki Chowki</label>
+                    <input type="number" name="matakichowki" value={formData.PaperBlast} onChange={handleInputChange} placeholder='' /> */}
 
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
