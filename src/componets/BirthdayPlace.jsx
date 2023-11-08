@@ -137,7 +137,7 @@ export default function AnniversaryCity() {
                         <input type="date" name="bookingDate" value={formData.bookingDate} onChange={handleInputChange} />
                         <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter NO of  Guests' />
                         <label htmlFor="dropdown ">Select City:</label>
-                        <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+                        <select id="dropdown" value={selectedOption} onChange={handleDropdownChange} required>
 
                             <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
                             <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>

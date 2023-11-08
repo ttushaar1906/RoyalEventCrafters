@@ -72,6 +72,15 @@ export default function Award() {
                     eventTime: formData.eventTime,
                     city: selectedOption,
                     addresss: formData.addresss,
+                    Host: formData.Host,
+                    PaperBlast: formData.PaperBlast,
+                    FogMachine: formData.FogMachine,
+                    MicSound: formData.MicSound,
+                    MicSoundScreen: formData.MicSoundScreen,
+                    Chairs: formData.Chairs,
+                    Plates: formData.Plates,
+                    Tables: formData.Tables,
+                    LightSet: formData.LightSet,
                 }),
             });
 
@@ -151,15 +160,58 @@ export default function Award() {
                         <label htmlFor="Evening">Evening</label>
                     </div>
                     <h1>Others</h1>
-                    <div className="other-items">
-                        {otheritemdata.map((event, index) => (
-                            <div className="otherItem-show" key={index}>
-                                <input type="checkbox" name="" id="" />
-                                <p className="card-text">{event.items}</p>
-                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{ color: "#e4007d", }} /><p className="card-text">{event.prices}/-</p>
-                            </div>
-                        ))}
-                    </div>
+                    <p className='event-time'>Do you need Host? <span className="price">Price:200000</span></p>
+          <div className="function">
+            <input type="radio" name="Host" value="Yes" onChange={handleInputChange} />
+            <label htmlFor="Yes">Yes</label>
+            <input type="radio" name="Host" value="No" onChange={handleInputChange} />
+            <label htmlFor="No">No</label>
+          </div>
+
+          <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
+          <div className="function">
+            <input type="radio" name="PaperBlast" value="Yes" onChange={handleInputChange} />
+            <label htmlFor="Yes">Yes</label>
+            <input type="radio" name="PaperBlast" value="No" onChange={handleInputChange} />
+            <label htmlFor="No">No</label>
+          </div>
+
+          <p className='event-time'>Do you need Fog Machine? <span className="price">Price:50000</span></p>
+          <div className="function">
+            <input type="radio" name="FogMachine" value="Yes" onChange={handleInputChange} />
+            <label htmlFor="Yes">Yes</label>
+            <input type="radio" name="FogMachine" value="No" onChange={handleInputChange} />
+            <label htmlFor="No">No</label>
+          </div>
+
+          <p className='event-time'>Do you Need Mic and Sound System? <span className="price">Price:150000</span></p>
+          <div className="function">
+            <input type="radio" name="MicSound" value="Yes" onChange={handleInputChange} />
+            <label htmlFor="Yes">Yes</label>
+            <input type="radio" name="MicSound" value="No" onChange={handleInputChange} />
+            <label htmlFor="No">No</label>
+          </div>
+
+          <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span></p>
+          <div className="function">
+            <input type="radio" name="MicSoundScreen" value="Yes" onChange={handleInputChange} />
+            <label htmlFor="Yes">Yes</label>
+            <input type="radio" name="MicSoundScreen" value="No" onChange={handleInputChange} />
+            <label htmlFor="No">No</label>
+          </div>
+
+          <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
+          <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
+
+          <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
+          <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates' />
+
+          <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
+          <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables' />
+
+          <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
+          <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet' />
+
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>
