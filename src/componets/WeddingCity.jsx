@@ -84,8 +84,9 @@ export default function WeddingCity() {
                     MicSoundScreen: formData.MicSoundScreen,
                     FlowerDeco: formData.FlowerDeco,
                     Chairs: formData.Chairs,
-
-
+                    Plates: formData.Plates,
+                    Tables:formData.Tables,
+                    LightSet:formData.LightSet,
                 }),
             });
 
@@ -226,30 +227,15 @@ export default function WeddingCity() {
                     <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
                     <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs'/>
 
-                    {/* <label  className="otherItem-show" htmlFor="Chairs">Mic Sound System</label
-                    <input type="number" name="MicSoundSystem" value={formData.MicSoundSystem} onChange={handleInputChange} placeholder='Enter' /> */}
+                    <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
+                    <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates'/>
 
-                    {/* <label  className="otherItem-show" htmlFor="extraPlates">Extra Plates</label>
-                    <input type="number" name="extraPlates" value={formData.extraPlates} onChange={handleInputChange} placeholder='Enter Extra Plates' /> */}
+                    <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
+                    <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables'/>
 
-                    {/* <label  className="otherItem-show" htmlFor="Dj">Dj</label>
-                    <input type="number" name="dj" value={formData.dj} onChange={handleInputChange} placeholder='Number of Speaker you want' /> */}
-
-                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Fog Machine</label>
-                    <input type="number" name="fogMachine" value={formData.fogMachine} onChange={handleInputChange} placeholder='No of Fog Machine you Want' /> */}
-
-                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Lights</label>
-                    <input type="number" name="lights" value={formData.lights} onChange={handleInputChange} placeholder='Enter number of Lights' /> */}
-
-                    {/* <label  className="otherItem-show" htmlFor="fogMachine">PaperBlast</label>
-                    <input type="number" name="PaperBlast" value={formData.PaperBlast} onChange={handleInputChange} placeholder='Enter Number of Paper Blast you need' /> */}
-
-                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Horse</label>
-                    <input type="number" name="horse" value={formData.PaperBlast} onChange={handleInputChange} placeholder='Do you need Horse' /> */}
-
-                    {/* <label  className="otherItem-show" htmlFor="fogMachine">Mata Ki Chowki</label>
-                    <input type="number" name="matakichowki" value={formData.PaperBlast} onChange={handleInputChange} placeholder='' /> */}
-
+                    <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
+                    <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet'/>
+                    
                     <button type='submit' className='submit-btn'>Book</button>
                 </form>
             </div>

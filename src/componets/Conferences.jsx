@@ -152,15 +152,7 @@ const [selectedOption, setSelectedOption] = useState("");
                     <label htmlFor="Evening">Evening</label>
                 </div>
                 <h1>Others</h1> 
-                <div className="other-items">
-                        {otheritemdata.map((event, index) => (
-                            <div className="otherItem-show" key={index}>
-                                <input type="checkbox" name="" id="" />
-                                <p className="card-text">{event.items}</p>
-                                <FontAwesomeIcon icon={faIndianRupeeSign} style={{color: "#e4007d",}} /><p className="card-text">{event.prices}/-</p>
-                            </div>
-                        ))}
-                    </div>
+                
                 <button type='submit' className='submit-btn'>Book</button>
             </form>
         </div>
