@@ -1,12 +1,18 @@
 import React from "react";
 import '../styles/styling.css';
+import { useLocation } from "react-router-dom";
 
 export default function Dashboard() {
+    const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const email = searchParams.get("email");
+//   "user_name"
     return (
         <>
             <div className="dashboard-details container">
-                <div className="dashboard-name">
-                    Name:
+                <div className="user_name">
+                <p>{email}</p>
+              <p>Name</p>:
                 </div>
                 <div className="dashboard-events">
                     <table className="dashboard-table">

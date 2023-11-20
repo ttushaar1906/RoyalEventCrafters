@@ -63,6 +63,7 @@ export default function Award() {
         },
         body: JSON.stringify({
           eventLoc: eventdata[0].eventTitle, // Use event.placeTitle directly
+          placePrice:eventdata[0].price,
           username: formData.username,
           mobileNo: formData.mobileNo,
           email: formData.email,
@@ -136,7 +137,8 @@ export default function Award() {
 
           <label htmlFor="dropdown">Select City:</label>
 
-          <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+          <select id="dropdown" value={selectedOption} onChange={handleDropdownChange} required>
+          <option name="city">Select a City</option>
             <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
             <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>
             <option name="city" value="Bangalore" onChange={handleInputChange}>Bangalore</option>
@@ -154,50 +156,56 @@ export default function Award() {
           <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
           <p className='event-time'>Function Time</p>
           <div className="function">
-            <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} />
+            <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} required/>
             <label htmlFor="Day">Day</label>
             <input type="radio" name="eventTime" value="Evening" onChange={handleInputChange} />
             <label htmlFor="Evening">Evening</label>
           </div>
+          {eventdata.map((event, index) => (
+                        <div key={index}>
+                            <input type="number" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.price}`} />
+                        </div>
+                    ))}
+
           <h1>Others</h1>
           
           <p className='event-time'>Do you need Host? <span className="price">Price:200000</span></p>
           <div className="function">
-            <input type="radio" name="Host" value="Yes" onChange={handleInputChange} />
+            <input type="radio" name="Host" value="200000" onChange={handleInputChange}  required/>
             <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="Host" value="No" onChange={handleInputChange} />
+            <input type="radio" name="Host" value="00" onChange={handleInputChange} />
             <label htmlFor="No">No</label>
           </div>
 
           <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
           <div className="function">
-            <input type="radio" name="PaperBlast" value="Yes" onChange={handleInputChange} />
+            <input type="radio" name="PaperBlast" value="50000" onChange={handleInputChange} required/>
             <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="PaperBlast" value="No" onChange={handleInputChange} />
+            <input type="radio" name="PaperBlast" value="00" onChange={handleInputChange} />
             <label htmlFor="No">No</label>
           </div>
 
           <p className='event-time'>Do you need Fog Machine? <span className="price">Price:50000</span></p>
           <div className="function">
-            <input type="radio" name="FogMachine" value="Yes" onChange={handleInputChange} />
+            <input type="radio" name="FogMachine" value="50000" onChange={handleInputChange} required/>
             <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="FogMachine" value="No" onChange={handleInputChange} />
+            <input type="radio" name="FogMachine" value="00" onChange={handleInputChange} />
             <label htmlFor="No">No</label>
           </div>
 
           <p className='event-time'>Do you Need Mic and Sound System? <span className="price">Price:150000</span></p>
           <div className="function">
-            <input type="radio" name="MicSound" value="Yes" onChange={handleInputChange} />
+            <input type="radio" name="MicSound" value="150000" onChange={handleInputChange} required/>
             <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="MicSound" value="No" onChange={handleInputChange} />
+            <input type="radio" name="MicSound" value="00" onChange={handleInputChange} />
             <label htmlFor="No">No</label>
           </div>
 
           <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span></p>
           <div className="function">
-            <input type="radio" name="MicSoundScreen" value="Yes" onChange={handleInputChange} />
+            <input type="radio" name="MicSoundScreen" value="300000" onChange={handleInputChange} />
             <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="MicSoundScreen" value="No" onChange={handleInputChange} />
+            <input type="radio" name="MicSoundScreen" value="00" onChange={handleInputChange} />
             <label htmlFor="No">No</label>
           </div>
 

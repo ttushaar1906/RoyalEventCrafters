@@ -19,10 +19,10 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleGeneralSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/login", formData); // Use the correct endpoint ("/login")
+      const response = await axios.post("/login", formData);
 
       if (response.status === 200) {
         navigate("/Home");
@@ -30,7 +30,19 @@ export default function Login() {
         console.error("Login failed.");
       }
     } catch (error) {
-      navigate("/Err")
+      navigate("/Err");
+      console.error("Error logging in:", error);
+    }
+  };
+
+  const handleCustomerSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/dashboard", formData);
+      navigate(
+        `/home(formData.email)}`
+      );
+    } catch (error) {
       console.error("Error logging in:", error);
     }
   };
@@ -44,7 +56,7 @@ export default function Login() {
         <div className="form-cont">
           <h1 className="lg-heading">Royal Event Crafters</h1>
           <h2 className="md-heading">Login</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleGeneralSubmit}>
             <label htmlFor="email">Enter Email</label>
             <input
               type="text"
@@ -64,10 +76,10 @@ export default function Login() {
               onChange={handleInputChange}
             />
             <button type="submit" className="btn">
-              Login
+              General Login
             </button>
           </form>
-          <p>Don't have an account yet?<Link to="/signUp"> Signup</Link></p>
+           <p>Don't have an account yet?<Link to="/signUp"> Signup</Link></p>
         </div>
       </div>
     </div>
