@@ -27,6 +27,7 @@ import Awards from './componets/Awards';
 import BrandLaunch from './componets/BrandLaunch';
 import PressConferences from './componets/PressConferences';
 import Otheritems from './componets/Otheritems';
+import Bill from './componets/Bill';
 
 function App() {
   return (
@@ -69,7 +70,7 @@ function App() {
           <Route path='/RoyalEvent/pressconferences' element={<PressConferences />}/>
 
 
-
+          <Route path='/Bill' element={<Bill />}/>
           <Route path='/err' element={<Err />}/>
           <Route path='/Thanks' element={<Thanks />}/>
         </Routes>
