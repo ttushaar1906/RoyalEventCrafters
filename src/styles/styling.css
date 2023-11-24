@@ -212,6 +212,9 @@ td{
     margin-top: 1rem;
     width: 200px;
 }
+.contant-col{
+    width: 250px;
+}
 /* ##### Abouts us ##### */
 
 .aboutus .container {

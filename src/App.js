@@ -76,7 +76,12 @@ function App() {
           <Route path='/err' element={<Err />}/>
           <Route path='/Thanks' element={<Thanks />}/>
 
+
+          {/* Admin session */}
           <Route path='/RoyalEvent/Admi' element={<Admi />}/>
+          <Route path='/RoyalEvent/Admi/review' element={<Admi />}/>
+          <Route path='/RoyalEvent/Admi/contact' element={<Admi />}/>
+
         </Routes>
         <Footer />
       </Router>
