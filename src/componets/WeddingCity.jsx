@@ -93,7 +93,7 @@ export default function WeddingCity() {
 
             if (response.status === 200) {
                 console.log("Order submitted successfully.");
-                window.location.href = '/Thanks';
+                window.location.href = '/RoyalEvent/Bill';
             } else {
                 console.error("Order submission failed.");
             }

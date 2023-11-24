@@ -28,6 +28,7 @@ import BrandLaunch from './componets/BrandLaunch';
 import PressConferences from './componets/PressConferences';
 import Otheritems from './componets/Otheritems';
 import Bill from './componets/Bill';
+import Admi from './pages/Admi';
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
           <Route path='/RoyalEvent/wedding' element={<Wedding />}/>
           <Route path='/RoyalEvent/wedding/:weddingCity' element={<WeddingCity />}/>
           <Route path='/RoyalEvent/wedding/otheritems' element={<Wedding />}/>
-           {/* http://localhost:4000/packages/wedding/otheritem */}
+          
            <Route path='/wedding/otheritems' element={<Otheritems />}/>
 
           {/* Anniversary */}
@@ -70,9 +71,12 @@ function App() {
           <Route path='/RoyalEvent/pressconferences' element={<PressConferences />}/>
 
 
-          <Route path='/Bill' element={<Bill />}/>
+          <Route path='/RoyalEvent/Bill' element={<Bill />}/>
+          <Route path='/RoyalEvent/Bill/:eventLoc' element={<Bill />}/>
           <Route path='/err' element={<Err />}/>
           <Route path='/Thanks' element={<Thanks />}/>
+
+          <Route path='/RoyalEvent/Admi' element={<Admi />}/>
         </Routes>
         <Footer />
       </Router>

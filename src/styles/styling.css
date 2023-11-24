@@ -49,10 +49,12 @@ body {
     margin: 1rem;
     font-weight: 600;
 }
-.title-heading{
+
+.title-heading {
     color: var(--main-text-color);
     margin-top: 1rem;
 }
+
 .nav-section .container {
     justify-content: space-between;
 }
@@ -196,6 +198,20 @@ section img {
     font-size: 1.5rem;
 }
 
+.admi .lg-heading {
+    color: var(--secondary-text-color);
+    font-size: 2rem;
+}
+td{
+    padding: 0.2rem ;
+}
+.eventLoc-col{
+    width: 150px;
+}
+.admi-btn{
+    margin-top: 1rem;
+    width: 200px;
+}
 /* ##### Abouts us ##### */
 
 .aboutus .container {
@@ -264,7 +280,7 @@ label {
     padding: 0.5rem 0;
 }
 
-.contact-input  {
+.contact-input {
     background-color: var(--bg--color);
     border: none;
     border-radius: 5px;
@@ -867,13 +883,16 @@ table {
     height: 20vh;
 }
 
-.dashboard-events {
-    border: 2px solid green;
-    margin-top: 1rem;
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-td {
-    text-align: center;
+.dashboard-events {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-top: 2rem;
+}
+.table-head{
+    background-color: #f2f2f2;
 }
 
 .dashboard-details {
@@ -1023,10 +1042,12 @@ td {
     color: var(--primary-text-color);
     font-weight: 600;
 }
-.wedding-container{
+
+.wedding-container {
     border: 1px solid white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
 /* ## Booking form ## */
 
 .booking-pg {
@@ -1058,11 +1079,13 @@ td {
 .booking-form {
     width: 50%;
 }
-.booking-form label{
+
+.booking-form label {
     color: var(--primary-text-color);
 }
 
-.booking-form input ,select{
+.booking-form input,
+select {
     display: inline;
     margin: 0.5rem;
     width: 70%;
@@ -1116,32 +1139,37 @@ td {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
-.form-cont .submit-btn{
+
+.form-cont .submit-btn {
     width: 90%;
     padding: 0.5rem;
-    margin: 1rem 0.5rem ;
+    margin: 1rem 0.5rem;
 }
-.form-cont .submit-btn:hover{
+
+.form-cont .submit-btn:hover {
     transform: scale(1.02);
 }
 
-.additional-info label{
+.additional-info label {
     color: var(--primary-text-color);
 }
-.additional-info select{
+
+.additional-info select {
     width: 70%;
     padding: 0.5rem;
     text-align: center;
     margin: 0.5rem;
 }
-    
-.otherItem-show{
+
+.otherItem-show {
     width: 180px;
 }
-.otherItem-show .price{
-font-size: 0.8rem;
+
+.otherItem-show .price {
+    font-size: 0.8rem;
 }
-.event-time .price{
+
+.event-time .price {
     font-size: 0.8rem;
 }
 
@@ -1196,13 +1224,15 @@ font-size: 0.8rem;
 }
 
 /* Thanks pg styling */
-.container a{
+.container a {
     text-decoration: none;
 }
-.container .thanks-img{
+
+.container .thanks-img {
     width: 400px;
     margin-top: 3rem;
 }
-.container .thanks-img img{
+
+.container .thanks-img img {
     width: 100%;
 }

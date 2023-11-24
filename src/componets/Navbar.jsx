@@ -5,7 +5,7 @@ import '../styles/styling.css';
 
 export default function CustomNavbar() {
   const location = useLocation();
-  const isLoginOrSignUp = location.pathname === '/' || location.pathname === '/signUp' || location.pathname === '/Err' || location.pathname === '/Thanks';
+  const isLoginOrSignUp = location.pathname === '/' || location.pathname === '/signUp' || location.pathname === '/Err' || location.pathname === '/Thanks' || location.pathname ==='/RoyalEvent/Admi';
 
   return (
     <>
