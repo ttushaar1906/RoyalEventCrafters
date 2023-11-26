@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/styling.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faArrowRight,faStarOfLife } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faArrowRight, faStarOfLife } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -61,7 +61,7 @@ export default function AnniversaryCity() {
                 },
                 body: JSON.stringify({
                     eventLoc: eventdata[0].partyType, // Use event.placeTitle directly
-                    placePrice:eventdata[0].partyPrice,
+                    placePrice: eventdata[0].partyPrice,
                     username: formData.username,
                     mobileNo: formData.mobileNo,
                     email: formData.email,
@@ -78,8 +78,9 @@ export default function AnniversaryCity() {
                     MicSoundScreen: formData.MicSoundScreen,
                     Chairs: formData.Chairs,
                     Plates: formData.Plates,
-                    Tables:formData.Tables,
-                    LightSet:formData.LightSet,
+                    Tables: formData.Tables,
+                    LightSet: formData.LightSet,
+                    photography: formData.photography,
                 }),
             });
 
@@ -131,14 +132,14 @@ export default function AnniversaryCity() {
 
                             </div>
                         ))}
-                        <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder='Enter your Name' required/>
-                        <input type="number" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} placeholder='Enter your Mobile No' required/>
-                        <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='Enter Your Email' required/>
+                        <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder='Enter your Name' required />
+                        <input type="number" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} placeholder='Enter your Mobile No' required />
+                        <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='Enter Your Email' required />
                         <input type="date" name="bookingDate" value={formData.bookingDate} onChange={handleInputChange} />
-                        <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter NO of  Guests' required/>
+                        <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter NO of  Guests' required />
                         <label htmlFor="dropdown ">Select City:</label>
                         <select id="dropdown" value={selectedOption} onChange={handleDropdownChange} required>
-                        <option name="city">Select a City</option>
+                            <option name="city">Select a City</option>
                             <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
                             <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>
                             <option name="city" value="Bangalore" onChange={handleInputChange}>Bangalore</option>
@@ -152,24 +153,24 @@ export default function AnniversaryCity() {
                             <option name="city" value="Kolkata" onChange={handleInputChange}>Kolkata</option>
                             <option name="city" value="Hydrabad" onChange={handleInputChange}>Hydrabad</option>
                         </select>
-                        <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' required/>
+                        <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' required />
 
                         <p className='event-time'>Function Time</p>
                         <div className="function">
-                            <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} required/>
+                            <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} required />
                             <label htmlFor="Day">Day</label>
                             <input type="radio" name="eventTime" value="Evening" onChange={handleInputChange} />
                             <label htmlFor="Evening">Evening</label>
                         </div>
                         {eventdata.map((event, index) => (
-                        <div key={index}>
-                            <input type="number" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.partyPrice}`} />
-                        </div>
-                    ))}
+                            <div key={index}>
+                                <input type="number" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.partyPrice}`} />
+                            </div>
+                        ))}
                         <h1>Others</h1>
                         <p className='event-time'>Do you need Host? <span className="price">Price:200000</span></p>
                         <div className="function">
-                            <input type="radio" name="Host" value="200000" onChange={handleInputChange}  required/>
+                            <input type="radio" name="Host" value="200000" onChange={handleInputChange} required />
                             <label htmlFor="Host-Yes">Yes</label>
                             <input type="radio" name="Host" value="00" onChange={handleInputChange} />
                             <label htmlFor="Host-No">No</label>
@@ -177,7 +178,7 @@ export default function AnniversaryCity() {
 
                         <p className='event-time'>Do you need Balloon Decoration? <span className="price">Price:200000</span></p>
                         <div className="function">
-                            <input type="radio" name="BalloonDecoration" value="Yes" onChange={handleInputChange} required/>
+                            <input type="radio" name="BalloonDecoration" value="Yes" onChange={handleInputChange} required />
                             <label htmlFor="BalloonDecoration-Yes">Yes</label>
                             <input type="radio" name="BalloonDecoration" value="No" onChange={handleInputChange} />
                             <label htmlFor="BalloonDecoration-No">No</label>
@@ -185,7 +186,7 @@ export default function AnniversaryCity() {
 
                         <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
                         <div className="function">
-                            <input type="radio" name="PaperBlast" value="50000" onChange={handleInputChange} required/>
+                            <input type="radio" name="PaperBlast" value="50000" onChange={handleInputChange} required />
                             <label htmlFor="PaperBlast-Yes">Yes</label>
                             <input type="radio" name="PaperBlast" value="00" onChange={handleInputChange} />
                             <label htmlFor="PaperBlast-No">No</label>
@@ -193,7 +194,7 @@ export default function AnniversaryCity() {
 
                         <p className='event-time'>Do you need Fog Machine? <span className="price">Price:50000</span></p>
                         <div className="function">
-                            <input type="radio" name="FogMachine" value="50000" onChange={handleInputChange} required/>
+                            <input type="radio" name="FogMachine" value="50000" onChange={handleInputChange} required />
                             <label htmlFor="FogMachine-Yes">Yes</label>
                             <input type="radio" name="FogMachine" value="00" onChange={handleInputChange} />
                             <label htmlFor="FogMachine-No">No</label>
@@ -201,37 +202,45 @@ export default function AnniversaryCity() {
 
                         <p className='event-time'>Do you Need Mic and Sound System? <span className="price">Price:150000</span></p>
                         <div className="function">
-                            <input type="radio" name="MicSound" value="150000" onChange={handleInputChange} required/>
+                            <input type="radio" name="MicSound" value="150000" onChange={handleInputChange} required />
                             <label htmlFor="MicSound-Yes">Yes</label>
                             <input type="radio" name="MicSound" value="00" onChange={handleInputChange} />
                             <label htmlFor="MicSound-No">No</label>
                         </div>
 
-                        <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span> 
-                        
-                        {/* <FontAwesomeIcon icon={faStarOfLife} size='2xs' style={{color: "#e4007d",}} /> */}
-                        
+                        <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span>
+
+                            {/* <FontAwesomeIcon icon={faStarOfLife} size='2xs' style={{color: "#e4007d",}} /> */}
+
                         </p>
                         <div className="function">
-                       
-                            <input type="radio" name="MicSoundScreen" value="150000" onChange={handleInputChange} required/>
+
+                            <input type="radio" name="MicSoundScreen" value="150000" onChange={handleInputChange} required />
                             <label htmlFor="MicSoundScreen-Yes">Yes</label>
                             <input type="radio" name="MicSoundScreen" value="00" onChange={handleInputChange} />
                             <label htmlFor="MicSoundScreen-No">No</label>
                         </div>
 
+                        <p className='event-time'>Do you Need Photographer? <span className="price">Price:200000</span></p>
+                        <div className="function">
+                            <input type="radio" name="photography" value="200000" onChange={handleInputChange} required />
+                            <label htmlFor="Yes">Yes</label>
+                            <input type="radio" name="photography" value="00" onChange={handleInputChange} />
+                            <label htmlFor="No">No</label>
+                        </div>
+
                         <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
-                    <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs'/>
+                        <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
 
-                    <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
-                    <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates'/>
+                        <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
+                        <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates' />
 
-                    <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
-                    <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables'/>
+                        <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
+                        <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables' />
 
-                    <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
-                    <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet'/>
-                    
+                        <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
+                        <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet' />
+
 
                         <button type='submit' className='submit-btn'>Book</button>
                     </form>

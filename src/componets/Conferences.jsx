@@ -79,6 +79,7 @@ const handleSubmit = async (e) => {
           Plates: formData.Plates,
           Tables: formData.Tables,
           LightSet: formData.LightSet,
+          photography:formData.photography,
         }),
       });
   
@@ -209,6 +210,14 @@ const [selectedOption, setSelectedOption] = useState("");
             <label htmlFor="No">No</label>
           </div>
 
+          <p className='event-time'>Do you Need Photographer? <span className="price">Price:200000</span></p>
+                        <div className="function">
+                            <input type="radio" name="photography" value="200000" onChange={handleInputChange} required />
+                            <label htmlFor="Yes">Yes</label>
+                            <input type="radio" name="photography" value="00" onChange={handleInputChange} />
+                            <label htmlFor="No">No</label>
+                        </div>
+                        
           <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
           <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
 
