@@ -8,7 +8,7 @@ export default function Login() {
     email: "",
     password: "",
   });
-
+  
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -25,7 +25,9 @@ export default function Login() {
       const response = await axios.post("/login", formData);
 
       if (response.status === 200) {
-        navigate("/Home");
+        navigate(
+          `/home?&email=${encodeURIComponent(formData.email)}`
+        )
       } else {
         console.error("Login failed.");
       }
@@ -35,17 +37,17 @@ export default function Login() {
     }
   };
 
-  const handleCustomerSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("/dashboard", formData);
-      navigate(
-        `/home(formData.email)}`
-      );
-    } catch (error) {
-      console.error("Error logging in:", error);
-    }
-  };
+  // const handleCustomerSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios.post("/dashboard", formData);
+  //     navigate(
+  //       `/home(formData.email)}`
+  //     );
+  //   } catch (error) {
+  //     console.error("Error logging in:", error);
+  //   }
+  // };
 
   return (
     <div className="body">
@@ -76,7 +78,7 @@ export default function Login() {
               onChange={handleInputChange}
             />
             <button type="submit" className="btn">
-              General Login
+              Login
             </button>
           </form>
            <p>Don't have an account yet?<Link to="/signUp"> Signup</Link></p>

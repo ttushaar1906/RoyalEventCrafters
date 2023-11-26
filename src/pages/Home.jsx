@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChampagneGlasses, faPeopleGroup, faFaceLaughBeam, faLandmark } from "@fortawesome/free-solid-svg-icons";
 import '../styles/styling.css';
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
     return (

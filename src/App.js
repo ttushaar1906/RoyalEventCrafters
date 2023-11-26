@@ -70,9 +70,8 @@ function App() {
           <Route path='/RoyalEvent/brandlaunch' element={<BrandLaunch />}/>
           <Route path='/RoyalEvent/pressconferences' element={<PressConferences />}/>
 
-
-          <Route path='/RoyalEvent/Bill' element={<Bill />}/>
-          <Route path='/RoyalEvent/Bill/:eventLoc' element={<Bill />}/>
+          <Route path='/RoyalEvent/bill' element={<Bill />}/>
+         
           <Route path='/err' element={<Err />}/>
           <Route path='/Thanks' element={<Thanks />}/>
 
