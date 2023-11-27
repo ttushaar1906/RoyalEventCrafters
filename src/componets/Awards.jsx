@@ -8,27 +8,19 @@ import { useState, useEffect } from 'react';
 
 export default function Award() {
   const [eventdata, setEventData] = useState([]);
-  const [otheritemdata, setOtheritemData] = useState([]);
+  const [eventPrice, setEventPrice] = useState(0);
+  
 
   useEffect(() => {
     const getEventData = async () => {
       const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/AwardCeremony');
       const respEventData = await reqEventdata.json();
       setEventData(respEventData);
+      setEventPrice(respEventData[0].price); // Set eventPrice here
       console.log("data", respEventData)
     }
     getEventData();
   }, []);
-
-  useEffect(() => {
-    const getOtherItemData = async () => {
-      const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
-      const respOtheritemData = await reqOtheritemData.json();
-      setOtheritemData(respOtheritemData);
-      console.log('data', respOtheritemData);
-    };
-    getOtherItemData();
-  }, [])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,49 +29,89 @@ export default function Award() {
       [name]: value,
     });
   };
-  const [formData, setFormData] = useState({
-    eventLoc: "",
-    username: "",
-    mobileNo: "",
-    email: "",
-    bookingDate: "",
-    noOfGuests: "",
-    eventTime: "",
-    city: "",
-    addresss: "",
-  });
 
+  const calculateTotalCost = () => {
+    const chairPrice = 100;
+    const platesPrice = 4500;
+    const tablesPrice = 200;
+    const lightSetPrice = 2000;
+    const host = 1;
+    const paperblast = 1;
+    const fogMachine = 1;
+    const MicSound = 1;
+    const MicSoundScreen = 1;
+    const photography = 1;
+
+    let totalCost =
+       ( formData.Chairs * chairPrice) +
+       ( formData.Plates * platesPrice) +
+       ( formData.Tables * tablesPrice) +
+       ( formData.LightSet * lightSetPrice) +
+       ( formData.Host * host) +
+       ( formData.PaperBlast * paperblast) +
+       ( formData.FogMachine * fogMachine) +
+       ( formData.MicSound * MicSound) +
+       ( formData.MicSoundScreen * MicSoundScreen) +
+       ( formData.photography * photography)+
+       eventPrice
+
+     return totalCost;
+};
+
+const [formData, setFormData] = useState({
+  eventTitle: "",
+  username: "",
+  mobileNo: "",
+  email: "",
+  bookingDate: "",
+  noOfGuests: "",
+  eventTime: "",
+  city:"",
+  addresss:"",
+  Chairs: 0,
+  Plates: 0,
+  Tables: 0,
+  LightSet: 0,
+  Host: 0, 
+  PaperBlast: 0,
+  FogMachine: 0,
+  MicSound: 0,
+  MicSoundScreen: 0,
+  photography: 0,
+  totalCost:0
+});
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch("/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          eventLoc: eventdata[0].eventTitle, // Use event.placeTitle directly
-          placePrice: eventdata[0].price,
-          username: formData.username,
-          mobileNo: formData.mobileNo,
-          email: formData.email,
-          bookingDate: formData.bookingDate,
-          noOfGuests: formData.noOfGuests,
-          eventTime: formData.eventTime,
-          city: selectedOption,
-          addresss: formData.addresss,
-          Host: formData.Host,
-          PaperBlast: formData.PaperBlast,
-          FogMachine: formData.FogMachine,
-          MicSound: formData.MicSound,
-          MicSoundScreen: formData.MicSoundScreen,
-          Chairs: formData.Chairs,
-          Plates: formData.Plates,
-          Tables: formData.Tables,
-          LightSet: formData.LightSet,
-          photography: formData.photography,
-        }),
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+              eventLoc: `${eventdata[0].eventTitle}`,
+              placePrice: eventdata[0].price,
+              username: formData.username,
+              mobileNo: formData.mobileNo,
+              email: formData.email,
+              bookingDate: formData.bookingDate,
+              noOfGuests: formData.noOfGuests,
+              eventTime: formData.eventTime,
+              city:formData.city,
+              addresss:formData.addresss,
+              Chairs: formData.Chairs,
+              Plates: formData.Plates,
+              Tables: formData.Tables,
+              LightSet: formData.LightSet,
+              Host: formData.Host,
+              PaperBlast: formData.PaperBlast,
+              FogMachine: formData.FogMachine,
+              MicSound: formData.MicSound,
+              MicSoundScreen: formData.MicSoundScreen,
+              photography: formData.photography,
+              totalCost:calculateTotalCost()
+          }),
       });
 
       if (response.status === 200) {
@@ -218,20 +250,61 @@ export default function Award() {
             <label htmlFor="No">No</label>
           </div>
 
-          <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
-          <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
+          <p className='event-time'>
+            Enter No of Extra Chairs You Need <span className="price">Price:100/-</span>
+          </p>
+          <input
+            type="number"
+            name="Chairs"
+            value={formData.Chairs}
+            onChange={handleInputChange}
+            placeholder='Enter No of Chairs'
+          />
 
-          <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
-          <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates' />
+          <p className='event-time'>
+            Enter No of Extra Plates You Need <span className="price">Price:4500/-</span>
+          </p>
+          <input
+            type="number"
+            name="Plates"
+            value={formData.Plates}
+            onChange={handleInputChange}
+            placeholder='Enter No of Plates'
+          />
 
-          <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
-          <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables' />
+          <p className='event-time'>
+            Enter No of Extra Tables You Need <span className="price">Price:200/-</span>
+          </p>
+          <input
+            type="number"
+            name="Tables"
+            value={formData.Tables}
+            onChange={handleInputChange}
+            placeholder='Enter No of Tables'
+          />
 
-          <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
-          <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet' />
+          <p className='event-time'>
+            Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span>
+          </p>
+          <input
+            type="number"
+            name="LightSet"
+            value={formData.LightSet}
+            onChange={handleInputChange}
+            placeholder='Enter No of LightSet'
+          />
 
-          <button type='submit' className='submit-btn'>Book</button>
-        </form>
+          <p>Total Cost: {calculateTotalCost()} /-</p>
+          <input
+            type="number"
+            name="totalCost"
+            value={formData.totalCost}
+            readOnly // make it read-only to display the value
+            style={{ display: 'none' }} // hide it from the user
+          />
+          <button type='submit' className='submit-btn'>
+            Book
+          </button></form>
       </div>
     </div>
   )

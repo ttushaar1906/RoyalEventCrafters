@@ -8,31 +8,24 @@ import { useState, useEffect } from 'react';
 
 export default function Award() {
     const [eventdata, setEventData] = useState([]);
-    const [otheritemdata, setOtheritemData] = useState([]);
-    // const [formData, setFormData] = useState([]);
+    const [eventPrice, setEventPrice] = useState(0);
+
     const [selectedOption, setSelectedOption] = useState("");
+
     const handleDropdownChange = (e) => {
         setSelectedOption(e.target.value);
     };
+    
     useEffect(() => {
         const getEventData = async () => {
             const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/pressconferences');
             const respEventData = await reqEventdata.json();
             setEventData(respEventData);
+            setEventPrice(respEventData[0].price);
             console.log("data", respEventData)
         }
         getEventData();
     }, []);
-
-    useEffect(() => {
-        const getOtherItemData = async () => {
-            const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
-            const respOtheritemData = await reqOtheritemData.json();
-            setOtheritemData(respOtheritemData);
-            console.log('data', respOtheritemData);
-        };
-        getOtherItemData();
-    }, [])
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -41,8 +34,9 @@ export default function Award() {
             [name]: value,
         });
     };
+
     const [formData, setFormData] = useState({
-        eventLoc: "",
+        eventTitle: "",
         username: "",
         mobileNo: "",
         email: "",
@@ -51,7 +45,46 @@ export default function Award() {
         eventTime: "",
         city: "",
         addresss: "",
+        Chairs: 0,
+        Plates: 0,
+        Tables: 0,
+        LightSet: 0,
+        Host: 0,
+        PaperBlast: 0,
+        FogMachine: 0,
+        MicSound: 0,
+        MicSoundScreen: 0,
+        photography: 0,
+        totalCost: 0
     });
+
+    const calculateTotalCost = () => {
+        const chairPrice = 100;
+        const platesPrice = 4500;
+        const tablesPrice = 200;
+        const lightSetPrice = 2000;
+        const host = 1;
+        const paperblast = 1;
+        const fogMachine = 1;
+        const MicSound = 1;
+        const MicSoundScreen = 1;
+        const photography = 1;
+
+        let totalCost =
+            (formData.Chairs * chairPrice) +
+            (formData.Plates * platesPrice) +
+            (formData.Tables * tablesPrice) +
+            (formData.LightSet * lightSetPrice) +
+            (formData.Host * host) +
+            (formData.PaperBlast * paperblast) +
+            (formData.FogMachine * fogMachine) +
+            (formData.MicSound * MicSound) +
+            (formData.MicSoundScreen * MicSoundScreen) +
+            (formData.photography * photography) +
+            eventPrice
+
+        return totalCost;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -63,26 +96,27 @@ export default function Award() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    eventLoc: eventdata[0].eventTitle, // Use event.placeTitle directly
-                    placePrice:eventdata[0].price,
+                    eventLoc: `${eventdata[0].eventTitle}`,
+                    placePrice: eventdata[0].price,
                     username: formData.username,
                     mobileNo: formData.mobileNo,
                     email: formData.email,
                     bookingDate: formData.bookingDate,
                     noOfGuests: formData.noOfGuests,
                     eventTime: formData.eventTime,
-                    city: selectedOption,
+                    city: formData.city,
                     addresss: formData.addresss,
+                    Chairs: formData.Chairs,
+                    Plates: formData.Plates,
+                    Tables: formData.Tables,
+                    LightSet: formData.LightSet,
                     Host: formData.Host,
                     PaperBlast: formData.PaperBlast,
                     FogMachine: formData.FogMachine,
                     MicSound: formData.MicSound,
                     MicSoundScreen: formData.MicSoundScreen,
-                    Chairs: formData.Chairs,
-                    Plates: formData.Plates,
-                    Tables: formData.Tables,
-                    LightSet: formData.LightSet,
-                    photography:formData.photography,
+                    photography: formData.photography,
+                    totalCost: calculateTotalCost()
                 }),
             });
 
@@ -137,26 +171,27 @@ export default function Award() {
                     <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter No of  Guests' />
 
                     <label htmlFor="dropdown">Select City:</label>
-                    <select id="dropdown" value={formData.selectedOption} onChange={handleDropdownChange}>
-                    <option name="city">Select a City</option>
-                        <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
-                        <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>
-                        <option name="city" value="Bangalore" onChange={handleInputChange}>Bangalore</option>
-                        <option name="city" value="Jaipur" onChange={handleInputChange}>Jaipur</option>
-                        <option name="city" value="Delhi" onChange={handleInputChange}>Delhi</option>
-                        <option name="city" value="Chennai" onChange={handleInputChange}>Chennai</option>
-                        <option name="city" value="Agra" onChange={handleInputChange}>Agra</option>
-                        <option name="city" value="Raipur" onChange={handleInputChange}>Raipur</option>
-                        <option name="city" value="Kota" onChange={handleInputChange}>Kota</option>
-                        <option name="city" value="Surat" onChange={handleInputChange}>Surat</option>
-                        <option name="city" value="Kolkata" onChange={handleInputChange}>Kolkata</option>
-                        <option name="city" value="Hydrabad" onChange={handleInputChange}>Hydrabad</option>
+                    <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+                        <option value="">Select a City</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Agra">Agra</option>
+                        <option value="Raipur">Raipur</option>
+                        <option value="Kota">Kota</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Hyderabad">Hyderabad</option>
                     </select>
+
 
                     <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
                     <p className='event-time'>Function Time</p>
                     <div className="function">
-                        <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} required/>
+                        <input type="radio" name="eventTime" value="Day" onChange={handleInputChange} required />
                         <label htmlFor="Day">Day</label>
                         <input type="radio" name="eventTime" value="Evening" onChange={handleInputChange} />
                         <label htmlFor="Evening">Evening</label>
@@ -168,67 +203,108 @@ export default function Award() {
                     ))}
                     <h1>Others</h1>
                     <p className='event-time'>Do you need Host? <span className="price">Price:200000</span></p>
-          <div className="function">
-            <input type="radio" name="Host" value="200000" onChange={handleInputChange}  required/>
-            <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="Host" value="00" onChange={handleInputChange} />
-            <label htmlFor="No">No</label>
-          </div>
+                    <div className="function">
+                        <input type="radio" name="Host" value="200000" onChange={handleInputChange} required />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="Host" value="00" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-          <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
-          <div className="function">
-            <input type="radio" name="PaperBlast" value="50000" onChange={handleInputChange} required/>
-            <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="PaperBlast" value="00" onChange={handleInputChange} />
-            <label htmlFor="No">No</label>
-          </div>
+                    <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
+                    <div className="function">
+                        <input type="radio" name="PaperBlast" value="50000" onChange={handleInputChange} required />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="PaperBlast" value="00" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-          <p className='event-time'>Do you need Fog Machine? <span className="price">Price:50000</span></p>
-          <div className="function">
-            <input type="radio" name="FogMachine" value="50000" onChange={handleInputChange} required/>
-            <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="FogMachine" value="00" onChange={handleInputChange} />
-            <label htmlFor="No">No</label>
-          </div>
+                    <p className='event-time'>Do you need Fog Machine? <span className="price">Price:50000</span></p>
+                    <div className="function">
+                        <input type="radio" name="FogMachine" value="50000" onChange={handleInputChange} required />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="FogMachine" value="00" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-          <p className='event-time'>Do you Need Mic and Sound System? <span className="price">Price:150000</span></p>
-          <div className="function">
-            <input type="radio" name="MicSound" value="150000" onChange={handleInputChange} required/>
-            <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="MicSound" value="00" onChange={handleInputChange} />
-            <label htmlFor="No">No</label>
-          </div>
+                    <p className='event-time'>Do you Need Mic and Sound System? <span className="price">Price:150000</span></p>
+                    <div className="function">
+                        <input type="radio" name="MicSound" value="150000" onChange={handleInputChange} required />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="MicSound" value="00" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-          <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span></p>
-          <div className="function">
-            <input type="radio" name="MicSoundScreen" value="150000" onChange={handleInputChange} />
-            <label htmlFor="Yes">Yes</label>
-            <input type="radio" name="MicSoundScreen" value="00" onChange={handleInputChange} />
-            <label htmlFor="No">No</label>
-          </div>
+                    <p className='event-time'>Do you Need Mic Sound and Screen System? <span className="price">Price:150000</span></p>
+                    <div className="function">
+                        <input type="radio" name="MicSoundScreen" value="150000" onChange={handleInputChange} />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="MicSoundScreen" value="00" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-          <p className='event-time'>Do you Need Photographer? <span className="price">Price:200000</span></p>
-                        <div className="function">
-                            <input type="radio" name="photography" value="200000" onChange={handleInputChange} required />
-                            <label htmlFor="Yes">Yes</label>
-                            <input type="radio" name="photography" value="00" onChange={handleInputChange} />
-                            <label htmlFor="No">No</label>
-                        </div>
+                    <p className='event-time'>Do you Need Photographer? <span className="price">Price:200000</span></p>
+                    <div className="function">
+                        <input type="radio" name="photography" value="200000" onChange={handleInputChange} required />
+                        <label htmlFor="Yes">Yes</label>
+                        <input type="radio" name="photography" value="00" onChange={handleInputChange} />
+                        <label htmlFor="No">No</label>
+                    </div>
 
-          <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
-          <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
+                    <p className='event-time'>
+                        Enter No of Extra Chairs You Need <span className="price">Price:100/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="Chairs"
+                        value={formData.Chairs}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of Chairs'
+                    />
 
-          <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
-          <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates' />
+                    <p className='event-time'>
+                        Enter No of Extra Plates You Need <span className="price">Price:4500/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="Plates"
+                        value={formData.Plates}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of Plates'
+                    />
 
-          <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
-          <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables' />
+                    <p className='event-time'>
+                        Enter No of Extra Tables You Need <span className="price">Price:200/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="Tables"
+                        value={formData.Tables}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of Tables'
+                    />
 
-          <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
-          <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet' />
+                    <p className='event-time'>
+                        Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="LightSet"
+                        value={formData.LightSet}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of LightSet'
+                    />
 
-                    <button type='submit' className='submit-btn'>Book</button>
-                </form>
+                    <p>Total Cost: {calculateTotalCost()} /-</p>
+                    <input
+                        type="number"
+                        name="totalCost"
+                        value={formData.totalCost}
+                        readOnly // make it read-only to display the value
+                        style={{ display: 'none' }} // hide it from the user
+                    />
+                    <button type='submit' className='submit-btn'>
+                        Book
+                    </button> </form>
             </div>
         </div>
     )

@@ -1,37 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/styling.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIndianRupeeSign, faArrowRight, faStarOfLife } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function AnniversaryCity() {
     const { partyType } = useParams(); // Get the 'city' parameter from the route
     const [eventdata, setEventData] = useState([]);
-    const [otheritemdata, setOtheritemData] = useState([]);
+    const [eventPrice, setEventPrice] = useState(0);
 
     useEffect(() => {
         const getEventData = async () => {
             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/birthdayParty/${partyType}`);
             const respEventData = await reqEventdata.json();
             setEventData(respEventData);
+            setEventPrice(respEventData[0].price);
             console.log("data", respEventData);
         }
         getEventData();
     }, [partyType]); // Make sure to include 'city' in the dependency array
 
-    useEffect(() => {
-        const getOtherItemData = async () => {
-            const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
-            const respOtheritemData = await reqOtheritemData.json();
-            setOtheritemData(respOtheritemData);
-            console.log('data', respOtheritemData);
-        };
-        getOtherItemData();
-    }, []);
-
     const [formData, setFormData] = useState({
-        eventLoc: "",
+        placeTitle: "",
         username: "",
         mobileNo: "",
         email: "",
@@ -39,7 +30,18 @@ export default function AnniversaryCity() {
         noOfGuests: "",
         eventTime: "",
         city: "",
-        addresss: ""
+        addresss: "",
+        Chairs: 0,
+        Plates: 0,
+        Tables: 0,
+        LightSet: 0,
+        Host: 0,
+        PaperBlast: 0,
+        FogMachine: 0,
+        MicSound: 0,
+        MicSoundScreen: 0,
+        photography: 0,
+        totalCost: 0
     });
 
     const handleInputChange = (e) => {
@@ -50,9 +52,36 @@ export default function AnniversaryCity() {
         });
     };
 
+    const calculateTotalCost = () => {
+        const chairPrice = 100;
+        const platesPrice = 4500;
+        const tablesPrice = 200;
+        const lightSetPrice = 2000;
+        const host = 1;
+        const paperblast = 1;
+        const fogMachine = 1;
+        const MicSound = 1;
+        const MicSoundScreen = 1;
+        const photography = 1;
+
+        let totalCost =
+            (formData.Chairs * chairPrice) +
+            (formData.Plates * platesPrice) +
+            (formData.Tables * tablesPrice) +
+            (formData.LightSet * lightSetPrice) +
+            (formData.Host * host) +
+            (formData.PaperBlast * paperblast) +
+            (formData.FogMachine * fogMachine) +
+            (formData.MicSound * MicSound) +
+            (formData.MicSoundScreen * MicSoundScreen) +
+            (formData.photography * photography) +
+            eventPrice
+
+        return totalCost;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const response = await fetch("/orders", {
                 method: "POST",
@@ -60,27 +89,28 @@ export default function AnniversaryCity() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    eventLoc: eventdata[0].partyType, // Use event.placeTitle directly
-                    placePrice: eventdata[0].partyPrice,
+                    eventLoc: `${eventdata[0].placeTitle}`,
+                    placePrice: eventdata[0].price,
                     username: formData.username,
                     mobileNo: formData.mobileNo,
                     email: formData.email,
                     bookingDate: formData.bookingDate,
                     noOfGuests: formData.noOfGuests,
                     eventTime: formData.eventTime,
-                    city: selectedOption,
+                    city: formData.city,
                     addresss: formData.addresss,
+                    Chairs: formData.Chairs,
+                    Plates: formData.Plates,
+                    Tables: formData.Tables,
+                    LightSet: formData.LightSet,
                     Host: formData.Host,
                     BallonDeco: formData.BallonDeco,
                     PaperBlast: formData.PaperBlast,
                     FogMachine: formData.FogMachine,
                     MicSound: formData.MicSound,
                     MicSoundScreen: formData.MicSoundScreen,
-                    Chairs: formData.Chairs,
-                    Plates: formData.Plates,
-                    Tables: formData.Tables,
-                    LightSet: formData.LightSet,
                     photography: formData.photography,
+                    totalCost: calculateTotalCost()
                 }),
             });
 
@@ -176,13 +206,13 @@ export default function AnniversaryCity() {
                             <label htmlFor="Host-No">No</label>
                         </div>
 
-                        <p className='event-time'>Do you need Balloon Decoration? <span className="price">Price:200000</span></p>
+                        {/* <p className='event-time'>Do you need Balloon Decoration? <span className="price">Price:200000</span></p>
                         <div className="function">
-                            <input type="radio" name="BalloonDecoration" value="Yes" onChange={handleInputChange} required />
+                            <input type="radio" name="BallonDeco" value="Yes" onChange={handleInputChange} required />
                             <label htmlFor="BalloonDecoration-Yes">Yes</label>
                             <input type="radio" name="BalloonDecoration" value="No" onChange={handleInputChange} />
                             <label htmlFor="BalloonDecoration-No">No</label>
-                        </div>
+                        </div> */}
 
                         <p className='event-time'>Do you need Paper Blast? <span className="price">Price:50000</span></p>
                         <div className="function">
@@ -229,21 +259,61 @@ export default function AnniversaryCity() {
                             <label htmlFor="No">No</label>
                         </div>
 
-                        <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
-                        <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
+                        <p className='event-time'>
+                            Enter No of Extra Chairs You Need <span className="price">Price:100/-</span>
+                        </p>
+                        <input
+                            type="number"
+                            name="Chairs"
+                            value={formData.Chairs}
+                            onChange={handleInputChange}
+                            placeholder='Enter No of Chairs'
+                        />
 
-                        <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
-                        <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates' />
+                        <p className='event-time'>
+                            Enter No of Extra Plates You Need <span className="price">Price:4500/-</span>
+                        </p>
+                        <input
+                            type="number"
+                            name="Plates"
+                            value={formData.Plates}
+                            onChange={handleInputChange}
+                            placeholder='Enter No of Plates'
+                        />
 
-                        <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
-                        <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables' />
+                        <p className='event-time'>
+                            Enter No of Extra Tables You Need <span className="price">Price:200/-</span>
+                        </p>
+                        <input
+                            type="number"
+                            name="Tables"
+                            value={formData.Tables}
+                            onChange={handleInputChange}
+                            placeholder='Enter No of Tables'
+                        />
 
-                        <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
-                        <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet' />
+                        <p className='event-time'>
+                            Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span>
+                        </p>
+                        <input
+                            type="number"
+                            name="LightSet"
+                            value={formData.LightSet}
+                            onChange={handleInputChange}
+                            placeholder='Enter No of LightSet'
+                        />
 
-
-                        <button type='submit' className='submit-btn'>Book</button>
-                    </form>
+                        <p>Total Cost: {calculateTotalCost()} /-</p>
+                        <input
+                            type="number"
+                            name="totalCost"
+                            value={formData.totalCost}
+                            readOnly // make it read-only to display the value
+                            style={{ display: 'none' }} // hide it from the user
+                        />
+                        <button type='submit' className='submit-btn'>
+                            Book
+                        </button> </form>
                 </div>
             </div>
         </>
