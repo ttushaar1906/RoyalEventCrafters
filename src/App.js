@@ -27,7 +27,7 @@ import Awards from './componets/Awards';
 import BrandLaunch from './componets/BrandLaunch';
 import PressConferences from './componets/PressConferences';
 import Otheritems from './componets/Otheritems';
-import Bill from './componets/Bill';
+// import Bill from './componets/Bill';
 import Admi from './pages/Admi';
 
 function App() {
@@ -70,7 +70,7 @@ function App() {
           <Route path='/RoyalEvent/brandlaunch' element={<BrandLaunch />}/>
           <Route path='/RoyalEvent/pressconferences' element={<PressConferences />}/>
 
-          <Route path='/RoyalEvent/bill' element={<Bill />}/>
+          {/* <Route path='/RoyalEvent/bill' element={<Bill />}/> */}
          
           <Route path='/err' element={<Err />}/>
           <Route path='/Thanks' element={<Thanks />}/>

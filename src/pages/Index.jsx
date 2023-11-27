@@ -26,7 +26,7 @@ export default function Login() {
 
       if (response.status === 200) {
         navigate(
-          `/home?&email=${encodeURIComponent(formData.email)}`
+          `/dashboard?&email=${(formData.email)}`
         )
       } else {
         console.error("Login failed.");
@@ -36,18 +36,6 @@ export default function Login() {
       console.error("Error logging in:", error);
     }
   };
-
-  // const handleCustomerSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post("/dashboard", formData);
-  //     navigate(
-  //       `/home(formData.email)}`
-  //     );
-  //   } catch (error) {
-  //     console.error("Error logging in:", error);
-  //   }
-  // };
 
   return (
     <div className="body">
