@@ -10,12 +10,15 @@ export default function Award() {
     const [eventdata, setEventData] = useState([]);
     const [eventPrice, setEventPrice] = useState(0);
 
-    const [selectedOption, setSelectedOption] = useState("");
-
+    const [selectedOption, setSelectedOption] = useState('');
     const handleDropdownChange = (e) => {
         setSelectedOption(e.target.value);
+        setFormData({
+            ...formData,
+            city: e.target.value,
+        });
     };
-    
+
     useEffect(() => {
         const getEventData = async () => {
             const reqEventdata = await fetch('http://localhost:4000/packages/RoyalEvent/pressconferences');
@@ -171,22 +174,22 @@ export default function Award() {
                     <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter No of  Guests' />
 
                     <label htmlFor="dropdown">Select City:</label>
-                    <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
-                        <option value="">Select a City</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Pune">Pune</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Jaipur">Jaipur</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Agra">Agra</option>
-                        <option value="Raipur">Raipur</option>
-                        <option value="Kota">Kota</option>
-                        <option value="Surat">Surat</option>
-                        <option value="Kolkata">Kolkata</option>
-                        <option value="Hyderabad">Hyderabad</option>
-                    </select>
 
+                    <select id="dropdown" value={selectedOption} onChange={handleDropdownChange}>
+                        <option name="city">Select a City</option>
+                        <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
+                        <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>
+                        <option name="city" value="Bangalore" onChange={handleInputChange}>Bangalore</option>
+                        <option name="city" value="Jaipur" onChange={handleInputChange}>Jaipur</option>
+                        <option name="city" value="Delhi" onChange={handleInputChange}>Delhi</option>
+                        <option name="city" value="Chennai" onChange={handleInputChange}>Chennai</option>
+                        <option name="city" value="Agra" onChange={handleInputChange}>Agra</option>
+                        <option name="city" value="Raipur" onChange={handleInputChange}>Raipur</option>
+                        <option name="city" value="Kota" onChange={handleInputChange}>Kota</option>
+                        <option name="city" value="Surat" onChange={handleInputChange}>Surat</option>
+                        <option name="city" value="Kolkata" onChange={handleInputChange}>Kolkata</option>
+                        <option name="city" value="Hydrabad" onChange={handleInputChange}>Hydrabad</option>
+                    </select>
 
                     <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
                     <p className='event-time'>Function Time</p>

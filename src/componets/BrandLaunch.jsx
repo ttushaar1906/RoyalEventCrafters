@@ -39,24 +39,30 @@ export default function Award() {
     bookingDate: "",
     noOfGuests: "",
     eventTime: "",
-    city:"",
-    addresss:"",
+    city: "",
+    addresss: "",
     Chairs: 0,
     Plates: 0,
     Tables: 0,
     LightSet: 0,
-    Host: 0, 
+    Host: 0,
     PaperBlast: 0,
     FogMachine: 0,
     MicSound: 0,
     MicSoundScreen: 0,
     photography: 0,
-    totalCost:0
-});
+    totalCost: 0
+  });
 
+  const [selectedOption, setSelectedOption] = useState('');
   const handleDropdownChange = (e) => {
     setSelectedOption(e.target.value);
+    setFormData({
+      ...formData,
+      city: e.target.value,
+    });
   };
+
 
   const calculateTotalCost = () => {
     const chairPrice = 100;
@@ -71,53 +77,53 @@ export default function Award() {
     const photography = 1;
 
     let totalCost =
-       ( formData.Chairs * chairPrice) +
-       ( formData.Plates * platesPrice) +
-       ( formData.Tables * tablesPrice) +
-       ( formData.LightSet * lightSetPrice) +
-       ( formData.Host * host) +
-       ( formData.PaperBlast * paperblast) +
-       ( formData.FogMachine * fogMachine) +
-       ( formData.MicSound * MicSound) +
-       ( formData.MicSoundScreen * MicSoundScreen) +
-       ( formData.photography * photography)+
-       eventPrice
+      (formData.Chairs * chairPrice) +
+      (formData.Plates * platesPrice) +
+      (formData.Tables * tablesPrice) +
+      (formData.LightSet * lightSetPrice) +
+      (formData.Host * host) +
+      (formData.PaperBlast * paperblast) +
+      (formData.FogMachine * fogMachine) +
+      (formData.MicSound * MicSound) +
+      (formData.MicSoundScreen * MicSoundScreen) +
+      (formData.photography * photography) +
+      eventPrice
 
-     return totalCost;
-};
+    return totalCost;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch("/orders", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-              eventLoc: `${eventdata[0].eventTitle}`,
-              placePrice: eventdata[0].price,
-              username: formData.username,
-              mobileNo: formData.mobileNo,
-              email: formData.email,
-              bookingDate: formData.bookingDate,
-              noOfGuests: formData.noOfGuests,
-              eventTime: formData.eventTime,
-              city:formData.city,
-              addresss:formData.addresss,
-              Chairs: formData.Chairs,
-              Plates: formData.Plates,
-              Tables: formData.Tables,
-              LightSet: formData.LightSet,
-              Host: formData.Host,
-              PaperBlast: formData.PaperBlast,
-              FogMachine: formData.FogMachine,
-              MicSound: formData.MicSound,
-              MicSoundScreen: formData.MicSoundScreen,
-              photography: formData.photography,
-              totalCost:calculateTotalCost()
-          }),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          eventLoc: `${eventdata[0].eventTitle}`,
+          placePrice: eventdata[0].price,
+          username: formData.username,
+          mobileNo: formData.mobileNo,
+          email: formData.email,
+          bookingDate: formData.bookingDate,
+          noOfGuests: formData.noOfGuests,
+          eventTime: formData.eventTime,
+          city: formData.city,
+          addresss: formData.addresss,
+          Chairs: formData.Chairs,
+          Plates: formData.Plates,
+          Tables: formData.Tables,
+          LightSet: formData.LightSet,
+          Host: formData.Host,
+          PaperBlast: formData.PaperBlast,
+          FogMachine: formData.FogMachine,
+          MicSound: formData.MicSound,
+          MicSoundScreen: formData.MicSoundScreen,
+          photography: formData.photography,
+          totalCost: calculateTotalCost()
+        }),
       });
 
       if (response.status === 200) {
@@ -131,8 +137,6 @@ export default function Award() {
       console.error("Error:", error);
     }
   };
-
-  const [selectedOption, setSelectedOption] = useState("");
 
   return (
     <div className='booking-pg'>
@@ -172,21 +176,20 @@ export default function Award() {
           <input type="number" name="noOfGuests" value={formData.noOfGuests} onChange={handleInputChange} placeholder='Enter No of  Guests' />
 
           <label htmlFor="dropdown">Select City:</label>
-
           <select id="dropdown" value={selectedOption} onChange={handleDropdownChange} required>
             <option name="city">Select a City</option>
-            <option name="city" value="Mumbai" onChange={handleInputChange}>Mumbai</option>
-            <option name="city" value="Pune" onChange={handleInputChange}>Pune</option>
-            <option name="city" value="Bangalore" onChange={handleInputChange}>Bangalore</option>
-            <option name="city" value="Jaipur" onChange={handleInputChange}>Jaipur</option>
-            <option name="city" value="Delhi" onChange={handleInputChange}>Delhi</option>
-            <option name="city" value="Chennai" onChange={handleInputChange}>Chennai</option>
-            <option name="city" value="Agra" onChange={handleInputChange}>Agra</option>
-            <option name="city" value="Raipur" onChange={handleInputChange}>Raipur</option>
-            <option name="city" value="Kota" onChange={handleInputChange}>Kota</option>
-            <option name="city" value="Surat" onChange={handleInputChange}>Surat</option>
-            <option name="city" value="Kolkata" onChange={handleInputChange}>Kolkata</option>
-            <option name="city" value="Hydrabad" onChange={handleInputChange}>Hydrabad</option>
+            <option name="city" value="Mumbai">Mumbai</option>
+            <option name="city" value="Pune">Pune</option>
+            <option name="city" value="Bangalore">Bangalore</option>
+            <option name="city" value="Jaipur">Jaipur</option>
+            <option name="city" value="Delhi">Delhi</option>
+            <option name="city" value="Chennai">Chennai</option>
+            <option name="city" value="Agra">Agra</option>
+            <option name="city" value="Raipur">Raipur</option>
+            <option name="city" value="Kota">Kota</option>
+            <option name="city" value="Surat">Surat</option>
+            <option name="city" value="Kolkata">Kolkata</option>
+            <option name="city" value="Hydrabad">Hydrabad</option>
           </select>
 
           <input type="text" name="addresss" value={formData.addresss} onChange={handleInputChange} placeholder='Enter Your Address' />
@@ -254,60 +257,60 @@ export default function Award() {
           </div>
 
           <p className='event-time'>
-                        Enter No of Extra Chairs You Need <span className="price">Price:100/-</span>
-                    </p>
-                    <input
-                        type="number"
-                        name="Chairs"
-                        value={formData.Chairs}
-                        onChange={handleInputChange}
-                        placeholder='Enter No of Chairs'
-                    />
+            Enter No of Extra Chairs You Need <span className="price">Price:100/-</span>
+          </p>
+          <input
+            type="number"
+            name="Chairs"
+            value={formData.Chairs}
+            onChange={handleInputChange}
+            placeholder='Enter No of Chairs'
+          />
 
-                    <p className='event-time'>
-                        Enter No of Extra Plates You Need <span className="price">Price:4500/-</span>
-                    </p>
-                    <input
-                        type="number"
-                        name="Plates"
-                        value={formData.Plates}
-                        onChange={handleInputChange}
-                        placeholder='Enter No of Plates'
-                    />
+          <p className='event-time'>
+            Enter No of Extra Plates You Need <span className="price">Price:4500/-</span>
+          </p>
+          <input
+            type="number"
+            name="Plates"
+            value={formData.Plates}
+            onChange={handleInputChange}
+            placeholder='Enter No of Plates'
+          />
 
-                    <p className='event-time'>
-                        Enter No of Extra Tables You Need <span className="price">Price:200/-</span>
-                    </p>
-                    <input
-                        type="number"
-                        name="Tables"
-                        value={formData.Tables}
-                        onChange={handleInputChange}
-                        placeholder='Enter No of Tables'
-                    />
+          <p className='event-time'>
+            Enter No of Extra Tables You Need <span className="price">Price:200/-</span>
+          </p>
+          <input
+            type="number"
+            name="Tables"
+            value={formData.Tables}
+            onChange={handleInputChange}
+            placeholder='Enter No of Tables'
+          />
 
-                    <p className='event-time'>
-                        Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span>
-                    </p>
-                    <input
-                        type="number"
-                        name="LightSet"
-                        value={formData.LightSet}
-                        onChange={handleInputChange}
-                        placeholder='Enter No of LightSet'
-                    />
+          <p className='event-time'>
+            Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span>
+          </p>
+          <input
+            type="number"
+            name="LightSet"
+            value={formData.LightSet}
+            onChange={handleInputChange}
+            placeholder='Enter No of LightSet'
+          />
 
-                    <p>Total Cost: {calculateTotalCost()} /-</p>
-                    <input
-                        type="number"
-                        name="totalCost"
-                        value={formData.totalCost}
-                        readOnly // make it read-only to display the value
-                        style={{ display: 'none' }} // hide it from the user
-                    />
-                    <button type='submit' className='submit-btn'>
-                        Book
-                    </button> </form>
+          <p>Total Cost: {calculateTotalCost()} /-</p>
+          <input
+            type="number"
+            name="totalCost"
+            value={formData.totalCost}
+            readOnly // make it read-only to display the value
+            style={{ display: 'none' }} // hide it from the user
+          />
+          <button type='submit' className='submit-btn'>
+            Book
+          </button> </form>
       </div>
     </div>
   )

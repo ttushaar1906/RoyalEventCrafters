@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 export default function Award() {
   const [eventdata, setEventData] = useState([]);
   const [eventPrice, setEventPrice] = useState(0);
-  
+
 
   useEffect(() => {
     const getEventData = async () => {
@@ -43,75 +43,75 @@ export default function Award() {
     const photography = 1;
 
     let totalCost =
-       ( formData.Chairs * chairPrice) +
-       ( formData.Plates * platesPrice) +
-       ( formData.Tables * tablesPrice) +
-       ( formData.LightSet * lightSetPrice) +
-       ( formData.Host * host) +
-       ( formData.PaperBlast * paperblast) +
-       ( formData.FogMachine * fogMachine) +
-       ( formData.MicSound * MicSound) +
-       ( formData.MicSoundScreen * MicSoundScreen) +
-       ( formData.photography * photography)+
-       eventPrice
+      (formData.Chairs * chairPrice) +
+      (formData.Plates * platesPrice) +
+      (formData.Tables * tablesPrice) +
+      (formData.LightSet * lightSetPrice) +
+      (formData.Host * host) +
+      (formData.PaperBlast * paperblast) +
+      (formData.FogMachine * fogMachine) +
+      (formData.MicSound * MicSound) +
+      (formData.MicSoundScreen * MicSoundScreen) +
+      (formData.photography * photography) +
+      eventPrice
 
-     return totalCost;
-};
+    return totalCost;
+  };
 
-const [formData, setFormData] = useState({
-  eventTitle: "",
-  username: "",
-  mobileNo: "",
-  email: "",
-  bookingDate: "",
-  noOfGuests: "",
-  eventTime: "",
-  city:"",
-  addresss:"",
-  Chairs: 0,
-  Plates: 0,
-  Tables: 0,
-  LightSet: 0,
-  Host: 0, 
-  PaperBlast: 0,
-  FogMachine: 0,
-  MicSound: 0,
-  MicSoundScreen: 0,
-  photography: 0,
-  totalCost:0
-});
+  const [formData, setFormData] = useState({
+    eventTitle: "",
+    username: "",
+    mobileNo: "",
+    email: "",
+    bookingDate: "",
+    noOfGuests: "",
+    eventTime: "",
+    city: "",
+    addresss: "",
+    Chairs: 0,
+    Plates: 0,
+    Tables: 0,
+    LightSet: 0,
+    Host: 0,
+    PaperBlast: 0,
+    FogMachine: 0,
+    MicSound: 0,
+    MicSoundScreen: 0,
+    photography: 0,
+    totalCost: 0
+  });
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch("/orders", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-              eventLoc: `${eventdata[0].eventTitle}`,
-              placePrice: eventdata[0].price,
-              username: formData.username,
-              mobileNo: formData.mobileNo,
-              email: formData.email,
-              bookingDate: formData.bookingDate,
-              noOfGuests: formData.noOfGuests,
-              eventTime: formData.eventTime,
-              city:formData.city,
-              addresss:formData.addresss,
-              Chairs: formData.Chairs,
-              Plates: formData.Plates,
-              Tables: formData.Tables,
-              LightSet: formData.LightSet,
-              Host: formData.Host,
-              PaperBlast: formData.PaperBlast,
-              FogMachine: formData.FogMachine,
-              MicSound: formData.MicSound,
-              MicSoundScreen: formData.MicSoundScreen,
-              photography: formData.photography,
-              totalCost:calculateTotalCost()
-          }),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          eventLoc: `${eventdata[0].eventTitle}`,
+          placePrice: eventdata[0].price,
+          username: formData.username,
+          mobileNo: formData.mobileNo,
+          email: formData.email,
+          bookingDate: formData.bookingDate,
+          noOfGuests: formData.noOfGuests,
+          eventTime: formData.eventTime,
+          city: formData.city,
+          addresss: formData.addresss,
+          Chairs: formData.Chairs,
+          Plates: formData.Plates,
+          Tables: formData.Tables,
+          LightSet: formData.LightSet,
+          Host: formData.Host,
+          PaperBlast: formData.PaperBlast,
+          FogMachine: formData.FogMachine,
+          MicSound: formData.MicSound,
+          MicSoundScreen: formData.MicSoundScreen,
+          photography: formData.photography,
+          totalCost: calculateTotalCost()
+        }),
       });
 
       if (response.status === 200) {
@@ -126,10 +126,16 @@ const [formData, setFormData] = useState({
     }
   };
 
-  const handleDropdownChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
-  const [selectedOption, setSelectedOption] = useState("");
+
+  const [selectedOption, setSelectedOption] = useState('');
+    const handleDropdownChange = (e) => {
+        setSelectedOption(e.target.value);
+        setFormData({
+            ...formData,
+            city: e.target.value,
+        });
+    };
+
 
   return (
     <div className='booking-pg'>
