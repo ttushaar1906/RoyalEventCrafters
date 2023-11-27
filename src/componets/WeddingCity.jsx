@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export default function WeddingCity() {
     const { weddingCity } = useParams();
     const [eventdata, setEventData] = useState([]);
+    const [eventPrice, setEventPrice] = useState(0);
     const [formData, setFormData] = useState({
         eventLoc: "",
         username: "",
@@ -20,7 +21,7 @@ export default function WeddingCity() {
         Tables: 0,
         LightSet: 0,
         Host: 0,
-        BallonDeco: 0, // Uncomment this if you uncomment the related section in the form
+        BallonDeco: 0, 
         Godi: 0,
         Car: 0,
         Pandit: 0,
@@ -30,8 +31,28 @@ export default function WeddingCity() {
         MicSoundScreen: 0,
         FlowerDeco: 0,
         photography: 0,
-        
+        totalCost:0
     });
+
+    // useEffect(() => {
+    //     const getEventData = async () => {
+    //         try {
+    //             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/${weddingCity}`);
+    //             if (reqEventdata.ok) {
+    //                 const respEventData = await reqEventdata.json();
+    //                 setEventData(respEventData);
+    //                 console.log("data", respEventData);
+    //             } else {
+    //                 console.error("Error fetching event data");
+    //             }
+    //         } catch (error) {
+    //             console.error("Error: ", error);
+    //         }
+    //     };
+    //     getEventData();
+    // }, [weddingCity]);
+
+
 
     useEffect(() => {
         const getEventData = async () => {
@@ -40,6 +61,7 @@ export default function WeddingCity() {
                 if (reqEventdata.ok) {
                     const respEventData = await reqEventdata.json();
                     setEventData(respEventData);
+                    setEventPrice(respEventData[0].price); // Set eventPrice here
                     console.log("data", respEventData);
                 } else {
                     console.error("Error fetching event data");
@@ -49,7 +71,7 @@ export default function WeddingCity() {
             }
         };
         getEventData();
-    }, [weddingCity]);
+    }, [weddingCity]);    
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -76,26 +98,26 @@ export default function WeddingCity() {
         const FlowerDeco = 1;
         const photography = 1;
 
-        const totalCost =
-            formData.Chairs * chairPrice +
-            formData.Plates * platesPrice +
-            formData.Tables * tablesPrice +
-            formData.LightSet * lightSetPrice +
-            formData.Host * host +
-            formData.Godi * godi +
-            formData.BallonDeco * ballondeco +
-            formData.Car * car +
-            formData.Pandit * pandit +
-            formData.PaperBlast * paperblast +
-            formData.FogMachine * fogMachine +
-            formData.MicSound * MicSound +
-            formData.MicSoundScreen * MicSoundScreen +
-            formData.FlowerDeco * FlowerDeco +
-            formData.photography * photography
+        let totalCost =
+           ( formData.Chairs * chairPrice) +
+           ( formData.Plates * platesPrice) +
+           ( formData.Tables * tablesPrice) +
+           ( formData.LightSet * lightSetPrice) +
+           ( formData.Host * host) +
+           ( formData.Godi * godi) +
+           ( formData.BallonDeco * ballondeco) +
+           ( formData.Car * car) +
+           ( formData.Pandit * pandit) +
+           ( formData.PaperBlast * paperblast) +
+           ( formData.FogMachine * fogMachine) +
+           ( formData.MicSound * MicSound) +
+           ( formData.MicSoundScreen * MicSoundScreen) +
+           ( formData.FlowerDeco * FlowerDeco) +
+           ( formData.photography * photography)+
+           eventPrice
 
-        return totalCost;
+         return totalCost;
     };
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -132,7 +154,9 @@ export default function WeddingCity() {
                     MicSoundScreen: formData.MicSoundScreen,
                     FlowerDeco: formData.FlowerDeco,
                     photography: formData.photography,
-                    totalCost: formData.totalCost
+                    // totalCost:formData.totalCost
+                    totalCost:calculateTotalCost()
+                    // totalCost:total
                 }),
             });
 
@@ -196,6 +220,7 @@ export default function WeddingCity() {
                         <div key={index}>
                             <input type="number" name={`eventName-${index}`} id={`eventName-${index}`} value={`${event.price}`} />
                         </div>
+                        
                     ))}
 
 
@@ -272,7 +297,7 @@ export default function WeddingCity() {
                         <label htmlFor="No">No</label>
                     </div>
 
-                    <p className='event-time'>Do you Need Photo Grapher? <span className="price">Price:100000</span></p>
+                    <p className='event-time'>Do you Need Photo Grapher? <span className="price">Price:200000</span></p>
                     <div className="function">
                         <input type="radio" name="photography" value="200000" onChange={handleInputChange} />
                         <label htmlFor="Yes">Yes</label>

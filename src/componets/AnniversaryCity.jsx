@@ -25,6 +25,7 @@ export default function AnniversaryCity() {
             const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
             const respOtheritemData = await reqOtheritemData.json();
             setOtheritemData(respOtheritemData);
+            setEventPrice(respEventData[0].price); // Set eventPrice here
             console.log('data', respOtheritemData);
         };
         getOtherItemData();
@@ -59,8 +60,49 @@ export default function AnniversaryCity() {
         });
     };
 
-    const handleSubmit = async (e) => {
+    
+    const calculateTotalCost = () => {
+        const chairPrice = 100;
+        const platesPrice = 4500;
+        const tablesPrice = 200;
+        const lightSetPrice = 2000;
+        const host = 1;
+        const godi = 1;
+        const ballondeco = 1;
+        const car = 1;
+        const pandit = 1;
+        const paperblast = 1;
+        const fogMachine = 1;
+        const MicSound = 1;
+        const MicSoundScreen = 1;
+        const FlowerDeco = 1;
+        const photography = 1;
+
+        let totalCost =
+           ( formData.Chairs * chairPrice) +
+           ( formData.Plates * platesPrice) +
+           ( formData.Tables * tablesPrice) +
+           ( formData.LightSet * lightSetPrice) +
+           ( formData.Host * host) +
+           ( formData.Godi * godi) +
+           ( formData.BallonDeco * ballondeco) +
+           ( formData.Car * car) +
+           ( formData.Pandit * pandit) +
+           ( formData.PaperBlast * paperblast) +
+           ( formData.FogMachine * fogMachine) +
+           ( formData.MicSound * MicSound) +
+           ( formData.MicSoundScreen * MicSoundScreen) +
+           ( formData.FlowerDeco * FlowerDeco) +
+           ( formData.photography * photography)+
+           eventPrice
+
+         return totalCost;
+    };
+
+     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Additional form validation can be added here
 
         try {
             const response = await fetch("/orders", {
@@ -69,32 +111,37 @@ export default function AnniversaryCity() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    eventLoc: eventdata[0].placeTitle,
-                    placePrice:eventdata[0].price,
+                    eventLoc: `${eventdata[0].location} ${eventdata[0].weddingCity}`,
+                    placePrice: eventdata[0].price,
                     username: formData.username,
                     mobileNo: formData.mobileNo,
                     email: formData.email,
                     bookingDate: formData.bookingDate,
                     noOfGuests: formData.noOfGuests,
                     eventTime: formData.eventTime,
-                    city: formData.city, // Use formData.city instead of selectedOption
-                    addresss: formData.addresss,
-                    Host: formData.Host,
-                    PaperBlast: formData.PaperBlast,
-                    FogMachine: formData.FogMachine,
-                    MicSound: formData.MicSound,
-                    MicSoundScreen: formData.MicSoundScreen,
                     Chairs: formData.Chairs,
                     Plates: formData.Plates,
                     Tables: formData.Tables,
                     LightSet: formData.LightSet,
-                    photgraphy:formData.photography,
+                    Host: formData.Host,
+                    BallonDeco: formData.BallonDeco,
+                    Godi: formData.Godi,
+                    Car: formData.Car,
+                    Pandit: formData.Pandit,
+                    PaperBlast: formData.PaperBlast,
+                    FogMachine: formData.FogMachine,
+                    MicSound: formData.MicSound,
+                    MicSoundScreen: formData.MicSoundScreen,
+                    FlowerDeco: formData.FlowerDeco,
+                    photography: formData.photography,
+                    // totalCost:formData.totalCost
+                    totalCost:calculateTotalCost()
+                    // totalCost:total
                 }),
             });
 
             if (response.status === 200) {
                 console.log("Order submitted successfully.");
-                // Redirect to another page (e.g., '/Thanks')
                 window.location.href = '/Thanks';
             } else {
                 console.error("Order submission failed.");
@@ -222,15 +269,61 @@ export default function AnniversaryCity() {
                             <label htmlFor="No">No</label>
                         </div>
                         
-                        <p className='event-time'>Enter No of Extra Chairs You Need <span className="price">Price:100/-</span></p>
-                        <input type="number" name="Chairs" value={formData.Chairs} onChange={handleInputChange} placeholder='Enter No of Chairs' />
-                        <p className='event-time'>Enter No of Extra Plates You Need <span className="price">Price:4500/-</span></p>
-                        <input type="number" name="Plates" value={formData.Plates} onChange={handleInputChange} placeholder='Enter No of Plates' />
-                        <p className='event-time'>Enter No of Extra Tables You Need <span className="price">Price:200/-</span></p>
-                        <input type="number" name="Tables" value={formData.Tables} onChange={handleInputChange} placeholder='Enter No of Tables' />
-                        <p className='event-time'>Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span></p>
-                        <input type="number" name="LightSet" value={formData.LightSet} onChange={handleInputChange} placeholder='Enter No of LightSet' />
-                        <button type='submit' className='submit-btn'>Book</button>
+                        <p className='event-time'>
+                        Enter No of Extra Chairs You Need <span className="price">Price:100/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="Chairs"
+                        value={formData.Chairs}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of Chairs'
+                    />
+
+                    <p className='event-time'>
+                        Enter No of Extra Plates You Need <span className="price">Price:4500/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="Plates"
+                        value={formData.Plates}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of Plates'
+                    />
+
+                    <p className='event-time'>
+                        Enter No of Extra Tables You Need <span className="price">Price:200/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="Tables"
+                        value={formData.Tables}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of Tables'
+                    />
+
+                    <p className='event-time'>
+                        Enter No of Extra Lights (set of 4) <span className="price">Price:2000/-</span>
+                    </p>
+                    <input
+                        type="number"
+                        name="LightSet"
+                        value={formData.LightSet}
+                        onChange={handleInputChange}
+                        placeholder='Enter No of LightSet'
+                    />
+
+                    <p>Total Cost: {calculateTotalCost()} /-</p>
+                    <input
+                        type="number"
+                        name="totalCost"
+                        value={formData.totalCost}
+                        readOnly // make it read-only to display the value
+                        style={{ display: 'none' }} // hide it from the user
+                    />
+                    <button type='submit' className='submit-btn'>
+                        Book
+                    </button>
                     </form>
                 </div>
             </div>

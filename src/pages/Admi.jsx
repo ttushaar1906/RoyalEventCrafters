@@ -132,7 +132,7 @@ useEffect(() => {
                   <div className="">{event.addresss}, {event.city}</div>
                   </td>
                   <td>
-                  <div className="">{/* total price */}</div>
+                  <div className="">{event.totalCost }</div>
                   </td>
                 </tr>
               ))}
