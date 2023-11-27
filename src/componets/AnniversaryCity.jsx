@@ -8,48 +8,41 @@ import { Link } from 'react-router-dom';
 export default function AnniversaryCity() {
     const { placeTitle } = useParams(); // Get the 'city' parameter from the route
     const [eventdata, setEventData] = useState([]);
-    const [otheritemdata, setOtheritemData] = useState([]);
+    const [eventPrice, setEventPrice] = useState(0);
 
     useEffect(() => {
         const getEventData = async () => {
             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/anniversary/${placeTitle}`);
             const respEventData = await reqEventdata.json();
             setEventData(respEventData);
+            setEventPrice(respEventData[0].price);
             console.log("data", respEventData);
         }
         getEventData();
     }, [placeTitle]);
 
-    useEffect(() => {
-        const getOtherItemData = async () => {
-            const reqOtheritemData = await fetch('http://localhost:4000/packages/wedding/otheritems');
-            const respOtheritemData = await reqOtheritemData.json();
-            setOtheritemData(respOtheritemData);
-            setEventPrice(respEventData[0].price); // Set eventPrice here
-            console.log('data', respOtheritemData);
-        };
-        getOtherItemData();
-    }, []);
 
     const [formData, setFormData] = useState({
-        eventLoc: "",
+        placeTitle: "",
         username: "",
         mobileNo: "",
         email: "",
         bookingDate: "",
         noOfGuests: "",
         eventTime: "",
-        city: "",
-        addresss: "",
-        Host: "",
-        PaperBlast: "",
-        FogMachine: "",
-        MicSound: "",
-        MicSoundScreen: "",
-        Chairs: "",
-        Plates: "",
-        Tables: "",
-        LightSet: "",
+        city:"",
+        addresss:"",
+        Chairs: 0,
+        Plates: 0,
+        Tables: 0,
+        LightSet: 0,
+        Host: 0, 
+        PaperBlast: 0,
+        FogMachine: 0,
+        MicSound: 0,
+        MicSoundScreen: 0,
+        photography: 0,
+        totalCost:0
     });
 
     const handleInputChange = (e) => {
@@ -67,15 +60,10 @@ export default function AnniversaryCity() {
         const tablesPrice = 200;
         const lightSetPrice = 2000;
         const host = 1;
-        const godi = 1;
-        const ballondeco = 1;
-        const car = 1;
-        const pandit = 1;
         const paperblast = 1;
         const fogMachine = 1;
         const MicSound = 1;
         const MicSoundScreen = 1;
-        const FlowerDeco = 1;
         const photography = 1;
 
         let totalCost =
@@ -84,15 +72,10 @@ export default function AnniversaryCity() {
            ( formData.Tables * tablesPrice) +
            ( formData.LightSet * lightSetPrice) +
            ( formData.Host * host) +
-           ( formData.Godi * godi) +
-           ( formData.BallonDeco * ballondeco) +
-           ( formData.Car * car) +
-           ( formData.Pandit * pandit) +
            ( formData.PaperBlast * paperblast) +
            ( formData.FogMachine * fogMachine) +
            ( formData.MicSound * MicSound) +
            ( formData.MicSoundScreen * MicSoundScreen) +
-           ( formData.FlowerDeco * FlowerDeco) +
            ( formData.photography * photography)+
            eventPrice
 
@@ -111,7 +94,7 @@ export default function AnniversaryCity() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    eventLoc: `${eventdata[0].location} ${eventdata[0].weddingCity}`,
+                    eventLoc: `${eventdata[0].placeTitle}`,
                     placePrice: eventdata[0].price,
                     username: formData.username,
                     mobileNo: formData.mobileNo,
@@ -119,24 +102,19 @@ export default function AnniversaryCity() {
                     bookingDate: formData.bookingDate,
                     noOfGuests: formData.noOfGuests,
                     eventTime: formData.eventTime,
+                    city:formData.city,
+                    addresss:formData.addresss,
                     Chairs: formData.Chairs,
                     Plates: formData.Plates,
                     Tables: formData.Tables,
                     LightSet: formData.LightSet,
                     Host: formData.Host,
-                    BallonDeco: formData.BallonDeco,
-                    Godi: formData.Godi,
-                    Car: formData.Car,
-                    Pandit: formData.Pandit,
                     PaperBlast: formData.PaperBlast,
                     FogMachine: formData.FogMachine,
                     MicSound: formData.MicSound,
                     MicSoundScreen: formData.MicSoundScreen,
-                    FlowerDeco: formData.FlowerDeco,
                     photography: formData.photography,
-                    // totalCost:formData.totalCost
                     totalCost:calculateTotalCost()
-                    // totalCost:total
                 }),
             });
 
@@ -151,7 +129,6 @@ export default function AnniversaryCity() {
         }
     };
 
-    // Define selectedOption state and handleDropdownChange function
     const [selectedOption, setSelectedOption] = useState('');
     const handleDropdownChange = (e) => {
         setSelectedOption(e.target.value);

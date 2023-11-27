@@ -34,26 +34,6 @@ export default function WeddingCity() {
         totalCost:0
     });
 
-    // useEffect(() => {
-    //     const getEventData = async () => {
-    //         try {
-    //             const reqEventdata = await fetch(`http://localhost:4000/packages/RoyalEvent/wedding/${weddingCity}`);
-    //             if (reqEventdata.ok) {
-    //                 const respEventData = await reqEventdata.json();
-    //                 setEventData(respEventData);
-    //                 console.log("data", respEventData);
-    //             } else {
-    //                 console.error("Error fetching event data");
-    //             }
-    //         } catch (error) {
-    //             console.error("Error: ", error);
-    //         }
-    //     };
-    //     getEventData();
-    // }, [weddingCity]);
-
-
-
     useEffect(() => {
         const getEventData = async () => {
             try {
