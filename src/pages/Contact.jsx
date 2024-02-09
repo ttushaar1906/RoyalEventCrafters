@@ -58,7 +58,7 @@ export default function Contact() {
     } catch (error) {
       console.error("Error:", error);
     }
-  };
+  };b
 
   return (
     <div>
@@ -66,7 +66,7 @@ export default function Contact() {
         <div className="container">
           <h1 className="lg-heading">Frequently Asked Questions</h1>
           <section className="dropdown">
-            <select value={selectedOption} onChange={handleDropdownChange} required>>
+            <select value={selectedOption} onChange={handleDropdownChange} required>
               <option value="FAQs">FAQs</option>
               <option value="option1">What are your areas of expertise?</option>
               <option value="option2">WHAT SERVICES DO YOU OFFER?</option>
@@ -161,3 +161,4 @@ export default function Contact() {
     </div>
   );
 }
+

@@ -237,7 +237,7 @@ useEffect(() => {
           </table>
         </div>
       </div>
-      <Link to="/Home"><button className="btn admi-btn">Home</button></Link>
+      <Link to="/"><button className="btn admi-btn">Logout</button></Link>
     </>
   );
 }
