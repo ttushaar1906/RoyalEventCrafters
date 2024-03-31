@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import '../styles/styling.css';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export default function Contact() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -58,7 +58,7 @@ export default function Contact() {
     } catch (error) {
       console.error("Error:", error);
     }
-  };b
+  };
 
   return (
     <div>
